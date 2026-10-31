@@ -125,7 +125,7 @@ export default function Navbar() {
 
                     {/* Mega Dropdown Menu */}
                     {servicesDropdown && (
-                      <div className="absolute top-full left-0 w-[620px] p-5 bg-white/98 backdrop-blur-2xl border border-[#757CB6]/30 rounded-2xl shadow-2xl grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div className="absolute top-full left-0 w-[620px] p-5 bg-white border border-[#757CB6]/30 rounded-2xl shadow-2xl grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
                         {/* Digital Solutions Column (Royal Blue & Lavender) */}
                         <div className="p-4 rounded-xl bg-[#1926A0]/5 border border-[#1926A0]/20">
                           <div className="flex items-center gap-2 mb-3 pb-2 border-b border-[#1926A0]/20">
@@ -254,7 +254,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Drawer */}
       {isOpen && (
-        <div className="lg:hidden bg-white/98 backdrop-blur-xl border-b border-[#757CB6]/30 px-4 pt-3 pb-6 space-y-4 animate-in slide-in-from-top-2 duration-200 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto touch-scroll">
+        <div className="lg:hidden bg-white border-b border-[#757CB6]/30 px-4 pt-3 pb-6 space-y-4 animate-in slide-in-from-top-2 duration-200 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto touch-scroll">
           <div className="space-y-1">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;

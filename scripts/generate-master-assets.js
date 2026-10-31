@@ -4,17 +4,21 @@ const sharp = require('sharp');
 
 async function main() {
   const rootDir = process.cwd();
-  const faviconSource = path.join(rootDir, 'Favicon.png');
-  const horizontalSource = path.join(rootDir, 'Final_Logo_Horizontal.png');
+  const masterDir = path.join(rootDir, 'public', 'images', 'master');
+  const faviconSource = fs.existsSync(path.join(masterDir, 'Favicon.png'))
+    ? path.join(masterDir, 'Favicon.png')
+    : path.join(rootDir, 'Favicon.png');
+  const horizontalSource = fs.existsSync(path.join(masterDir, 'Final_Logo_Horizontal.png'))
+    ? path.join(masterDir, 'Final_Logo_Horizontal.png')
+    : path.join(rootDir, 'Final_Logo_Horizontal.png');
 
   if (!fs.existsSync(faviconSource) || !fs.existsSync(horizontalSource)) {
-    console.error('Source images not found in root directory!');
+    console.error('Source images not found in public/images/master or root directory!');
     process.exit(1);
   }
 
   // Create public/images and public/images/master directories if needed
   const imagesDir = path.join(rootDir, 'public', 'images');
-  const masterDir = path.join(imagesDir, 'master');
   const appDir = path.join(rootDir, 'src', 'app');
   const publicDir = path.join(rootDir, 'public');
 
@@ -23,8 +27,12 @@ async function main() {
   }
 
   console.log('1. Archiving master source files into public/images/master/...');
-  fs.copyFileSync(faviconSource, path.join(masterDir, 'Favicon.png'));
-  fs.copyFileSync(horizontalSource, path.join(masterDir, 'Final_Logo_Horizontal.png'));
+  if (faviconSource !== path.join(masterDir, 'Favicon.png')) {
+    fs.copyFileSync(faviconSource, path.join(masterDir, 'Favicon.png'));
+  }
+  if (horizontalSource !== path.join(masterDir, 'Final_Logo_Horizontal.png')) {
+    fs.copyFileSync(horizontalSource, path.join(masterDir, 'Final_Logo_Horizontal.png'));
+  }
 
   console.log('2. Processing Favicon.png for square icons & favicons...');
   const favTrimmed = await sharp(faviconSource).trim().toBuffer({ resolveWithObject: true });
@@ -107,16 +115,22 @@ async function main() {
   const h = rawInfo.height;
   const whiteData = Buffer.from(rawData);
 
-  // In paddedLogo, the emblem ends before x = 1760. Text starts at x >= 1760.
-  // Transform dark text pixels to pure white #FFFFFF while maintaining exact alpha channel anti-aliasing
+  // In paddedLogo, the emblem ends at x < 1463, while the letter 'A' of 'AONIC TECH' starts at x = 1460.
+  // We recolor any dark text pixels (r <= 40, g <= 40, b <= 60) for x >= 1450 to pure white #FFFFFF
+  // while preserving colored emblem traces (yellow, blue, lavender, green) and exact alpha anti-aliasing.
   for (let y = 0; y < h; y++) {
-    for (let x = 1760; x < w; x++) {
+    for (let x = 1450; x < w; x++) {
       const idx = (y * w + x) * 4;
       const alpha = whiteData[idx + 3];
       if (alpha > 0) {
-        whiteData[idx] = 255;     // R
-        whiteData[idx + 1] = 255; // G
-        whiteData[idx + 2] = 255; // B
+        const r = whiteData[idx];
+        const g = whiteData[idx + 1];
+        const b = whiteData[idx + 2];
+        if (r <= 40 && g <= 40 && b <= 60) {
+          whiteData[idx] = 255;     // R
+          whiteData[idx + 1] = 255; // G
+          whiteData[idx + 2] = 255; // B
+        }
       }
     }
   }
@@ -126,7 +140,7 @@ async function main() {
   }).png({ compressionLevel: 9 }).toBuffer();
 
   fs.writeFileSync(path.join(imagesDir, 'company-logo-white.png'), whiteLogoBuffer);
-  console.log('   Saved company-logo-white.png');
+  console.log('   Saved company-logo-white.png (with full AONIC TECH white text including letter A)');
 
   console.log('5. Cleaning up obsolete / dummy logo files...');
   const obsoleteFiles = [
