@@ -37,7 +37,7 @@ export default function Logo({
   // Animated Refresh Intro Variant (Used exclusively for starting/refresh animation)
   if (animated) {
     // Emblem size is made larger and more prominent than the text
-    const emblemSize = Math.round(size * 1.35);
+    const emblemSize = Math.round(size * 1.45);
 
     return (
       <div className={cn("flex items-center gap-3.5 sm:gap-4 shrink-0", className)}>
@@ -61,7 +61,7 @@ export default function Logo({
         {showText && (
           <span 
             className={cn(
-              "text-lg sm:text-xl font-black tracking-[0.14em] sm:tracking-[0.18em] leading-none transition-colors inline-flex items-center select-none",
+              "text-base sm:text-lg font-black tracking-[0.16em] sm:tracking-[0.20em] leading-none transition-colors inline-flex items-center select-none",
               isDark ? "text-white" : "text-[#0E0E25]"
             )}
           >
@@ -70,8 +70,8 @@ export default function Logo({
                 key={index}
                 className="inline-block"
                 style={{
-                  animation: "letterReveal 380ms cubic-bezier(0.16, 1, 0.3, 1) both",
-                  animationDelay: `${350 + index * 65}ms`,
+                  animation: "letterReveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both",
+                  animationDelay: `${400 + index * 75}ms`,
                 }}
               >
                 {char === " " ? "\u00A0" : char}

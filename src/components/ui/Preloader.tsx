@@ -6,14 +6,7 @@ import Logo from "@/components/ui/Logo";
 
 export default function Preloader() {
   const [stage, setStage] = useState<"center" | "gliding" | "docked" | "done">("center");
-  const [navCoords, setNavCoords] = useState<{
-    left: number;
-    top: number;
-    width: number;
-    height: number;
-    deltaX: number;
-    deltaY: number;
-  } | null>(null);
+  const [targetOffset, setTargetOffset] = useState<{ x: number; y: number } | null>(null);
 
   const gliderRef = useRef<HTMLDivElement>(null);
   const dockedRef = useRef(false);
@@ -28,20 +21,23 @@ export default function Preloader() {
 
     const computeCoords = () => {
       const navTarget = document.getElementById("navbar-brand-logo");
-      if (navTarget) {
-        const navRect = navTarget.getBoundingClientRect();
-        const centerLeft = (window.innerWidth - navRect.width) / 2;
-        const centerTop = (window.innerHeight - navRect.height) / 2;
-        const deltaX = centerLeft - navRect.left;
-        const deltaY = centerTop - navRect.top;
+      const glider = gliderRef.current;
 
-        setNavCoords({
-          left: navRect.left,
-          top: navRect.top,
-          width: navRect.width,
-          height: navRect.height,
-          deltaX,
-          deltaY,
+      if (navTarget && glider) {
+        const navRect = navTarget.getBoundingClientRect();
+        const gliderWidth = glider.offsetWidth || navRect.width;
+        const gliderHeight = glider.offsetHeight || navRect.height;
+
+        // Target center point so the glider docks pixel-perfectly over navbar-brand-logo
+        const targetCenterX = navRect.left + gliderWidth / 2;
+        const targetCenterY = navRect.top + gliderHeight / 2;
+
+        const viewportCenterX = window.innerWidth / 2;
+        const viewportCenterY = window.innerHeight / 2;
+
+        setTargetOffset({
+          x: targetCenterX - viewportCenterX,
+          y: targetCenterY - viewportCenterY,
         });
       }
     };
@@ -49,21 +45,23 @@ export default function Preloader() {
     // Compute immediately and on next animation frame
     computeCoords();
     const raf = requestAnimationFrame(computeCoords);
+    window.addEventListener("resize", computeCoords);
 
-    // Hold in center for 1800ms so the user sees the circuit animation draw itself
+    // Hold in center for 3800ms (adding 2 seconds as requested by user)
     const glideTimer = setTimeout(() => {
       // Re-check target right before gliding to ensure pixel precision
       computeCoords();
       setStage("gliding");
-    }, 1800);
+    }, 3800);
 
     // Fallback dock timer in case transitionend does not fire
     const fallbackTimer = setTimeout(() => {
       triggerDock();
-    }, 3600);
+    }, 5600);
 
     return () => {
       cancelAnimationFrame(raf);
+      window.removeEventListener("resize", computeCoords);
       clearTimeout(glideTimer);
       clearTimeout(fallbackTimer);
       document.body.style.overflow = "";
@@ -90,28 +88,14 @@ export default function Preloader() {
 
   const isGliding = stage === "gliding" || stage === "docked";
 
-  // Calculate transform and positioning (Scale 1.75 in center for commanding presence)
-  let transformStyle = "translate3d(-50%, -50%, 0) scale(1.75)";
-  let posStyle: React.CSSProperties = {
-    position: "fixed",
-    left: "50%",
-    top: "50%",
-  };
+  // During stage === 'center':
+  // Always anchored dead-center: left: 50%, top: 50%, translate3d(-50%, -50%, 0) scale(1.65)
+  // During stage === 'gliding':
+  // Translates by targetOffset (x, y) to dock pixel-perfectly onto the navbar logo
+  let transformStyle = "translate3d(-50%, -50%, 0) scale(1.65)";
 
-  if (navCoords) {
-    posStyle = {
-      position: "fixed",
-      left: `${navCoords.left}px`,
-      top: `${navCoords.top}px`,
-      width: `${navCoords.width}px`,
-      height: `${navCoords.height}px`,
-    };
-
-    if (isGliding) {
-      transformStyle = "translate3d(0px, 0px, 0px) scale(1)";
-    } else {
-      transformStyle = `translate3d(${navCoords.deltaX}px, ${navCoords.deltaY}px, 0px) scale(1.75)`;
-    }
+  if (isGliding && targetOffset) {
+    transformStyle = `translate3d(calc(-50% + ${targetOffset.x}px), calc(-50% + ${targetOffset.y}px), 0) scale(1)`;
   }
 
   return (
@@ -129,25 +113,27 @@ export default function Preloader() {
       */}
       <div
         className={cn(
-          "absolute inset-0 bg-white transition-opacity duration-700 ease-out",
+          "absolute inset-0 bg-white transition-opacity duration-800 ease-out",
           isGliding ? "opacity-0" : "opacity-100"
         )}
+        style={{ backgroundColor: "#FFFFFF" }}
       />
 
       {/* 
         Master Gliding Brand Unit
-        Base position is pinned directly to `#navbar-brand-logo`'s coordinates.
-        Starts with a translation offset that centers it, then glides to (0, 0)
-        landing with 100% mathematical precision on the navbar logo.
+        Always starts at exact 50%/50% dead center of viewport.
+        Glides to navbar position with cubic-bezier smoothing.
       */}
       <div
         ref={gliderRef}
         style={{
-          ...posStyle,
+          position: "fixed",
+          left: "50%",
+          top: "50%",
           transform: transformStyle,
           transformOrigin: "center center",
           transition: isGliding
-            ? "transform 1250ms cubic-bezier(0.16, 1, 0.3, 1)"
+            ? "transform 1400ms cubic-bezier(0.16, 1, 0.3, 1)"
             : "none",
           willChange: "transform",
           backfaceVisibility: "hidden",

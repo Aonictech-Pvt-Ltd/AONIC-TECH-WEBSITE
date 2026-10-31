@@ -54,3 +54,4 @@ When `animated = true`:
 ## 3. Verification
 - `npx next build` verified with 0 errors across 14 routes.
 - Checked letter reveal cadence: 10 characters across ~650ms seamlessly synchronized with circuit traces.
+
