@@ -4,45 +4,22 @@ import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 export default function Preloader() {
-  const [isDismissed, setIsDismissed] = useState<boolean>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        return !!(
-          sessionStorage.getItem("aonic_intro_shown") ||
-          localStorage.getItem("aonic_intro_shown") ||
-          document.documentElement.classList.contains("aonic-intro-done")
-        );
-      } catch (e) {
-        return false;
-      }
-    }
-    return false;
-  });
-
-  // Stages:
-  // 1. "solo-center": Grand circuit emblem prominently displayed in center of screen
-  // 2. "reveal-name": Emblem glides gently left as "AONICTECH" unfolds to the right
-  // 3. "glide-to-header": Assembled brand mark glides smoothly into the navbar header position
-  // 4. "fading": Smooth cross-fade into the live navbar logo underneath
-  // 5. "done": Clean unmount after handoff
+  const [mounted, setMounted] = useState(false);
   const [stage, setStage] = useState<"solo-center" | "reveal-name" | "glide-to-header" | "fading" | "done">("solo-center");
   const [targetOffset, setTargetOffset] = useState<{ x: number; y: number; scale: number } | null>(null);
   
   const stageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // If intro was already shown in this browser session, skip immediately
+    // If intro was already shown in this browser session, do not run
     try {
-      if (
-        sessionStorage.getItem("aonic_intro_shown") ||
-        localStorage.getItem("aonic_intro_shown") ||
-        document.documentElement.classList.contains("aonic-intro-done")
-      ) {
-        setIsDismissed(true);
-        setStage("done");
+      if (sessionStorage.getItem("aonic_intro_shown")) {
         return;
       }
     } catch (e) {}
+
+    // First time in this session: mount and start choreography
+    setMounted(true);
 
     // 1. Give the viewer time to absorb the grand centered emblem (900ms)
     const t1 = setTimeout(() => {
@@ -79,25 +56,17 @@ export default function Preloader() {
     }, 2300);
 
     // 3. Glide arrives at navbar (at 3450ms):
-    // Permanently record that intro has completed, trigger navbar logo to 100% opacity,
-    // and begin gentle 300ms cross-fade so there is ZERO handoff flash or gap.
+    // Permanently record that intro has completed, and begin gentle 300ms cross-fade
     const t3 = setTimeout(() => {
-      if (typeof window !== "undefined") {
-        try {
-          sessionStorage.setItem("aonic_intro_shown", "true");
-          localStorage.setItem("aonic_intro_shown", "true");
-          document.documentElement.classList.add("aonic-intro-done");
-        } catch (e) {}
-        (window as any).__AONIC_PRELOADED__ = true;
-        window.dispatchEvent(new Event("aonic-preloader-docked"));
-      }
+      try {
+        sessionStorage.setItem("aonic_intro_shown", "true");
+      } catch (e) {}
       setStage("fading");
     }, 3450);
 
     // 4. Complete unmount after cross-fade finishes
     const t4 = setTimeout(() => {
       setStage("done");
-      setIsDismissed(true);
     }, 3800);
 
     return () => {
@@ -108,7 +77,7 @@ export default function Preloader() {
     };
   }, []);
 
-  if (isDismissed || stage === "done") {
+  if (!mounted || stage === "done") {
     return null;
   }
 

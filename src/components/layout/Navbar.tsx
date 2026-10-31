@@ -21,51 +21,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [logoVisible, setLogoVisible] = useState(() => {
-    if (typeof window !== "undefined") {
-      try {
-        return !!(
-          sessionStorage.getItem("aonic_intro_shown") ||
-          localStorage.getItem("aonic_intro_shown") ||
-          document.documentElement.classList.contains("aonic-intro-done") ||
-          (window as any).__AONIC_PRELOADED__
-        );
-      } catch (e) {
-        return false;
-      }
-    }
-    return false;
-  });
   const pathname = usePathname();
-
-  useEffect(() => {
-    // If preloader already completed in this browser session
-    try {
-      if (
-        sessionStorage.getItem("aonic_intro_shown") ||
-        localStorage.getItem("aonic_intro_shown") ||
-        document.documentElement.classList.contains("aonic-intro-done") ||
-        (window as any).__AONIC_PRELOADED__
-      ) {
-        setLogoVisible(true);
-      }
-    } catch (e) {}
-
-    const handleDocked = () => {
-      setLogoVisible(true);
-    };
-
-    window.addEventListener("aonic-preloader-docked", handleDocked);
-    // Safety fallback so logo always displays even if animation is skipped
-    const safetyTimer = setTimeout(() => {
-      setLogoVisible(true);
-    }, 3600);
-
-    return () => {
-      window.removeEventListener("aonic-preloader-docked", handleDocked);
-      clearTimeout(safetyTimer);
-    };
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,14 +60,11 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo with smooth handoff from Preloader */}
+          {/* Brand Logo */}
           <Link 
             href="/" 
             id="navbar-brand-logo" 
-            className={cn(
-              "group hover:opacity-95 transition-opacity duration-200 shrink-0",
-              logoVisible ? "opacity-100" : "opacity-0"
-            )}
+            className="group hover:opacity-95 transition-opacity duration-200 shrink-0 flex items-center"
           >
             <Logo size={36} variant="light" className="sm:hidden" />
             <Logo size={42} variant="light" className="hidden sm:flex" />
@@ -264,19 +217,11 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex sm:hidden items-center gap-2">
-            <a
-              href={COMPANY_INFO.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-lg bg-[#1926A0] text-white text-xs font-bold"
-            >
-              Quote
-            </a>
+          {/* Mobile Menu Button (Quote removed for clean, spacious mobile ergonomics) */}
+          <div className="flex sm:hidden items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg bg-white text-[#0E0E25] hover:bg-[#757CB6]/10 border border-[#757CB6]/20"
+              className="p-2 rounded-lg bg-white text-[#0E0E25] hover:bg-[#757CB6]/10 border border-[#757CB6]/20 transition-colors"
               aria-label="Toggle Navigation Menu"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

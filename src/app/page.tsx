@@ -14,6 +14,7 @@ import {
 import { COMPANY_INFO } from "@/data/company";
 import { PROJECTS_DATA } from "@/data/projects";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
+import AccreditationBadges from "@/components/ui/AccreditationBadges";
 import { cn } from "@/lib/utils";
 
 export default function HomePage() {
@@ -87,6 +88,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ========================================================================= */}
+      {/* 1.5 GOVERNMENT RECOGNITION & CORPORATE ACCREDITATION BADGES ROW          */}
+      {/* ========================================================================= */}
+      <AccreditationBadges />
 
       {/* ========================================================================= */}
       {/* 2. TWO NICHE HIGHLIGHT CARDS                                              */}

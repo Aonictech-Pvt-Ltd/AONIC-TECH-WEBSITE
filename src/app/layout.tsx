@@ -70,17 +70,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                if (sessionStorage.getItem('aonic_intro_shown') || localStorage.getItem('aonic_intro_shown')) {
-                  document.documentElement.classList.add('aonic-intro-done');
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

@@ -114,12 +114,3 @@
   box-shadow: 0 0 25px rgba(99, 162, 107, 0.25);
 }
 
-/* Zero-flash intro persistence: Once docked or refreshed, preloader stays completely hidden and header logo is solid */
-html.aonic-intro-done #aonic-preloader-root {
-  display: none !important;
-}
-html.aonic-intro-done #navbar-brand-logo {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
