@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export default function Preloader() {
   // Stages:
-  // 1. "solo-center": Only the official circuit emblem alone in center of screen
+  // 1. "solo-center": Grand circuit emblem prominently displayed in center of screen
   // 2. "reveal-name": Emblem glides gently left as "AONICTECH" unfolds to the right
   // 3. "glide-to-header": Assembled brand mark glides smoothly into the navbar header position
   // 4. "done": Clean unmount after handoff
@@ -15,12 +15,12 @@ export default function Preloader() {
   const stageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 1. Give the viewer time to see the solo emblem in center (850ms)
+    // 1. Give the viewer time to absorb the grand centered emblem (900ms)
     const t1 = setTimeout(() => {
       setStage("reveal-name");
-    }, 850);
+    }, 900);
 
-    // 2. After brand mark is assembled and absorbed (at 2200ms), calculate precise coordinates and start glide
+    // 2. After brand mark is assembled and held (at 2300ms), calculate precise coordinates and start glide
     const t2 = setTimeout(() => {
       const navTarget = document.getElementById("navbar-brand-logo");
       const currentUnit = stageRef.current;
@@ -34,7 +34,7 @@ export default function Preloader() {
         const deltaY = navRect.top - curRect.top;
         const scaleRatio = navRect.height > 0 && curRect.height > 0
           ? navRect.height / curRect.height
-          : 0.88;
+          : 0.35;
 
         setTargetOffset({ x: deltaX, y: deltaY, scale: scaleRatio });
       } else {
@@ -42,12 +42,12 @@ export default function Preloader() {
         setTargetOffset({
           x: -(window.innerWidth / 2) + 90,
           y: -(window.innerHeight / 2) + 36,
-          scale: 0.88,
+          scale: 0.35,
         });
       }
 
       setStage("glide-to-header");
-    }, 2200);
+    }, 2300);
 
     // 3. Complete glide, notify Navbar to reveal static logo, and unmount
     const t3 = setTimeout(() => {
@@ -56,7 +56,7 @@ export default function Preloader() {
         window.dispatchEvent(new Event("aonic-preloader-docked"));
       }
       setStage("done");
-    }, 3450);
+    }, 3550);
 
     return () => {
       clearTimeout(t1);
@@ -88,19 +88,19 @@ export default function Preloader() {
       {/* Atmospheric Ambient Glows (#1926A0 Royal Blue, #FFDB18 Yellow & #757CB6 Lavender) */}
       <div 
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#1926A0]/10 rounded-full blur-[140px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[850px] h-[650px] sm:h-[850px] bg-[#1926A0]/12 rounded-full blur-[160px] pointer-events-none transition-opacity duration-700",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
       <div 
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-[#FFDB18]/15 rounded-full blur-[130px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[650px] h-[500px] sm:h-[650px] bg-[#FFDB18]/15 rounded-full blur-[140px] pointer-events-none transition-opacity duration-700",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
       <div 
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#757CB6]/15 rounded-full blur-[100px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] bg-[#757CB6]/15 rounded-full blur-[110px] pointer-events-none transition-opacity duration-700",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
@@ -129,7 +129,7 @@ export default function Preloader() {
           }
           className="relative flex items-center z-10"
         >
-          {/* Logo Emblem: In Phase 1, centered alone; in Phase 2, shifts smoothly left */}
+          {/* Logo Emblem: Sized prominently (120px to 144px) with high visual authority */}
           <div
             className="relative shrink-0 flex items-center justify-center"
             style={{
@@ -137,48 +137,56 @@ export default function Preloader() {
               willChange: "transform",
             }}
           >
-            {/* Soft Ambient Ring during staging */}
+            {/* Radiant Ambient Aura behind emblem */}
             <div 
               className={cn(
-                "absolute -inset-2 rounded-2xl bg-gradient-to-r from-[#1926A0]/20 via-[#757CB6]/20 to-[#FFDB18]/25 blur-sm transition-opacity duration-500",
+                "absolute -inset-4 sm:-inset-6 rounded-3xl bg-gradient-to-r from-[#1926A0]/25 via-[#757CB6]/30 to-[#FFDB18]/30 blur-xl transition-opacity duration-500",
                 isGliding ? "opacity-0" : "opacity-100"
               )}
             />
 
-            <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white p-1 shadow-md border border-[#757CB6]/30 flex items-center justify-center overflow-hidden">
+            {/* Emblem Card Container: Prominent size for impactful first impression */}
+            <div 
+              className={cn(
+                "relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-3xl p-3 sm:p-4 flex items-center justify-center transition-all duration-700 overflow-hidden",
+                isGliding 
+                  ? "bg-transparent border-transparent shadow-none" 
+                  : "bg-white shadow-2xl shadow-[#1926A0]/15 border-2 border-[#757CB6]/30"
+              )}
+            >
               <img
                 src="/images/company-logo-mark.png"
                 alt="Aonictech Official Logo Emblem"
-                className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(25,38,160,0.35)]"
+                className="w-full h-full object-contain filter drop-shadow-[0_4px_16px_rgba(25,38,160,0.3)]"
                 loading="eager"
               />
             </div>
           </div>
 
-          {/* Name & Subtitle: Smoothly expands & unveils to the right */}
+          {/* Name & Subtitle: Smoothly expands & unveils to the right in high scale */}
           <div
             className="overflow-hidden flex flex-col justify-center"
             style={{
-              maxWidth: isRevealed ? "360px" : "0px",
+              maxWidth: isRevealed ? "650px" : "0px",
               opacity: isRevealed ? 1 : 0,
-              marginLeft: isRevealed ? "12px" : "0px",
-              transition: "max-width 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 120ms, margin-left 900ms cubic-bezier(0.16, 1, 0.3, 1)",
+              marginLeft: isRevealed ? "24px" : "0px",
+              transition: "max-width 950ms cubic-bezier(0.16, 1, 0.3, 1), opacity 750ms cubic-bezier(0.16, 1, 0.3, 1) 120ms, margin-left 950ms cubic-bezier(0.16, 1, 0.3, 1)",
               willChange: "max-width, opacity, margin-left",
             }}
           >
             <div 
-              className="whitespace-nowrap pr-2"
+              className="whitespace-nowrap pr-4"
               style={{
-                transform: isRevealed ? "translate3d(0, 0, 0)" : "translate3d(-20px, 0, 0)",
-                transition: "transform 850ms cubic-bezier(0.16, 1, 0.3, 1) 100ms",
+                transform: isRevealed ? "translate3d(0, 0, 0)" : "translate3d(-30px, 0, 0)",
+                transition: "transform 900ms cubic-bezier(0.16, 1, 0.3, 1) 100ms",
                 willChange: "transform",
               }}
             >
-              <span className="text-xl sm:text-2xl font-black tracking-tight text-[#0E0E25] flex items-center gap-1.5 leading-none">
+              <span className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#0E0E25] flex items-center gap-2 sm:gap-3 leading-none">
                 AONICTECH
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FFDB18] shadow-sm shadow-[#FFDB18] animate-pulse" />
+                <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full bg-[#FFDB18] shadow-md shadow-[#FFDB18] animate-pulse" />
               </span>
-              <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.16em] uppercase text-[#757CB6] block mt-1">
+              <span className="text-xs sm:text-base md:text-lg font-bold tracking-[0.24em] uppercase text-[#757CB6] block mt-2 sm:mt-3">
                 Digital & Industrial
               </span>
             </div>
