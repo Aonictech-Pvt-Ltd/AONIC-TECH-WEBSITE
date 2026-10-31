@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/ui/Preloader";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aonictech.com"),
   title: {
     default: "Aonictech | Digital Solutions, Software & Industrial Materials Import",
     template: "%s | Aonictech",
@@ -21,6 +22,18 @@ export const metadata: Metadata = {
     "Aonictech",
   ],
   authors: [{ name: "Aonictech Private Limited" }],
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/company-logo-mark.png", sizes: "any", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -29,6 +42,14 @@ export const metadata: Metadata = {
     title: "Aonictech — Digital Solutions & Industrial Materials Import",
     description:
       "Your brand, your website and your software, and specialty materials delivered to your factory floor.",
+    images: [
+      {
+        url: "/images/company-logo-mark.png",
+        width: 1140,
+        height: 1140,
+        alt: "Aonictech Logo",
+      },
+    ],
   },
 };
 
@@ -47,7 +68,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-brand-dark-900 text-slate-100 font-sans selection:bg-brand-digital-600 selection:text-white">
+      <body className="min-h-screen flex flex-col bg-white text-[#0E0E25] font-sans selection:bg-[#1926A0] selection:text-white">
         <Preloader />
         <Navbar />
         <main className="flex-1 pt-20">{children}</main>
