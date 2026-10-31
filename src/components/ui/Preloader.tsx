@@ -50,17 +50,17 @@ export default function Preloader() {
     computeCoords();
     const raf = requestAnimationFrame(computeCoords);
 
-    // Start glide at 1000ms
+    // Start glide at 1250ms for a more relaxed, cinematic center hold
     const glideTimer = setTimeout(() => {
       // Re-check target right before gliding to ensure pixel precision
       computeCoords();
       setStage("gliding");
-    }, 1000);
+    }, 1250);
 
     // Fallback dock timer in case transitionend does not fire
     const fallbackTimer = setTimeout(() => {
       triggerDock();
-    }, 2400);
+    }, 3000);
 
     return () => {
       cancelAnimationFrame(raf);
@@ -129,7 +129,7 @@ export default function Preloader() {
       */}
       <div
         className={cn(
-          "absolute inset-0 bg-white transition-opacity duration-700 ease-out",
+          "absolute inset-0 bg-white transition-opacity duration-900 ease-out",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
@@ -137,19 +137,19 @@ export default function Preloader() {
       {/* Atmospheric Brand Glows (#1926A0 Royal Blue, #FFDB18 Yellow & #757CB6 Lavender) */}
       <div
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[#1926A0]/15 rounded-full blur-[90px] sm:blur-[150px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[#1926A0]/15 rounded-full blur-[90px] sm:blur-[150px] pointer-events-none transition-opacity duration-900",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
       <div
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] sm:w-[480px] h-[260px] sm:h-[480px] bg-[#FFDB18]/15 rounded-full blur-[80px] sm:blur-[130px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] sm:w-[480px] h-[260px] sm:h-[480px] bg-[#FFDB18]/15 rounded-full blur-[80px] sm:blur-[130px] pointer-events-none transition-opacity duration-900",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
       <div
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[380px] h-[220px] sm:h-[380px] bg-[#757CB6]/15 rounded-full blur-[70px] sm:blur-[100px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[380px] h-[220px] sm:h-[380px] bg-[#757CB6]/15 rounded-full blur-[70px] sm:blur-[100px] pointer-events-none transition-opacity duration-900",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
@@ -167,7 +167,7 @@ export default function Preloader() {
           transform: transformStyle,
           transformOrigin: "center center",
           transition: isGliding
-            ? "transform 900ms cubic-bezier(0.16, 1, 0.3, 1)"
+            ? "transform 1250ms cubic-bezier(0.16, 1, 0.3, 1)"
             : "none",
           willChange: "transform",
           backfaceVisibility: "hidden",
@@ -182,7 +182,7 @@ export default function Preloader() {
         {/* Radiant Ambient Aura behind emblem in center */}
         <div
           className={cn(
-            "absolute -inset-4 rounded-2xl bg-gradient-to-r from-[#1926A0]/25 via-[#757CB6]/30 to-[#FFDB18]/25 blur-xl pointer-events-none transition-opacity duration-500",
+            "absolute -inset-4 rounded-2xl bg-gradient-to-r from-[#1926A0]/25 via-[#757CB6]/30 to-[#FFDB18]/25 blur-xl pointer-events-none transition-opacity duration-700",
             isGliding ? "opacity-0" : "opacity-100"
           )}
         />
