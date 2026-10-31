@@ -13,7 +13,8 @@ import {
   AlertCircle,
   HelpCircle,
   Package,
-  Layers
+  Layers,
+  Navigation
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
 
@@ -204,6 +205,32 @@ export default function ContactPage() {
               <div className="p-3 rounded-lg bg-slate-800/50 border border-slate-700/50">
                 <span className="text-slate-400 block text-[10px]">IMPORT EXPORT CODE (IEC)</span>
                 <span className="text-slate-200 font-mono font-medium">{COMPANY_INFO.iecNumber}</span>
+              </div>
+            </div>
+
+            {/* Google Maps Location Preview */}
+            <div className="pt-2">
+              <span className="text-xs font-semibold text-slate-300 block mb-2">Office Location Map</span>
+              <div className="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 group">
+                <iframe
+                  title="Aonictech Hyderabad Headquarters"
+                  src={COMPANY_INFO.googleMapsEmbedUrl}
+                  width="100%"
+                  height="160"
+                  style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(85%)" }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                />
+                <a
+                  href={COMPANY_INFO.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-brand-dark-950/90 border border-slate-700 text-xs font-medium text-brand-digital-400 hover:text-white flex items-center gap-1.5 shadow-lg backdrop-blur-sm"
+                >
+                  <Navigation className="w-3.5 h-3.5" />
+                  Get Directions in Google Maps
+                </a>
               </div>
             </div>
           </div>

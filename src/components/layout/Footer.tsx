@@ -8,7 +8,8 @@ import {
   ShieldCheck, 
   Award, 
   ArrowUpRight,
-  MessageSquare
+  MessageSquare,
+  Navigation
 } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { COMPANY_INFO } from "@/data/company";
@@ -74,7 +75,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Quick Links & Legal */}
           <div>
             <h4 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
               Quick Links
@@ -105,6 +106,16 @@ export default function Footer() {
                   Contact Us / Get a Quote
                 </Link>
               </li>
+              <li className="pt-2 border-t border-slate-800">
+                <Link href="/privacy" className="hover:text-brand-digital-400 transition-colors text-slate-300">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-brand-digital-400 transition-colors text-slate-300">
+                  Terms & Conditions
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -117,48 +128,49 @@ export default function Footer() {
               <li>
                 <Link href="/services" className="hover:text-white transition-colors flex items-center justify-between">
                   <span>Website & E-Commerce Dev</span>
-                  <span className="text-[10px] text-brand-digital-400">Digital</span>
+                  <span className="text-[10px] text-brand-digital-400 font-mono">Digital</span>
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-white transition-colors flex items-center justify-between">
                   <span>POS & GST Billing Software</span>
-                  <span className="text-[10px] text-brand-digital-400">Software</span>
+                  <span className="text-[10px] text-brand-digital-400 font-mono">Software</span>
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-white transition-colors flex items-center justify-between">
                   <span>Brand & Packaging Design</span>
-                  <span className="text-[10px] text-brand-digital-400">Design</span>
+                  <span className="text-[10px] text-brand-digital-400 font-mono">Design</span>
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-white transition-colors flex items-center justify-between">
                   <span>Titanium & Specialty Alloys</span>
-                  <span className="text-[10px] text-brand-industrial-400">Industrial</span>
+                  <span className="text-[10px] text-brand-industrial-400 font-mono">Industrial</span>
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-white transition-colors flex items-center justify-between">
                   <span>Rare-Earth Elements & Magnets</span>
-                  <span className="text-[10px] text-brand-industrial-400">Industrial</span>
+                  <span className="text-[10px] text-brand-industrial-400 font-mono">Industrial</span>
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-white transition-colors flex items-center justify-between">
                   <span>Electronic Chip IC Sourcing</span>
-                  <span className="text-[10px] text-brand-industrial-400">Industrial</span>
+                  <span className="text-[10px] text-brand-industrial-400 font-mono">Industrial</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Contact & Location */}
-          <div>
+          {/* Column 4: Contact & Google Maps Location */}
+          <div className="space-y-4">
             <h4 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
-              Get in Touch
+              Location & Contact
             </h4>
-            <ul className="space-y-3 text-xs">
+            
+            <ul className="space-y-2.5 text-xs">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-brand-digital-400 shrink-0 mt-0.5" />
                 <span>{COMPANY_INFO.address}</span>
@@ -186,6 +198,31 @@ export default function Footer() {
                 <span>{COMPANY_INFO.workingHours}</span>
               </li>
             </ul>
+
+            {/* Embedded Google Maps Location Box */}
+            <div className="pt-2">
+              <div className="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 group">
+                <iframe
+                  title="Aonictech Google Maps Location"
+                  src={COMPANY_INFO.googleMapsEmbedUrl}
+                  width="100%"
+                  height="110"
+                  style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(85%)" }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full transition-opacity group-hover:opacity-90"
+                />
+                <a
+                  href={COMPANY_INFO.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-2 right-2 px-2.5 py-1 rounded-md bg-brand-dark-950/90 border border-slate-700 text-[10px] font-medium text-brand-digital-400 hover:text-white flex items-center gap-1 shadow-md"
+                >
+                  <Navigation className="w-3 h-3" />
+                  View on Google Maps
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -207,11 +244,11 @@ export default function Footer() {
               <strong className="text-slate-300">IEC:</strong> {COMPANY_INFO.iecNumber}
             </span>
             <span className="text-slate-600">•</span>
-            <Link href="/privacy" className="hover:text-slate-300 transition-colors">
+            <Link href="/privacy" className="hover:text-brand-digital-400 text-slate-300 transition-colors font-medium">
               Privacy Policy
             </Link>
             <span className="text-slate-600">•</span>
-            <Link href="/terms" className="hover:text-slate-300 transition-colors">
+            <Link href="/terms" className="hover:text-brand-digital-400 text-slate-300 transition-colors font-medium">
               Terms & Conditions
             </Link>
           </div>
