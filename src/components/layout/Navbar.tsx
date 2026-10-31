@@ -84,10 +84,10 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                        "flex items-center gap-1.5 px-4 py-2 rounded-lg text-[15px] font-semibold transition-colors",
                         isActive
                           ? "text-brand-digital-400 bg-brand-digital-500/10"
-                          : "text-slate-300 hover:text-white hover:bg-slate-800/50"
+                          : "text-slate-200 hover:text-white hover:bg-slate-800/50"
                       )}
                     >
                       {link.label}
@@ -101,80 +101,80 @@ export default function Navbar() {
 
                     {/* Mega Dropdown Menu */}
                     {servicesDropdown && (
-                      <div className="absolute top-full left-0 w-[580px] p-4 bg-brand-dark-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl shadow-black/80 grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div className="absolute top-full left-0 w-[620px] p-5 bg-brand-dark-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl shadow-black/80 grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
                         {/* Digital Solutions Column */}
-                        <div className="p-3 rounded-xl bg-gradient-to-b from-brand-digital-500/5 to-transparent border border-brand-digital-500/10">
+                        <div className="p-3.5 rounded-xl bg-gradient-to-b from-brand-digital-500/5 to-transparent border border-brand-digital-500/10">
                           <div className="flex items-center gap-2 mb-2 pb-2 border-b border-brand-digital-500/20">
                             <Code2 className="w-4 h-4 text-brand-digital-400" />
-                            <span className="text-xs font-semibold text-brand-digital-400 uppercase tracking-wider">
+                            <span className="text-xs font-bold text-brand-digital-400 uppercase tracking-wider">
                               Digital Solutions
                             </span>
                           </div>
-                          <ul className="space-y-1.5 text-xs">
+                          <ul className="space-y-2 text-sm">
                             <li>
                               <Link
                                 href="/services#digital-web"
-                                className="block p-1.5 rounded hover:bg-slate-800/80 text-slate-300 hover:text-white"
+                                className="block p-2 rounded-lg hover:bg-slate-800/80 text-slate-300 hover:text-white transition-colors"
                               >
-                                <span className="font-medium text-white block">Website Development</span>
-                                <span className="text-slate-400 text-[11px]">Restaurants, shops & startups</span>
+                                <span className="font-semibold text-white block text-sm">Website Development</span>
+                                <span className="text-slate-400 text-xs">Restaurants, shops & startups</span>
                               </Link>
                             </li>
                             <li>
                               <Link
                                 href="/services#digital-pos"
-                                className="block p-1.5 rounded hover:bg-slate-800/80 text-slate-300 hover:text-white"
+                                className="block p-2 rounded-lg hover:bg-slate-800/80 text-slate-300 hover:text-white transition-colors"
                               >
-                                <span className="font-medium text-white block">POS & Billing Software</span>
-                                <span className="text-slate-400 text-[11px]">GST billing, inventory & reports</span>
+                                <span className="font-semibold text-white block text-sm">POS & Billing Software</span>
+                                <span className="text-slate-400 text-xs">GST billing, inventory & reports</span>
                               </Link>
                             </li>
                             <li>
                               <Link
                                 href="/services#digital-ecommerce"
-                                className="block p-1.5 rounded hover:bg-slate-800/80 text-slate-300 hover:text-white"
+                                className="block p-2 rounded-lg hover:bg-slate-800/80 text-slate-300 hover:text-white transition-colors"
                               >
-                                <span className="font-medium text-white block">E-Commerce & Custom Apps</span>
-                                <span className="text-slate-400 text-[11px]">Payment gateways & automations</span>
+                                <span className="font-semibold text-white block text-sm">E-Commerce & Custom Apps</span>
+                                <span className="text-slate-400 text-xs">Payment gateways & automations</span>
                               </Link>
                             </li>
                           </ul>
                         </div>
 
                         {/* Industrial Supply Column */}
-                        <div className="p-3 rounded-xl bg-gradient-to-b from-brand-industrial-500/5 to-transparent border border-brand-industrial-500/10">
+                        <div className="p-3.5 rounded-xl bg-gradient-to-b from-brand-industrial-500/5 to-transparent border border-brand-industrial-500/10">
                           <div className="flex items-center gap-2 mb-2 pb-2 border-b border-brand-industrial-500/20">
                             <Layers className="w-4 h-4 text-brand-industrial-400" />
-                            <span className="text-xs font-semibold text-brand-industrial-400 uppercase tracking-wider">
+                            <span className="text-xs font-bold text-brand-industrial-400 uppercase tracking-wider">
                               Industrial Supply
                             </span>
                           </div>
-                          <ul className="space-y-1.5 text-xs">
+                          <ul className="space-y-2 text-sm">
                             <li>
                               <Link
                                 href="/services#industrial-titanium"
-                                className="block p-1.5 rounded hover:bg-slate-800/80 text-slate-300 hover:text-white"
+                                className="block p-2 rounded-lg hover:bg-slate-800/80 text-slate-300 hover:text-white transition-colors"
                               >
-                                <span className="font-medium text-white block">Titanium & Specialty Alloys</span>
-                                <span className="text-slate-400 text-[11px]">Grade 1 to 5, sheets, rods, wire</span>
+                                <span className="font-semibold text-white block text-sm">Titanium & Specialty Alloys</span>
+                                <span className="text-slate-400 text-xs">Grade 1 to 5, sheets, rods, wire</span>
                               </Link>
                             </li>
                             <li>
                               <Link
                                 href="/services#industrial-rare-earth"
-                                className="block p-1.5 rounded hover:bg-slate-800/80 text-slate-300 hover:text-white"
+                                className="block p-2 rounded-lg hover:bg-slate-800/80 text-slate-300 hover:text-white transition-colors"
                               >
-                                <span className="font-medium text-white block">Rare-Earth & Magnets</span>
-                                <span className="text-slate-400 text-[11px]">Neodymium N52 & high-temp grades</span>
+                                <span className="font-semibold text-white block text-sm">Rare-Earth & Magnets</span>
+                                <span className="text-slate-400 text-xs">Neodymium N52 & high-temp grades</span>
                               </Link>
                             </li>
                             <li>
                               <Link
                                 href="/services#industrial-chips"
-                                className="block p-1.5 rounded hover:bg-slate-800/80 text-slate-300 hover:text-white"
+                                className="block p-2 rounded-lg hover:bg-slate-800/80 text-slate-300 hover:text-white transition-colors"
                               >
-                                <span className="font-medium text-white block">IC Chips & Low MOQ Sourcing</span>
-                                <span className="text-slate-400 text-[11px]">Doorstep delivery + test certs</span>
+                                <span className="font-semibold text-white block text-sm">IC Chips & Low MOQ Sourcing</span>
+                                <span className="text-slate-400 text-xs">Doorstep delivery + test certs</span>
                               </Link>
                             </li>
                           </ul>
@@ -190,10 +190,10 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   className={cn(
-                    "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                    "px-4 py-2 rounded-lg text-[15px] font-semibold transition-colors",
                     isActive
-                      ? "text-brand-digital-400 bg-brand-digital-500/10 font-semibold"
-                      : "text-slate-300 hover:text-white hover:bg-slate-800/50"
+                      ? "text-brand-digital-400 bg-brand-digital-500/10 font-bold"
+                      : "text-slate-200 hover:text-white hover:bg-slate-800/50"
                   )}
                 >
                   {link.label}
@@ -209,17 +209,17 @@ export default function Navbar() {
               href={COMPANY_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/80 text-emerald-400 hover:text-emerald-300 hover:bg-slate-800 hover:border-emerald-500/40 transition-all flex items-center gap-2 text-xs font-medium"
+              className="px-3.5 py-2.5 rounded-xl bg-slate-800/60 border border-slate-700/80 text-emerald-400 hover:text-emerald-300 hover:bg-slate-800 hover:border-emerald-500/40 transition-all flex items-center gap-2 text-xs font-semibold"
               title="Chat with us on WhatsApp"
             >
               <MessageSquare className="w-4 h-4 fill-emerald-500/20" />
-              <span className="hidden xl:inline text-slate-300">WhatsApp</span>
+              <span className="hidden xl:inline text-slate-200">WhatsApp</span>
             </a>
 
             {/* Direct Phone Call */}
             <a
               href={`tel:${COMPANY_INFO.phone}`}
-              className="p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/80 text-slate-300 hover:text-white hover:bg-slate-800 transition-all flex items-center gap-2 text-xs font-medium"
+              className="px-3.5 py-2.5 rounded-xl bg-slate-800/60 border border-slate-700/80 text-slate-200 hover:text-white hover:bg-slate-800 transition-all flex items-center gap-2 text-xs font-semibold"
               title={`Call us at ${COMPANY_INFO.displayPhone}`}
             >
               <Phone className="w-4 h-4 text-brand-digital-400" />
@@ -229,10 +229,10 @@ export default function Navbar() {
             {/* Primary Get a Quote CTA */}
             <Link
               href="/contact"
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-digital-600 to-brand-digital-500 hover:from-brand-digital-500 hover:to-brand-digital-400 text-white text-xs uppercase tracking-wider font-semibold shadow-md shadow-brand-digital-500/20 hover:shadow-brand-digital-500/30 transition-all flex items-center gap-1.5 active:scale-95"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-digital-600 to-brand-digital-500 hover:from-brand-digital-500 hover:to-brand-digital-400 text-white text-xs uppercase tracking-wider font-bold shadow-md shadow-brand-digital-500/20 hover:shadow-brand-digital-500/30 transition-all flex items-center gap-1.5 active:scale-95"
             >
               Get a Quote
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 

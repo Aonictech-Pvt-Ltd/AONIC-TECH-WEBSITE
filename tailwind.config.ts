@@ -36,7 +36,21 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
+        sans: [
+          "'Plus Jakarta Sans'",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "'SF Pro Display'",
+          "'Segoe UI'",
+          "Roboto",
+          "sans-serif",
+        ],
+        display: [
+          "'Space Grotesk'",
+          "'Plus Jakarta Sans'",
+          "-apple-system",
+          "sans-serif",
+        ],
       },
     },
   },

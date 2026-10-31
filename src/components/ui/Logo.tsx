@@ -91,11 +91,11 @@ export default function Logo({ className, size = 40, showText = true }: LogoProp
       {/* Brand Text */}
       {showText && (
         <div className="flex flex-col">
-          <span className="text-xl font-black tracking-tight text-white flex items-center gap-1.5 leading-none">
+          <span className="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-1.5 leading-none">
             AONICTECH
             <span className="w-1.5 h-1.5 rounded-full bg-brand-digital-400 animate-pulse" />
           </span>
-          <span className="text-[10px] font-semibold tracking-widest uppercase text-slate-400 mt-1">
+          <span className="text-[11px] font-bold tracking-[0.16em] uppercase text-slate-400 mt-1">
             Digital & Industrial
           </span>
         </div>
