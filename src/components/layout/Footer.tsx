@@ -21,8 +21,8 @@ export default function Footer() {
   return (
     <footer className="relative bg-[#0E0E25] border-t border-[#757CB6]/20 text-slate-300">
       {/* Main Footer Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 sm:pt-16 sm:pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8">
           
           {/* ========================================================================= */}
           {/* COLUMN 1 (LEFT): Company Logo, Headquarters & Google Maps Link           */}
@@ -183,16 +183,17 @@ export default function Footer() {
       {/* ========================================================================= */}
       {/* BOTTOM LEGAL STRIP: Copyright on Left, Location & Terms on Right          */}
       {/* ========================================================================= */}
-      <div className="border-t border-[#757CB6]/20 bg-[#070716] py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div>
+      <div className="border-t border-[#757CB6]/20 bg-[#070716] pt-6 pb-28 sm:py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:pr-36 lg:pr-44 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div className="text-center sm:text-left">
             © {currentYear} {COMPANY_INFO.legalName}. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-6 text-xs text-slate-300">
+          <div className="flex items-center gap-4 sm:gap-6 text-xs text-slate-300">
             <span>Hyderabad, Telangana</span>
+            <span className="text-[#757CB6]/40">•</span>
             <div>
-              <Link href="/privacy-and-terms" className="hover:text-[#FFDB18] transition-colors">
+              <Link href="/privacy-and-terms" className="hover:text-[#FFDB18] transition-colors underline decoration-[#757CB6]/40 underline-offset-4">
                 Privacy Policy & Terms
               </Link>
             </div>
