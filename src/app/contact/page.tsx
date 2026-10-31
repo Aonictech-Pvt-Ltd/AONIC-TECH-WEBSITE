@@ -16,6 +16,7 @@ import {
   Navigation
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -115,8 +116,8 @@ export default function ContactPage() {
           {/* Quick WhatsApp Action Banner in Green (#63A26B) */}
           <div className="p-6 rounded-2xl bg-[#63A26B]/15 border border-[#63A26B]/40 shadow-md">
             <div className="flex items-center gap-3 mb-3">
-              <div className="p-3 rounded-xl bg-[#63A26B] text-white">
-                <MessageSquare className="w-6 h-6" />
+              <div className="p-2.5 rounded-xl bg-[#63A26B] text-white flex items-center justify-center">
+                <WhatsAppIcon variant="outline" className="w-6 h-6 text-white fill-white" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-[#0E0E25]">Instant WhatsApp Connect</h3>

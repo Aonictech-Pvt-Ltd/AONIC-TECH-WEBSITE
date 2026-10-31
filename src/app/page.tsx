@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
 import { PROJECTS_DATA } from "@/data/projects";
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { cn } from "@/lib/utils";
 
 export default function HomePage() {
@@ -390,9 +391,9 @@ export default function HomePage() {
               href={COMPANY_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-[#63A26B] hover:bg-[#4c8553] text-white font-bold text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-lg shadow-black/30"
+              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-[#63A26B] hover:bg-[#4c8553] text-white font-bold text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2.5 shadow-lg shadow-black/30"
             >
-              <MessageSquare className="w-4 h-4" />
+              <WhatsAppIcon variant="outline" className="w-5 h-5 text-white fill-white" />
               WhatsApp: {COMPANY_INFO.displayPhone}
             </a>
           </div>

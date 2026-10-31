@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
 import Logo from "@/components/ui/Logo";
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -257,18 +258,18 @@ export default function Footer() {
       </div>
 
       {/* ========================================================================= */}
-      {/* FLOATING WHATSAPP LAUNCHER (Bottom Right Corner as in Reference)          */}
+      {/* FLOATING WHATSAPP LAUNCHER (Bottom Left Corner with Official Vector Icon) */}
       {/* ========================================================================= */}
       <a
         href={COMPANY_INFO.whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-2xl shadow-emerald-500/50 hover:scale-110 active:scale-95 transition-all group"
+        className="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-2xl shadow-emerald-500/50 hover:scale-110 active:scale-95 transition-all group"
         aria-label="Chat on WhatsApp"
       >
-        <MessageCircle className="w-7 h-7 fill-white text-[#25D366]" />
+        <WhatsAppIcon variant="outline" className="w-7 h-7 text-white fill-white" />
         <span className="sr-only">Chat with us on WhatsApp</span>
-        <span className="absolute right-16 bg-[#0E0E25] border border-[#757CB6]/30 text-white text-xs font-semibold px-3 py-1.5 rounded-xl shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        <span className="absolute left-16 bg-[#0E0E25] border border-[#757CB6]/30 text-white text-xs font-semibold px-3 py-1.5 rounded-xl shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
           Chat with us on WhatsApp
         </span>
       </a>
