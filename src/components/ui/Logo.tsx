@@ -23,6 +23,8 @@ interface LogoProps {
  * - Animated Refresh Intro (used exclusively in Preloader):
  *   /images/logo-animated.webp
  */
+const BRAND_CHARS = ["A", "O", "N", "I", "C", " ", "T", "E", "C", "H"];
+
 export default function Logo({ 
   className, 
   size = 42, 
@@ -34,33 +36,47 @@ export default function Logo({
 
   // Animated Refresh Intro Variant (Used exclusively for starting/refresh animation)
   if (animated) {
+    // Emblem size is made larger and more prominent than the text
+    const emblemSize = Math.round(size * 1.35);
+
     return (
-      <div className={cn("flex items-center gap-3 sm:gap-4 shrink-0", className)}>
-        {/* Animated Circuit WebP - 100% Borderless, perfectly cropped */}
+      <div className={cn("flex items-center gap-3.5 sm:gap-4 shrink-0", className)}>
+        {/* Animated Circuit WebP - Prominent & 100% Borderless */}
         <div 
           className="relative shrink-0 overflow-hidden flex items-center justify-center"
-          style={{ width: size, height: size }}
+          style={{ width: emblemSize, height: emblemSize }}
         >
           <img
             src="/images/logo-animated.webp"
             alt="AONIC TECH"
-            width={size}
-            height={size}
+            width={emblemSize}
+            height={emblemSize}
             className="w-[185%] max-w-none h-auto object-contain shrink-0"
             loading="eager"
             decoding="sync"
           />
         </div>
 
-        {/* Brand Typography - Bold, crisp AONIC TECH */}
+        {/* Refined Staggered Letter-by-Letter Typography */}
         {showText && (
           <span 
             className={cn(
-              "text-2xl sm:text-3xl font-black tracking-tight leading-none transition-colors",
+              "text-lg sm:text-xl font-black tracking-[0.14em] sm:tracking-[0.18em] leading-none transition-colors inline-flex items-center select-none",
               isDark ? "text-white" : "text-[#0E0E25]"
             )}
           >
-            AONIC TECH
+            {BRAND_CHARS.map((char, index) => (
+              <span
+                key={index}
+                className="inline-block"
+                style={{
+                  animation: "letterReveal 380ms cubic-bezier(0.16, 1, 0.3, 1) both",
+                  animationDelay: `${350 + index * 65}ms`,
+                }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
           </span>
         )}
       </div>
