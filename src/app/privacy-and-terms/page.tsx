@@ -42,7 +42,7 @@ export default function LegalPage() {
                 <Scale className="w-5 h-5" />
               </div>
               <h1 className="text-3xl sm:text-4xl font-black text-[#0E0E25] tracking-tight">
-                Terms of Service & Privacy Policy
+                Privacy Policy & Terms of Service
               </h1>
             </div>
             <p className="text-xs text-[#757CB6] font-mono">
