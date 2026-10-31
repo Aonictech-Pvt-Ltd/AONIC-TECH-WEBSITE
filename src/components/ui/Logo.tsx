@@ -10,6 +10,17 @@ interface LogoProps {
   variant?: "light" | "dark";
 }
 
+/**
+ * Official AONIC TECH Brand Logo Component
+ * 
+ * Powered by high-resolution master assets:
+ * - Horizontal Logo (emblem + brand typography):
+ *   Light: /images/company-logo.png
+ *   Dark:  /images/company-logo-white.png
+ *   Aspect ratio: 4435 / 1228 = 3.61156
+ * - Square Emblem Mark (circuits & node matrix):
+ *   /images/company-logo-mark.png (1560 x 1560)
+ */
 export default function Logo({ 
   className, 
   size = 42, 
@@ -18,39 +29,48 @@ export default function Logo({
 }: LogoProps) {
   const isDark = variant === "dark";
 
-  return (
-    <div className={cn("flex items-center gap-2 sm:gap-3", className)}>
-      {/* Official Company Circuit Emblem */}
+  // Official master horizontal lockup (Aspect ratio: 4435 / 1228 = 3.61156)
+  if (showText) {
+    const width = Math.round(size * 3.61156);
+    return (
       <div 
-        className="relative shrink-0 rounded-xl overflow-hidden p-0.5 flex items-center justify-center transition-transform group-hover:scale-105"
-        style={{ width: size, height: size }}
+        className={cn(
+          "relative shrink-0 flex items-center transition-transform group-hover:scale-[1.02]", 
+          className
+        )}
+        style={{ height: size, width }}
       >
         <img
-          src="/images/company-logo-mark.png"
-          alt="AONIC TECH Official Logo"
-          width={size}
+          src={isDark ? "/images/company-logo-white.png" : "/images/company-logo.png"}
+          alt="AONIC TECH"
+          width={width}
           height={size}
-          className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(25,38,160,0.4)]"
+          className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(25,38,160,0.25)]"
           loading="eager"
+          decoding="sync"
         />
       </div>
+    );
+  }
 
-      {/* Brand Text */}
-      {showText && (
-        <div className="flex flex-col">
-          <span 
-            className={cn(
-              "text-xl sm:text-2xl font-black tracking-tight leading-none transition-colors",
-              isDark ? "text-white" : "text-[#0E0E25]"
-            )}
-          >
-            AONIC TECH
-          </span>
-          <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.14em] sm:tracking-[0.16em] uppercase text-[#757CB6] mt-0.5 sm:mt-1">
-            Digital & Industrial
-          </span>
-        </div>
+  // Official master emblem mark (1:1 square)
+  return (
+    <div 
+      className={cn(
+        "relative shrink-0 flex items-center justify-center transition-transform group-hover:scale-105", 
+        className
       )}
+      style={{ width: size, height: size }}
+    >
+      <img
+        src="/images/company-logo-mark.png"
+        alt="AONIC TECH Emblem"
+        width={size}
+        height={size}
+        className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(25,38,160,0.35)]"
+        loading="eager"
+        decoding="sync"
+      />
     </div>
   );
 }
