@@ -79,18 +79,21 @@ export default function Preloader() {
         willChange: "opacity",
       }}
     >
-      {/* Deep Obsidian Background Backdrop */}
-      <div className="absolute inset-0 bg-[#06090e] pointer-events-auto" />
+      {/* Deep Obsidian Background Backdrop (#0E0E25 Dark Navy) */}
+      <div className="absolute inset-0 bg-[#0E0E25] pointer-events-auto" />
 
       {/* Atmospheric Cinematic Ambient Glows */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-brand-digital-500/12 rounded-full blur-[140px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#1926A0]/20 rounded-full blur-[140px] pointer-events-none"
         style={{
           animation: "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         }}
       />
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-brand-industrial-500/10 rounded-full blur-[130px] pointer-events-none" 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-[#FFDB18]/15 rounded-full blur-[130px] pointer-events-none" 
+      />
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#757CB6]/15 rounded-full blur-[100px] pointer-events-none" 
       />
 
       {/* Full-Viewport Staging Wrapper */}
@@ -125,40 +128,21 @@ export default function Preloader() {
               willChange: "transform",
             }}
           >
-            {/* Subtle Radiant Halo */}
+            {/* Radiant Halo using user's Royal Blue, Lavender & Yellow */}
             <div 
-              className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-brand-digital-500/60 via-sky-400/40 to-brand-industrial-500/60 blur-md opacity-70"
+              className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-[#1926A0]/70 via-[#757CB6]/50 to-[#FFDB18]/70 blur-md opacity-80"
               style={{
                 animation: "spin 12s linear infinite",
               }}
             />
 
-            <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#080c14] p-[2px] shadow-2xl border border-white/15 flex items-center justify-center overflow-hidden">
-              <svg
-                viewBox="0 0 100 100"
-                width="100%"
-                height="100%"
-                className="w-full h-full p-1"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <linearGradient id="preDigital" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#38bdf8" />
-                    <stop offset="100%" stopColor="#0284c7" />
-                  </linearGradient>
-                  <linearGradient id="preIndustrial" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#fbbf24" />
-                    <stop offset="100%" stopColor="#d97706" />
-                  </linearGradient>
-                </defs>
-                <rect width="100" height="100" rx="20" fill="#080c14" />
-                <path d="M 50 16 L 22 84 L 35 84 L 50 44 Z" fill="url(#preDigital)" />
-                <path d="M 50 16 L 78 84 L 65 84 L 50 44 Z" fill="url(#preIndustrial)" />
-                <polygon points="33,58 67,58 61,66 39,66" fill="#ffffff" opacity="0.95" />
-                <circle cx="50" cy="38" r="4.5" fill="#38bdf8" />
-                <circle cx="50" cy="38" r="2.5" fill="#ffffff" />
-              </svg>
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#0E0E25] p-2 shadow-2xl border border-[#757CB6]/40 flex items-center justify-center overflow-hidden">
+              <img
+                src="/images/company-logo-mark.png"
+                alt="Aonictech Official Logo Emblem"
+                className="w-full h-full object-contain filter drop-shadow-[0_4px_16px_rgba(25,38,160,0.6)]"
+                loading="eager"
+              />
             </div>
           </div>
 
@@ -183,9 +167,9 @@ export default function Preloader() {
             >
               <span className="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center gap-2 leading-none">
                 AONICTECH
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-digital-400 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFDB18] shadow-sm shadow-[#FFDB18] animate-pulse" />
               </span>
-              <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.24em] uppercase text-slate-400 block mt-1.5">
+              <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.24em] uppercase text-[#757CB6] block mt-1.5">
                 Digital & Industrial
               </span>
             </div>

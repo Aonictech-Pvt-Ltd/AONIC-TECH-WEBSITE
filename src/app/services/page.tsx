@@ -72,17 +72,17 @@ export default function ServicesPage() {
         </p>
 
         {/* Niche Switcher Tabs */}
-        <div className="mt-8 inline-flex p-1.5 rounded-2xl bg-brand-dark-900 border border-slate-800 shadow-xl">
+        <div className="mt-8 inline-flex p-1.5 rounded-2xl bg-[#0E0E25] border border-[#757CB6]/30 shadow-xl">
           <button
             onClick={() => setActiveTab("digital")}
             className={cn(
               "flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all",
               activeTab === "digital"
-                ? "bg-brand-digital-600 text-white shadow-lg shadow-brand-digital-600/30"
-                : "text-slate-400 hover:text-white"
+                ? "bg-gradient-to-r from-[#1926A0] to-[#2736c9] text-white shadow-lg shadow-[#1926A0]/40 border border-[#757CB6]/40"
+                : "text-slate-300 hover:text-white"
             )}
           >
-            <Code2 className="w-4 h-4" />
+            <Code2 className="w-4 h-4 text-[#757CB6]" />
             Digital Solutions & Branding
           </button>
           <button
@@ -90,11 +90,11 @@ export default function ServicesPage() {
             className={cn(
               "flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all",
               activeTab === "industrial"
-                ? "bg-brand-industrial-600 text-white shadow-lg shadow-brand-industrial-600/30"
-                : "text-slate-400 hover:text-white"
+                ? "bg-[#FFDB18] text-[#000000] font-black shadow-lg shadow-[#FFDB18]/30 border border-[#FFDB18]"
+                : "text-slate-300 hover:text-white"
             )}
           >
-            <Layers className="w-4 h-4" />
+            <Layers className="w-4 h-4 text-[#000000]" />
             Industrial Materials & Supply
           </button>
         </div>
@@ -526,7 +526,7 @@ export default function ServicesPage() {
                       <td className="py-4 px-4 text-slate-200 font-mono text-xs">
                         {mat.standards}
                       </td>
-                      <td className="py-4 px-4 font-bold text-emerald-400 text-sm">
+                      <td className="py-4 px-4 font-bold text-[#63A26B] text-sm">
                         {mat.moq}
                       </td>
                       <td className="py-4 px-4 text-slate-300 text-xs">
@@ -535,7 +535,7 @@ export default function ServicesPage() {
                       <td className="py-4 px-4 text-right">
                         <Link
                           href={`/contact?service=Material&item=${encodeURIComponent(mat.name)}`}
-                          className="px-4 py-2 rounded-xl bg-brand-industrial-600 hover:bg-brand-industrial-500 text-white font-bold text-xs uppercase tracking-wider transition-colors inline-block"
+                          className="px-4 py-2 rounded-xl bg-[#FFDB18] hover:bg-[#ffe34d] text-[#000000] font-bold text-xs uppercase tracking-wider transition-colors inline-block shadow-md shadow-[#FFDB18]/20"
                         >
                           Enquire
                         </Link>

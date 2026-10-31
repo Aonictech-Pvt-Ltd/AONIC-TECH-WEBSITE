@@ -113,22 +113,22 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Contact Info & Channels (Left 5 Cols) */}
         <div className="lg:col-span-5 space-y-8">
-          {/* Quick WhatsApp Action Banner */}
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-950/60 to-slate-900 border border-emerald-500/30 shadow-xl">
+          {/* Quick WhatsApp Action Banner in Green (#63A26B) */}
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-[#63A26B]/25 via-[#0E0E25] to-[#141434] border border-[#63A26B]/40 shadow-xl">
             <div className="flex items-center gap-3 mb-3">
-              <div className="p-3 rounded-xl bg-emerald-500/20 text-emerald-400">
+              <div className="p-3 rounded-xl bg-[#63A26B]/20 text-[#63A26B]">
                 <MessageSquare className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-white">Instant WhatsApp Connect</h3>
-                <p className="text-xs text-slate-300">Fastest response for technical queries & urgent material orders</p>
+                <p className="text-xs text-slate-200">Fastest response for technical queries & urgent material orders</p>
               </div>
             </div>
             <a
               href={COMPANY_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors shadow-lg shadow-emerald-600/20"
+              className="mt-4 w-full py-3.5 px-4 rounded-xl bg-[#63A26B] hover:bg-[#4c8553] text-white font-bold text-sm flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#63A26B]/25"
             >
               Start WhatsApp Chat
               <Send className="w-4 h-4" />

@@ -33,18 +33,18 @@ export default function HomePage() {
       {/* 1. HERO SECTION                                                           */}
       {/* ========================================================================= */}
       <section className="relative pt-14 sm:pt-24 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Ambient Gradient Background Glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-brand-digital-600/15 via-transparent to-brand-industrial-500/15 blur-3xl pointer-events-none rounded-full" />
+        {/* Ambient Gradient Background Glows using Royal Blue, Lavender & Yellow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-gradient-to-tr from-[#1926A0]/25 via-[#757CB6]/15 to-[#FFDB18]/20 blur-[130px] pointer-events-none rounded-full" />
 
         <div className="max-w-5xl mx-auto text-center space-y-8 relative">
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-700 text-xs sm:text-sm font-semibold text-slate-300 shadow-md">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#141434] border border-[#757CB6]/30 text-xs sm:text-sm font-semibold text-slate-200 shadow-md">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#63A26B] animate-ping" />
             <span>Dual-Niche Enterprise • Digital Engineering & Global Materials</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.12]">
             Your brand, your software,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-digital-400 via-sky-300 to-brand-digital-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#757CB6] via-white to-[#FFDB18]">
               and your materials.
             </span>{" "}
             <br />
@@ -61,39 +61,39 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Link
               href="/services?tab=digital"
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-digital-600 to-brand-digital-500 hover:from-brand-digital-500 hover:to-brand-digital-400 text-white font-bold text-sm sm:text-base uppercase tracking-wider shadow-xl shadow-brand-digital-500/25 transition-all flex items-center justify-center gap-2.5 group active:scale-95"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#1926A0] via-[#2736c9] to-[#1926A0] hover:from-[#2736c9] hover:to-[#4d5be3] text-white font-bold text-sm sm:text-base uppercase tracking-wider shadow-xl shadow-[#1926A0]/40 transition-all flex items-center justify-center gap-2.5 group active:scale-95 border border-[#757CB6]/40"
             >
-              <Code2 className="w-5 h-5 text-brand-digital-200 group-hover:scale-110 transition-transform" />
+              <Code2 className="w-5 h-5 text-[#b8bce0] group-hover:scale-110 transition-transform" />
               Digital Solutions & Software
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
             </Link>
 
             <Link
               href="/services?tab=industrial"
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border-2 border-brand-industrial-500/40 hover:border-brand-industrial-500 text-white font-bold text-sm sm:text-base uppercase tracking-wider transition-all flex items-center justify-center gap-2.5 group active:scale-95 shadow-md shadow-brand-industrial-500/10"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#FFDB18] hover:bg-[#ffe34d] text-[#000000] font-black text-sm sm:text-base uppercase tracking-wider transition-all flex items-center justify-center gap-2.5 group active:scale-95 shadow-xl shadow-[#FFDB18]/25 border border-[#FFDB18]"
             >
-              <Layers className="w-5 h-5 text-brand-industrial-400 group-hover:scale-110 transition-transform" />
+              <Layers className="w-5 h-5 text-[#000000] group-hover:scale-110 transition-transform" />
               Industrial Supply & Import
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
             </Link>
           </div>
 
           {/* Trust strip below hero */}
-          <div className="pt-10 flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-sm text-slate-300 border-t border-slate-800/80 font-medium">
+          <div className="pt-10 flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-sm text-slate-300 border-t border-[#757CB6]/20 font-medium">
             <div className="flex items-center gap-2.5">
-              <ShieldCheck className="w-5 h-5 text-emerald-400" />
+              <ShieldCheck className="w-5 h-5 text-[#63A26B]" />
               <span>GST Verified Billing</span>
             </div>
             <div className="flex items-center gap-2.5">
-              <Award className="w-5 h-5 text-brand-industrial-400" />
+              <Award className="w-5 h-5 text-[#FFDB18]" />
               <span>IEC Authorized Importer</span>
             </div>
             <div className="flex items-center gap-2.5">
-              <FileCheck className="w-5 h-5 text-brand-digital-400" />
+              <FileCheck className="w-5 h-5 text-[#757CB6]" />
               <span>EN 10204 3.1 Mill Test Certs</span>
             </div>
             <div className="flex items-center gap-2.5">
-              <Truck className="w-5 h-5 text-sky-400" />
+              <Truck className="w-5 h-5 text-[#4d5be3]" />
               <span>Insured Doorstep Delivery</span>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function HomePage() {
       {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-brand-digital-400">
+          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#757CB6]">
             Two Specialized Divisions
           </span>
           <h2 className="text-3xl sm:text-5xl font-black text-white mt-2">
@@ -115,11 +115,11 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Card 1: Digital Solutions */}
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-brand-dark-900 via-slate-900 to-brand-digital-950/60 border border-brand-digital-500/20 hover:border-brand-digital-500/50 transition-all shadow-xl group">
-            <div className="p-4 rounded-2xl bg-brand-digital-500/10 border border-brand-digital-500/20 text-brand-digital-400 w-fit mb-6">
+          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#0E0E25] via-[#141434] to-[#1926A0]/25 border border-[#1926A0]/40 hover:border-[#757CB6]/60 transition-all shadow-xl group">
+            <div className="p-4 rounded-2xl bg-[#1926A0]/20 border border-[#757CB6]/30 text-[#b8bce0] w-fit mb-6">
               <Code2 className="w-8 h-8" />
             </div>
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-digital-400">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#b8bce0]">
               For Shops, Restaurants & Startups
             </span>
             <h3 className="text-2xl sm:text-4xl font-extrabold text-white mt-2 mb-4">
@@ -131,22 +131,22 @@ export default function HomePage() {
 
             <ul className="space-y-3.5 mb-8 text-sm sm:text-base text-slate-300 font-medium">
               <li className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-brand-digital-400 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-[#757CB6] shrink-0" />
                 <span>Responsive Websites with Local SEO & WhatsApp Order Integrations</span>
               </li>
               <li className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-brand-digital-400 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-[#757CB6] shrink-0" />
                 <span>QuickServe POS & GST Billing Software with Thermal Printing</span>
               </li>
               <li className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-brand-digital-400 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-[#757CB6] shrink-0" />
                 <span>Brand Identity, Logos, Restaurant Menus & Packaging Designs</span>
               </li>
             </ul>
 
             <Link
               href="/services"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-brand-digital-600 hover:bg-brand-digital-500 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors shadow-md shadow-brand-digital-600/30"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#1926A0] via-[#2736c9] to-[#1926A0] hover:from-[#2736c9] hover:to-[#4d5be3] text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors shadow-md shadow-[#1926A0]/35 border border-[#757CB6]/30"
             >
               Explore Digital Services
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
@@ -154,11 +154,11 @@ export default function HomePage() {
           </div>
 
           {/* Card 2: Industrial Materials */}
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-brand-dark-900 via-slate-900 to-brand-industrial-950/60 border border-brand-industrial-500/20 hover:border-brand-industrial-500/50 transition-all shadow-xl group">
-            <div className="p-4 rounded-2xl bg-brand-industrial-500/10 border border-brand-industrial-500/20 text-brand-industrial-400 w-fit mb-6">
+          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#0E0E25] via-[#141434] to-[#FFDB18]/15 border border-[#FFDB18]/40 hover:border-[#FFDB18]/70 transition-all shadow-xl group">
+            <div className="p-4 rounded-2xl bg-[#FFDB18]/15 border border-[#FFDB18]/30 text-[#FFDB18] w-fit mb-6">
               <Layers className="w-8 h-8" />
             </div>
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-industrial-400">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#FFDB18]">
               For Workshops, R&D Labs & Factories
             </span>
             <h3 className="text-2xl sm:text-4xl font-extrabold text-white mt-2 mb-4">
@@ -170,22 +170,22 @@ export default function HomePage() {
 
             <ul className="space-y-3.5 mb-8 text-sm sm:text-base text-slate-300 font-medium">
               <li className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-brand-industrial-400 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-[#FFDB18] shrink-0" />
                 <span>Certified Titanium (Gr 1, 2, 5, 9) in Rods, Sheets, Wire & 3D Powder</span>
               </li>
               <li className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-brand-industrial-400 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-[#FFDB18] shrink-0" />
                 <span>Neodymium N52 Magnets, Rare-Earth Ingot Alloys & Electronic ICs</span>
               </li>
               <li className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-brand-industrial-400 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-[#FFDB18] shrink-0" />
                 <span>Low-MOQ Prototyping Batches (1kg–5kg) with Doorstep Port Customs Handling</span>
               </li>
             </ul>
 
             <Link
               href="/services"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-brand-industrial-600 hover:bg-brand-industrial-500 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors shadow-md shadow-brand-industrial-600/30"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#FFDB18] hover:bg-[#ffe34d] text-[#000000] font-black text-xs sm:text-sm uppercase tracking-wider transition-colors shadow-md shadow-[#FFDB18]/25"
             >
               Explore Materials Catalog
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
@@ -344,7 +344,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="p-7 rounded-2xl glass-panel space-y-3">
-            <span className="text-3xl font-black text-brand-digital-400 font-display">01</span>
+            <span className="text-3xl font-black text-[#757CB6] font-display">01</span>
             <h3 className="text-lg font-bold text-white">Share Requirement</h3>
             <p className="text-sm text-slate-300 leading-relaxed">
               Tell us your website scope or specify the alloy grade, form, and quantity required.
@@ -352,7 +352,7 @@ export default function HomePage() {
           </div>
 
           <div className="p-7 rounded-2xl glass-panel space-y-3">
-            <span className="text-3xl font-black text-brand-digital-400 font-display">02</span>
+            <span className="text-3xl font-black text-[#4d5be3] font-display">02</span>
             <h3 className="text-lg font-bold text-white">Transparent Quote</h3>
             <p className="text-sm text-slate-300 leading-relaxed">
               Receive a fixed scope proposal or a landed mill import quote with customs and timeline.
@@ -360,7 +360,7 @@ export default function HomePage() {
           </div>
 
           <div className="p-7 rounded-2xl glass-panel space-y-3">
-            <span className="text-3xl font-black text-brand-industrial-400 font-display">03</span>
+            <span className="text-3xl font-black text-[#FFDB18] font-display">03</span>
             <h3 className="text-lg font-bold text-white">Build or Source</h3>
             <p className="text-sm text-slate-300 leading-relaxed">
               We engineer your software or inspect overseas materials with laboratory spectrometers.
@@ -368,7 +368,7 @@ export default function HomePage() {
           </div>
 
           <div className="p-7 rounded-2xl glass-panel space-y-3">
-            <span className="text-3xl font-black text-brand-industrial-400 font-display">04</span>
+            <span className="text-3xl font-black text-[#63A26B] font-display">04</span>
             <h3 className="text-lg font-bold text-white">Deliver & Support</h3>
             <p className="text-sm text-slate-300 leading-relaxed">
               Deployment to production or doorstep transport with test certificates & GST invoice.
@@ -381,7 +381,7 @@ export default function HomePage() {
       {/* 6. CALL TO ACTION STRIP                                                   */}
       {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-8 sm:p-16 rounded-3xl bg-gradient-to-r from-brand-digital-950 via-brand-dark-900 to-brand-industrial-950 border border-slate-800 text-center space-y-6 shadow-2xl">
+        <div className="p-8 sm:p-16 rounded-3xl bg-gradient-to-r from-[#1926A0]/30 via-[#0E0E25] to-[#FFDB18]/20 border border-[#757CB6]/30 text-center space-y-6 shadow-2xl">
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
             Tell Us What You Need
           </h2>
@@ -391,7 +391,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Link
               href="/contact"
-              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-brand-digital-600 hover:bg-brand-digital-500 text-white font-bold text-sm uppercase tracking-wider transition-colors shadow-lg shadow-brand-digital-600/30"
+              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-gradient-to-r from-[#1926A0] via-[#2736c9] to-[#1926A0] hover:from-[#2736c9] hover:to-[#4d5be3] text-white font-bold text-sm uppercase tracking-wider transition-colors shadow-lg shadow-[#1926A0]/40 border border-[#757CB6]/30"
             >
               Get a Free Quote
             </Link>
@@ -399,7 +399,7 @@ export default function HomePage() {
               href={COMPANY_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 font-bold text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-[#63A26B]/20 hover:bg-[#63A26B]/30 border border-[#63A26B]/50 text-[#63A26B] hover:text-white font-bold text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-sm shadow-[#63A26B]/20"
             >
               <MessageSquare className="w-4 h-4" />
               WhatsApp: {COMPANY_INFO.displayPhone}

@@ -47,7 +47,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-brand-dark-950 text-slate-100 font-sans selection:bg-brand-digital-500 selection:text-white">
+      <body className="min-h-screen flex flex-col bg-brand-dark-900 text-slate-100 font-sans selection:bg-brand-digital-600 selection:text-white">
         <Preloader />
         <Navbar />
         <main className="flex-1 pt-20">{children}</main>

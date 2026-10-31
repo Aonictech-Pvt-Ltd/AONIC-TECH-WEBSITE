@@ -1,3 +1,13 @@
+export const BRAND_COLORS = {
+  green: "#63A26B",
+  yellow: "#FFDB18",
+  lavender: "#757CB6",
+  royalBlue: "#1926A0",
+  darkNavy: "#0E0E25",
+  black: "#000000",
+  white: "#FFFFFF",
+};
+
 export const COMPANY_INFO = {
   name: "Aonictech",
   legalName: "AONIC TECH PRIVATE. Ltd.",
