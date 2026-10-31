@@ -191,13 +191,9 @@ export default function Footer() {
 
           <div className="flex items-center gap-6 text-xs text-slate-300">
             <span>Hyderabad, Telangana</span>
-            <div className="flex items-center gap-4">
-              <Link href="/privacy" className="hover:text-[#FFDB18] transition-colors">
-                Privacy Policy
-              </Link>
-              <span>•</span>
+            <div>
               <Link href="/terms" className="hover:text-[#FFDB18] transition-colors">
-                Terms & Conditions
+                Terms of Service & Privacy Policy
               </Link>
             </div>
           </div>
