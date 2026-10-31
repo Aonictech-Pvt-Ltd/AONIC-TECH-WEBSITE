@@ -42,3 +42,4 @@ The user specified the following precise hex color values, derived directly from
 - **`src/components/layout/Navbar.tsx`**: Uses `#0E0E25` Dark Navy background, `#757CB6` borders, `#63A26B` WhatsApp button, and `#1926A0` Quote CTA.
 - **`src/components/layout/Footer.tsx`**: Uses `#0E0E25` Dark Navy, `#1926A0` to `#FFDB18` ambient gradient, and `#63A26B` verified indicators.
 - **`src/app/page.tsx` & `src/app/services/page.tsx`**: Distinct visual styling for Digital Solutions (`#1926A0` & `#757CB6`) versus Industrial Supply (`#FFDB18`).
+

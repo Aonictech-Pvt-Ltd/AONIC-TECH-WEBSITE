@@ -12,7 +12,6 @@ import {
   CheckCircle2, 
   AlertCircle,
   HelpCircle,
-  Package,
   Layers,
   Navigation
 } from "lucide-react";
@@ -96,16 +95,16 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-white text-[#0E0E25]">
       {/* Page Header */}
       <div className="max-w-4xl mx-auto text-center mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-digital-500/10 border border-brand-digital-500/20 text-brand-digital-400 text-xs font-semibold uppercase tracking-wider mb-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#757CB6]/30 text-[#1926A0] text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
           Direct Communication & Fast Quotes
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-5xl font-black text-[#0E0E25] tracking-tight mb-4">
           Let’s Build Your Software or Source Your Materials
         </h1>
-        <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
+        <p className="text-[#0E0E25]/75 text-base sm:text-lg max-w-2xl mx-auto">
           We reply within 24 hours. Fill out the form below or message our engineering team directly on WhatsApp for immediate assistance.
         </p>
       </div>
@@ -114,14 +113,14 @@ export default function ContactPage() {
         {/* Contact Info & Channels (Left 5 Cols) */}
         <div className="lg:col-span-5 space-y-8">
           {/* Quick WhatsApp Action Banner in Green (#63A26B) */}
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-[#63A26B]/25 via-[#0E0E25] to-[#141434] border border-[#63A26B]/40 shadow-xl">
+          <div className="p-6 rounded-2xl bg-[#63A26B]/15 border border-[#63A26B]/40 shadow-md">
             <div className="flex items-center gap-3 mb-3">
-              <div className="p-3 rounded-xl bg-[#63A26B]/20 text-[#63A26B]">
+              <div className="p-3 rounded-xl bg-[#63A26B] text-white">
                 <MessageSquare className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white">Instant WhatsApp Connect</h3>
-                <p className="text-xs text-slate-200">Fastest response for technical queries & urgent material orders</p>
+                <h3 className="text-lg font-bold text-[#0E0E25]">Instant WhatsApp Connect</h3>
+                <p className="text-xs text-[#0E0E25]/75">Fastest response for technical queries & urgent material orders</p>
               </div>
             </div>
             <a
@@ -136,21 +135,21 @@ export default function ContactPage() {
           </div>
 
           {/* Direct Details Card */}
-          <div className="p-7 rounded-2xl glass-panel space-y-6">
-            <h3 className="text-lg font-bold text-white uppercase tracking-wider">
+          <div className="p-7 rounded-2xl bg-white border border-[#757CB6]/25 shadow-md space-y-6">
+            <h3 className="text-lg font-bold text-[#0E0E25] uppercase tracking-wider">
               Direct Contact Information
             </h3>
 
             <div className="space-y-5 text-sm sm:text-base">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-slate-800 text-brand-digital-400 shrink-0">
+                <div className="p-3 rounded-xl bg-[#757CB6]/15 text-[#1926A0] shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold text-slate-400 block uppercase tracking-wider">Phone Support</span>
+                  <span className="text-xs font-semibold text-[#757CB6] block uppercase tracking-wider">Phone Support</span>
                   <a
                     href={`tel:${COMPANY_INFO.phone}`}
-                    className="text-white font-mono hover:text-brand-digital-400 transition-colors font-semibold text-base sm:text-lg"
+                    className="text-[#0E0E25] font-mono hover:text-[#1926A0] transition-colors font-bold text-base sm:text-lg"
                   >
                     {COMPANY_INFO.displayPhone}
                   </a>
@@ -158,14 +157,14 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-slate-800 text-brand-digital-400 shrink-0">
+                <div className="p-3 rounded-xl bg-[#757CB6]/15 text-[#1926A0] shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold text-slate-400 block uppercase tracking-wider">Official Email</span>
+                  <span className="text-xs font-semibold text-[#757CB6] block uppercase tracking-wider">Official Email</span>
                   <a
                     href={`mailto:${COMPANY_INFO.email}`}
-                    className="text-white hover:text-brand-digital-400 transition-colors font-semibold text-base sm:text-lg"
+                    className="text-[#0E0E25] hover:text-[#1926A0] transition-colors font-bold text-base sm:text-lg"
                   >
                     {COMPANY_INFO.email}
                   </a>
@@ -173,51 +172,51 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-slate-800 text-brand-industrial-400 shrink-0">
+                <div className="p-3 rounded-xl bg-[#757CB6]/15 text-[#0E0E25] shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold text-slate-400 block uppercase tracking-wider">Registered Location</span>
-                  <span className="text-slate-200 font-medium text-sm sm:text-base leading-relaxed block">
+                  <span className="text-xs font-semibold text-[#757CB6] block uppercase tracking-wider">Registered Location</span>
+                  <span className="text-[#0E0E25] font-medium text-sm sm:text-base leading-relaxed block">
                     {COMPANY_INFO.address}
                   </span>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-slate-800 text-brand-industrial-400 shrink-0">
+                <div className="p-3 rounded-xl bg-[#757CB6]/15 text-[#0E0E25] shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold text-slate-400 block uppercase tracking-wider">Operating Hours</span>
-                  <span className="text-slate-200 font-medium text-sm sm:text-base">
+                  <span className="text-xs font-semibold text-[#757CB6] block uppercase tracking-wider">Operating Hours</span>
+                  <span className="text-[#0E0E25] font-medium text-sm sm:text-base">
                     {COMPANY_INFO.workingHours}
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-800 grid grid-cols-2 gap-3">
-              <div className="p-3.5 rounded-xl bg-slate-800/60 border border-slate-700/60">
-                <span className="text-slate-400 block text-xs font-semibold tracking-wider">VERIFIED GSTIN</span>
-                <span className="text-slate-200 font-mono font-bold text-xs sm:text-sm">{COMPANY_INFO.gstin}</span>
+            <div className="pt-4 border-t border-[#757CB6]/20 grid grid-cols-2 gap-3">
+              <div className="p-3.5 rounded-xl bg-[#757CB6]/10 border border-[#757CB6]/20">
+                <span className="text-[#757CB6] block text-xs font-bold tracking-wider">VERIFIED GSTIN</span>
+                <span className="text-[#0E0E25] font-mono font-bold text-xs sm:text-sm">{COMPANY_INFO.gstin}</span>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-800/60 border border-slate-700/60">
-                <span className="text-slate-400 block text-xs font-semibold tracking-wider">IMPORT EXPORT CODE</span>
-                <span className="text-slate-200 font-mono font-bold text-xs sm:text-sm">{COMPANY_INFO.iecNumber}</span>
+              <div className="p-3.5 rounded-xl bg-[#757CB6]/10 border border-[#757CB6]/20">
+                <span className="text-[#757CB6] block text-xs font-bold tracking-wider">IMPORT EXPORT CODE</span>
+                <span className="text-[#0E0E25] font-mono font-bold text-xs sm:text-sm">{COMPANY_INFO.iecNumber}</span>
               </div>
             </div>
 
             {/* Google Maps Location Preview */}
             <div className="pt-2">
-              <span className="text-sm font-bold text-slate-200 block mb-2">Office Location Map</span>
-              <div className="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 group">
+              <span className="text-sm font-bold text-[#0E0E25] block mb-2">Office Location Map</span>
+              <div className="relative rounded-xl overflow-hidden border border-[#757CB6]/30 bg-white group shadow-sm">
                 <iframe
                   title="Aonictech Hyderabad Headquarters"
                   src={COMPANY_INFO.googleMapsEmbedUrl}
                   width="100%"
                   height="170"
-                  style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(85%)" }}
+                  style={{ border: 0 }}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="w-full"
@@ -226,26 +225,26 @@ export default function ContactPage() {
                   href={COMPANY_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute bottom-3 right-3 px-3.5 py-2 rounded-lg bg-brand-dark-950/95 border border-slate-700 text-xs font-semibold text-brand-digital-400 hover:text-white flex items-center gap-1.5 shadow-lg backdrop-blur-sm transition-colors"
+                  className="absolute bottom-3 right-3 px-3.5 py-2 rounded-lg bg-white/95 border border-[#757CB6]/40 text-xs font-bold text-[#1926A0] hover:text-[#0E0E25] flex items-center gap-1.5 shadow-md backdrop-blur-sm transition-colors"
                 >
                   <Navigation className="w-3.5 h-3.5" />
-                  Get Directions in Google Maps
+                  Directions in Maps
                 </a>
               </div>
             </div>
           </div>
 
           {/* FAQs Accordion/List */}
-          <div className="p-7 rounded-2xl glass-panel space-y-4">
-            <h3 className="text-lg font-bold text-white flex items-center gap-2">
-              <HelpCircle className="w-5 h-5 text-brand-digital-400" />
+          <div className="p-7 rounded-2xl bg-white border border-[#757CB6]/25 shadow-md space-y-4">
+            <h3 className="text-lg font-bold text-[#0E0E25] flex items-center gap-2">
+              <HelpCircle className="w-5 h-5 text-[#1926A0]" />
               Frequently Asked Questions
             </h3>
             <div className="space-y-3.5">
               {faqs.map((faq, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-1.5">
-                  <h4 className="text-sm font-bold text-white">{faq.q}</h4>
-                  <p className="text-sm text-slate-300 leading-relaxed">{faq.a}</p>
+                <div key={idx} className="p-4 rounded-xl bg-white border border-[#757CB6]/20 shadow-sm space-y-1.5">
+                  <h4 className="text-sm font-bold text-[#0E0E25]">{faq.q}</h4>
+                  <p className="text-sm text-[#0E0E25]/75 leading-relaxed">{faq.a}</p>
                 </div>
               ))}
             </div>
@@ -254,17 +253,17 @@ export default function ContactPage() {
 
         {/* Dynamic Interactive Quotation Form (Right 7 Cols) */}
         <div className="lg:col-span-7">
-          <div className="p-8 sm:p-10 rounded-3xl glass-panel border border-slate-800 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-digital-500/10 blur-3xl pointer-events-none rounded-full" />
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#757CB6]/25 shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#1926A0]/5 blur-3xl pointer-events-none rounded-full" />
             
             {submitted ? (
               <div className="py-16 text-center space-y-5 animate-in fade-in duration-300">
-                <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 bg-[#63A26B]/20 text-[#63A26B] rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Inquiry Received!</h3>
-                <p className="text-slate-300 text-sm max-w-md mx-auto">
-                  Thank you for reaching out. Our engineering & procurement desk will review your specifications and contact you at <strong className="text-white">{formData.email}</strong> or <strong className="text-white">{formData.phone}</strong> within 24 hours.
+                <h3 className="text-2xl font-bold text-[#0E0E25]">Inquiry Received!</h3>
+                <p className="text-[#0E0E25]/75 text-sm max-w-md mx-auto">
+                  Thank you for reaching out. Our engineering & procurement desk will review your specifications and contact you at <strong className="text-[#0E0E25]">{formData.email}</strong> or <strong className="text-[#0E0E25]">{formData.phone}</strong> within 24 hours.
                 </p>
                 <button
                   onClick={() => {
@@ -282,7 +281,7 @@ export default function ContactPage() {
                       message: "",
                     });
                   }}
-                  className="px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition-colors"
+                  className="px-6 py-2.5 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white text-xs font-bold transition-colors"
                 >
                   Submit Another Request
                 </button>
@@ -290,16 +289,16 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6 relative">
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                  <h2 className="text-2xl sm:text-3xl font-black text-[#0E0E25] mb-2">
                     Request a Customized Quote
                   </h2>
-                  <p className="text-sm text-slate-300 leading-relaxed">
+                  <p className="text-sm text-[#0E0E25]/75 leading-relaxed">
                     Select your service. For materials, specify grade and required dimensions for instant mill pricing.
                   </p>
                 </div>
 
                 {errorMsg && (
-                  <div className="p-4 rounded-xl bg-red-950/60 border border-red-800/60 text-red-300 text-sm flex items-center gap-2.5">
+                  <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm flex items-center gap-2.5">
                     <AlertCircle className="w-5 h-5 shrink-0" />
                     <span>{errorMsg}</span>
                   </div>
@@ -307,14 +306,14 @@ export default function ContactPage() {
 
                 {/* Primary Category Selector Dropdown */}
                 <div>
-                  <label className="block text-sm font-bold text-slate-200 mb-2">
-                    I am interested in: <span className="text-red-400">*</span>
+                  <label className="block text-sm font-bold text-[#0E0E25] mb-2">
+                    I am interested in: <span className="text-red-500">*</span>
                   </label>
                   <select
                     name="serviceType"
                     value={formData.serviceType}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-base focus:outline-none focus:border-brand-digital-500 focus:ring-1 focus:ring-brand-digital-500 font-medium"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#757CB6]/30 text-[#0E0E25] text-base focus:outline-none focus:border-[#1926A0] focus:ring-1 focus:ring-[#1926A0] font-medium shadow-sm"
                     required
                   >
                     <optgroup label="Digital Solutions & Branding">
@@ -338,8 +337,8 @@ export default function ContactPage() {
                 {/* Basic Personal / Company Fields */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-semibold text-slate-200 mb-2">
-                      Your Full Name <span className="text-red-400">*</span>
+                    <label className="block text-sm font-semibold text-[#0E0E25] mb-2">
+                      Your Full Name <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -348,13 +347,13 @@ export default function ContactPage() {
                       onChange={handleChange}
                       placeholder="e.g. Rahul Sharma"
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-base focus:outline-none focus:border-brand-digital-500"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[#757CB6]/30 text-[#0E0E25] text-base focus:outline-none focus:border-[#1926A0] shadow-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-slate-200 mb-2">
-                      Phone / WhatsApp Number <span className="text-red-400">*</span>
+                    <label className="block text-sm font-semibold text-[#0E0E25] mb-2">
+                      Phone / WhatsApp Number <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="tel"
@@ -363,14 +362,14 @@ export default function ContactPage() {
                       onChange={handleChange}
                       placeholder="e.g. +91 98765 43210"
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-base focus:outline-none focus:border-brand-digital-500 font-mono"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[#757CB6]/30 text-[#0E0E25] text-base focus:outline-none focus:border-[#1926A0] font-mono shadow-sm"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
-                    Email Address <span className="text-red-400">*</span>
+                  <label className="block text-sm font-semibold text-[#0E0E25] mb-2">
+                    Email Address <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -379,15 +378,15 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="e.g. contact@yourbusiness.com"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-base focus:outline-none focus:border-brand-digital-500"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#757CB6]/30 text-[#0E0E25] text-base focus:outline-none focus:border-[#1926A0] shadow-sm"
                   />
                 </div>
 
                 {/* CONDITIONAL FIELDS: Triggered when an Industrial Material is Selected */}
                 {isMaterialCategory && (
-                  <div className="p-6 rounded-2xl bg-brand-industrial-500/10 border border-brand-industrial-500/30 space-y-4 animate-in fade-in duration-300">
-                    <div className="flex items-center gap-2 pb-2 border-b border-brand-industrial-500/20 text-brand-industrial-400">
-                      <Layers className="w-5 h-5" />
+                  <div className="p-6 rounded-2xl bg-[#FFDB18]/15 border border-[#FFDB18]/40 space-y-4 animate-in fade-in duration-300">
+                    <div className="flex items-center gap-2 pb-2 border-b border-[#FFDB18]/30 text-[#0E0E25]">
+                      <Layers className="w-5 h-5 text-[#0E0E25]" />
                       <span className="text-sm font-bold uppercase tracking-wider">
                         Material Specifications (Required for Mill Pricing)
                       </span>
@@ -395,7 +394,7 @@ export default function ContactPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-slate-200 mb-1.5">
+                        <label className="block text-xs font-semibold text-[#0E0E25] mb-1.5">
                           Material Name / Alloy Type
                         </label>
                         <input
@@ -404,12 +403,12 @@ export default function ContactPage() {
                           value={formData.materialName}
                           onChange={handleChange}
                           placeholder="e.g. Titanium, Inconel, Neodymium N52"
-                          className="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-industrial-500"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-[#757CB6]/30 text-[#0E0E25] text-sm focus:outline-none focus:border-[#1926A0] shadow-sm"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-slate-200 mb-1.5">
+                        <label className="block text-xs font-semibold text-[#0E0E25] mb-1.5">
                           Specific Grade / ASTM / DIN
                         </label>
                         <input
@@ -418,21 +417,21 @@ export default function ContactPage() {
                           value={formData.materialGrade}
                           onChange={handleChange}
                           placeholder="e.g. Grade 5 (Ti-6Al-4V), STM32F4"
-                          className="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-industrial-500"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-[#757CB6]/30 text-[#0E0E25] text-sm focus:outline-none focus:border-[#1926A0] shadow-sm"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       <div>
-                        <label className="block text-xs font-semibold text-slate-200 mb-1.5">
+                        <label className="block text-xs font-semibold text-[#0E0E25] mb-1.5">
                           Form Needed
                         </label>
                         <select
                           name="materialForm"
                           value={formData.materialForm}
                           onChange={handleChange}
-                          className="w-full px-3 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-industrial-500"
+                          className="w-full px-3 py-2.5 rounded-lg bg-white border border-[#757CB6]/30 text-[#0E0E25] text-sm focus:outline-none focus:border-[#1926A0] shadow-sm font-medium"
                         >
                           <option value="Round Rod">Round Rod / Bar</option>
                           <option value="Sheet / Plate">Sheet / Plate</option>
@@ -445,7 +444,7 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-slate-200 mb-1.5">
+                        <label className="block text-xs font-semibold text-[#0E0E25] mb-1.5">
                           Quantity Needed (Low MOQ OK)
                         </label>
                         <input
@@ -454,12 +453,12 @@ export default function ContactPage() {
                           value={formData.quantity}
                           onChange={handleChange}
                           placeholder="e.g. 5 kg or 50 pcs"
-                          className="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-industrial-500"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-[#757CB6]/30 text-[#0E0E25] text-sm focus:outline-none focus:border-[#1926A0] shadow-sm"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-slate-200 mb-1.5">
+                        <label className="block text-xs font-semibold text-[#0E0E25] mb-1.5">
                           Delivery City / Pincode
                         </label>
                         <input
@@ -468,7 +467,7 @@ export default function ContactPage() {
                           value={formData.deliveryLocation}
                           onChange={handleChange}
                           placeholder="e.g. Hyderabad - 500001"
-                          className="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-industrial-500"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-[#757CB6]/30 text-[#0E0E25] text-sm focus:outline-none focus:border-[#1926A0] shadow-sm"
                         />
                       </div>
                     </div>
@@ -477,7 +476,7 @@ export default function ContactPage() {
 
                 {/* Requirement / Message Details */}
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-[#0E0E25] mb-2">
                     Project Details or Specific Requirements
                   </label>
                   <textarea
@@ -486,14 +485,14 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell us about your website pages, software workflow, or required material tolerances..."
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-base focus:outline-none focus:border-brand-digital-500"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#757CB6]/30 text-[#0E0E25] text-base focus:outline-none focus:border-[#1926A0] shadow-sm"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-brand-digital-600 via-brand-digital-500 to-brand-industrial-500 hover:from-brand-digital-500 hover:to-brand-industrial-400 text-white font-bold text-base uppercase tracking-wider shadow-lg shadow-brand-digital-500/25 transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 cursor-pointer"
+                  className="w-full py-4 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-base uppercase tracking-wider shadow-lg shadow-[#1926A0]/25 transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 cursor-pointer"
                 >
                   {submitting ? (
                     <>
@@ -508,9 +507,9 @@ export default function ContactPage() {
                   )}
                 </button>
 
-                <div className="flex items-center justify-center gap-4 text-xs font-medium text-slate-300 pt-2">
+                <div className="flex items-center justify-center gap-4 text-xs font-semibold text-[#757CB6] pt-2">
                   <span className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                    <ShieldCheck className="w-4 h-4 text-[#63A26B]" />
                     No spam guaranteed
                   </span>
                   <span>•</span>

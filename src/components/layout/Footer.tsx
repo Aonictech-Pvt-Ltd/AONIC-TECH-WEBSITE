@@ -12,6 +12,7 @@ import {
   Youtube
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
+import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -28,25 +29,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-6">
             {/* Company Logo Card */}
             <Link href="/" className="inline-block group">
-              <div className="flex items-center gap-3.5">
-                <div className="w-14 h-14 rounded-2xl p-1 bg-[#141434] border border-[#757CB6]/30 flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform">
-                  <img
-                    src="/images/company-logo-mark.png"
-                    alt="Aonictech Logo"
-                    className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(25,38,160,0.5)]"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-2xl font-black tracking-tight text-white flex items-center gap-1.5 leading-none">
-                    AONICTECH
-                    <span className="w-2 h-2 rounded-full bg-[#FFDB18] shadow-sm shadow-[#FFDB18] animate-pulse" />
-                  </span>
-                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#757CB6] mt-1.5">
-                    Digital & Industrial
-                  </span>
-                </div>
-              </div>
+              <Logo size={46} variant="dark" />
             </Link>
 
             {/* Headquarters Section */}

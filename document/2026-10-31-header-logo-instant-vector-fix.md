@@ -27,3 +27,4 @@ Because `public/images/logo.png` did not exist as a physical PNG file on disk (o
 ## 2. Verification
 
 - Production build passed 11/11 routes with 0 errors.
+

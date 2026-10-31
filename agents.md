@@ -96,4 +96,30 @@ Aonictech operates as a dual-niche enterprise under one roof:
 1. **Niche 1: Digital Solutions & Branding** (Web Development, E-Commerce, POS & Billing Software, Custom Apps, Logo/Branding, Packaging Design).
 2. **Niche 2: Industrial Materials Import & Supply** (Titanium & Specialty Alloys, Rare-Earth Elements, Electronic Chip IC Sourcing, Low-MOQ Supply, Custom Sourcing, Import Customs & Doorstep Delivery).
 
-*Every developer and AI agent working on this repository must honor these standards.*
+---
+
+## 7. Strict Brand Color Palette & Theme Directives
+
+> **MANDATORY CONSTRAINTS**:
+> 1. You must use **ONLY** the 7 official brand colors listed in the table below across the entire website (components, pages, typography, badges, borders, backgrounds, buttons, icons). No external colors, arbitrary grays, or off-palette hues are allowed.
+> 2. The website follows an ultra-clean **White Theme (`#FFFFFF`)**:
+>    - Primary canvas background: Pure White (`#FFFFFF`).
+>    - Primary text & headlines: Dark Navy (`#0E0E25`) and Black (`#000000`).
+>    - Primary action & digital accents: Royal Blue (`#1926A0`).
+>    - Secondary accents, borders, dividers, subtle captions: Lavender (`#757CB6`).
+>    - Division highlights, star ratings, alert dots: Yellow (`#FFDB18`).
+>    - WhatsApp, success states, positive verification: Green (`#63A26B`).
+>    - Grounding / contrast elements (e.g. corporate footer): Dark Navy (`#0E0E25`).
+
+### Official Color Codes
+| Color Name | HEX Code | Tailwind Token | Application & Role |
+| :--- | :--- | :--- | :--- |
+| **White** | `#FFFFFF` | `palette.white` / `bg-white` | Primary canvas, cards, navbar background, crisp contrast |
+| **Dark Navy** | `#0E0E25` | `palette.navy` / `brand.dark` | Main headings, body typography, corporate footer, deep contrast |
+| **Black** | `#000000` | `palette.black` / `text-black` | Maximum contrast typography, crisp borders, dark accents |
+| **Royal Blue** | `#1926A0` | `palette.royal` / `brand.digital` | Primary CTA buttons, digital division accent, interactive links |
+| **Lavender** | `#757CB6` | `palette.lavender` / `brand.lavender` | Subtitles, card borders (`#757CB6`/20), subtle dividers, badges |
+| **Yellow** | `#FFDB18` | `palette.yellow` / `brand.industrial` | Industrial division accent, pulsing status dots, gold footer headings |
+| **Green** | `#63A26B` | `palette.green` / `brand.green` | Floating WhatsApp launcher, success badges, checkmarks |
+
+*Every developer and AI agent working on this repository must honor these standards without exception.*

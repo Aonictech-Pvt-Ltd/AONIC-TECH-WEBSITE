@@ -7,9 +7,17 @@ interface LogoProps {
   className?: string;
   size?: number;
   showText?: boolean;
+  variant?: "light" | "dark";
 }
 
-export default function Logo({ className, size = 42, showText = true }: LogoProps) {
+export default function Logo({ 
+  className, 
+  size = 42, 
+  showText = true,
+  variant = "light" 
+}: LogoProps) {
+  const isDark = variant === "dark";
+
   return (
     <div className={cn("flex items-center gap-3", className)}>
       {/* Official Company Circuit Emblem */}
@@ -30,7 +38,12 @@ export default function Logo({ className, size = 42, showText = true }: LogoProp
       {/* Brand Text */}
       {showText && (
         <div className="flex flex-col">
-          <span className="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-1.5 leading-none">
+          <span 
+            className={cn(
+              "text-xl sm:text-2xl font-black tracking-tight flex items-center gap-1.5 leading-none transition-colors",
+              isDark ? "text-white" : "text-[#0E0E25]"
+            )}
+          >
             AONICTECH
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFDB18] shadow-sm shadow-[#FFDB18] animate-pulse" />
           </span>

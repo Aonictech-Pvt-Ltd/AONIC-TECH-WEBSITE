@@ -34,3 +34,4 @@ The user reported that the website typography was generic and font sizes appeare
 - **Projects Page:** Case study challenges and solutions scaled to `text-sm`, commercial metrics to `text-base font-bold`, and credentials to `text-sm`.
 - **About Page:** Genesis story, mission/vision, and legal credential cards scaled to `text-base` and `text-sm` with bold mono tags.
 - **Footer:** Company address, quick links, capabilities, and phone/email details scaled to `text-sm` and `text-base` font weights.
+
