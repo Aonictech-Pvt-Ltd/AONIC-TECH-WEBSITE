@@ -10,7 +10,7 @@ export const BRAND_COLORS = {
 
 export const COMPANY_INFO = {
   name: "Aonictech",
-  legalName: "AONIC TECH PRIVATE. Ltd.",
+  legalName: "Aonic Tech Private Limited",
   phone: "+91 7396888679",
   displayPhone: "+91 73968 88679",
   whatsappNumber: "917396888679",

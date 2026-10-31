@@ -29,3 +29,4 @@ Enable the grand cinematic intro choreography on **every single refresh** while 
    - Dock state: When it lands, because it is at `scale(1)`, it matches the navbar logo underneath down to the exact pixel.
 3. **Execution on Every Refresh**:
    Removed `sessionStorage` restriction so the user experiences the full AAA cinematic intro on every page refresh without any loading glitch or visual artifact.
+

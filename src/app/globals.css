@@ -8,6 +8,13 @@
   :root {
     --background: 0 0% 100%; /* #FFFFFF Pure White */
     --foreground: 240 45% 10%; /* #0E0E25 Dark Navy */
+    --logo-intro-scale: 1.25;
+  }
+
+  @media (min-width: 640px) {
+    :root {
+      --logo-intro-scale: 1.45;
+    }
   }
 
   html {

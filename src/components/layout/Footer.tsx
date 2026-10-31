@@ -43,23 +43,31 @@ export default function Footer() {
                 Telangana - 500060
               </p>
 
-              {/* Google Maps Link with Multi-Color Google Maps Pin */}
+              {/* Google Maps Link with Brand Yellow Vector Location Pin */}
               <div className="pt-2">
                 <a
                   href={COMPANY_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-slate-200 hover:text-[#FFDB18] transition-colors group"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#FFDB18] hover:text-white transition-colors group"
                 >
-                  {/* Google Maps Official Multi-Color Pin Icon */}
-                  <svg className="w-4 h-5 shrink-0" viewBox="0 0 92 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M46 0C20.6 0 0 20.6 0 46C0 80.5 46 130 46 130C46 130 92 80.5 92 46C92 20.6 71.4 0 46 0Z" fill="#EA4335"/>
-                    <path d="M46 0C20.6 0 0 20.6 0 46C0 55.6 3 64.5 8.1 71.9L46 130C46 130 46.2 129.8 46.4 129.5L46 0Z" fill="#D93025"/>
-                    <path d="M46 22C32.7 22 22 32.7 22 46C22 59.3 32.7 70 46 70C59.3 70 70 59.3 70 46C70 32.7 59.3 22 46 22Z" fill="#FFFFFF"/>
-                    <path d="M46 30C37.2 30 30 37.2 30 46C30 54.8 37.2 62 46 62C54.8 62 62 54.8 62 46C62 37.2 54.8 30 46 30Z" fill="#4285F4"/>
-                  </svg>
-                  <span className="underline decoration-slate-600 underline-offset-4 group-hover:decoration-[#FFDB18]">Google Maps</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#FFDB18] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  {/* Clean SVG Vector Location Pin in Brand Yellow (#FFDB18) */}
+                  <div className="w-6 h-6 rounded-lg bg-[#FFDB18]/20 border border-[#FFDB18]/50 flex items-center justify-center shrink-0 group-hover:bg-[#FFDB18] transition-all">
+                    <svg
+                      className="w-3.5 h-3.5 text-[#FFDB18] group-hover:text-[#0E0E25] transition-colors"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </div>
+                  <span className="underline decoration-[#FFDB18]/50 underline-offset-4 group-hover:decoration-white">Google Maps</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#FFDB18] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </div>
             </div>
@@ -189,14 +197,10 @@ export default function Footer() {
             © {currentYear} {COMPANY_INFO.legalName}. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-4 sm:gap-6 text-xs text-slate-300">
-            <span>Hyderabad, Telangana</span>
-            <span className="text-[#757CB6]/40">•</span>
-            <div>
-              <Link href="/privacy-and-terms" className="hover:text-[#FFDB18] transition-colors underline decoration-[#757CB6]/40 underline-offset-4">
-                Privacy Policy & Terms
-              </Link>
-            </div>
+          <div className="flex items-center text-xs text-slate-300">
+            <Link href="/privacy-and-terms" className="hover:text-[#FFDB18] transition-colors underline decoration-[#757CB6]/40 underline-offset-4">
+              Privacy Policy & Terms
+            </Link>
           </div>
         </div>
       </div>

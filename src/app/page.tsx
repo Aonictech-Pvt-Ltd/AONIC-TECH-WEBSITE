@@ -402,7 +402,7 @@ export default function HomePage() {
               className="w-full sm:w-auto px-6 sm:px-9 py-3.5 sm:py-4 rounded-xl bg-[#63A26B] hover:bg-[#528959] text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-lg shadow-black/30 min-h-[44px]"
             >
               <WhatsAppIcon variant="outline" className="w-5 h-5 text-white fill-white" />
-              WhatsApp: {COMPANY_INFO.displayPhone}
+              WhatsApp
             </a>
           </div>
         </div>

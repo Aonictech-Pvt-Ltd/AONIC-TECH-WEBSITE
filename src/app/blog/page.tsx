@@ -379,7 +379,7 @@ export default function BlogPage() {
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#63A26B] hover:bg-[#528959] text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-lg shadow-black/30 min-h-[44px]"
             >
               <WhatsAppIcon variant="outline" className="w-5 h-5 text-white fill-white" />
-              Chat on WhatsApp ({COMPANY_INFO.displayPhone})
+              WhatsApp
             </a>
             <Link
               href="/services"

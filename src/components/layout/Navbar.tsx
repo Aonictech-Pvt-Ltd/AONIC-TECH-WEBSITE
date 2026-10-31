@@ -21,6 +21,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoVisible, setLogoVisible] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -29,6 +30,24 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Reveal logo smoothly when preloader docks into header
+  useEffect(() => {
+    const handleDocked = () => {
+      setLogoVisible(true);
+    };
+    window.addEventListener("aonic-preloader-docked", handleDocked);
+
+    // Fallback safety: ensure logo is visible if animation is completed or skipped
+    const timer = setTimeout(() => {
+      setLogoVisible(true);
+    }, 2800);
+
+    return () => {
+      window.removeEventListener("aonic-preloader-docked", handleDocked);
+      clearTimeout(timer);
+    };
   }, []);
 
   // Close menus on route change
@@ -60,11 +79,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Logo */}
+          {/* Brand Logo with smooth handoff from Preloader */}
           <Link 
             href="/" 
             id="navbar-brand-logo" 
-            className="group hover:opacity-95 transition-opacity duration-200 shrink-0 flex items-center"
+            className={cn(
+              "group shrink-0 flex items-center transition-opacity duration-300",
+              logoVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+            )}
           >
             <Logo size={36} variant="light" className="sm:hidden" />
             <Logo size={42} variant="light" className="hidden sm:flex" />

@@ -2,207 +2,133 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
+import Logo from "@/components/ui/Logo";
 
 export default function Preloader() {
-  const [mounted, setMounted] = useState(false);
-  const [stage, setStage] = useState<"solo-center" | "reveal-name" | "glide-to-header" | "fading" | "done">("solo-center");
-  const [isMobile, setIsMobile] = useState(false);
-  const [coords, setCoords] = useState<{
-    centerX: number;
-    centerY: number;
-    centerScale: number;
-    targetX: number;
-    targetY: number;
-  } | null>(null);
-
-  const stageRef = useRef<HTMLDivElement>(null);
+  const [stage, setStage] = useState<"center" | "gliding" | "docked" | "done">("center");
+  const [targetCoords, setTargetCoords] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const gliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Mount on client on every load/refresh
-    setMounted(true);
-    const mobile = window.innerWidth < 640;
-    setIsMobile(mobile);
+    // Reset scroll to top on fresh load/refresh
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+    }
 
-    // Give DOM a frame to compute layout
-    const initTimer = setTimeout(() => {
+    // Schedule glide to header at 1100ms
+    const glideTimer = setTimeout(() => {
       const navTarget = document.getElementById("navbar-brand-logo");
-      const currentUnit = stageRef.current;
-
-      if (navTarget && currentUnit) {
+      if (navTarget) {
         const navRect = navTarget.getBoundingClientRect();
-        const curRect = currentUnit.getBoundingClientRect();
-        const centerScale = mobile ? 1.75 : 2.2;
-        const emblemSize = mobile ? 36 : 42;
+        // Calculate translation needed from screen center to navbar logo center
+        const targetX = (navRect.left + navRect.width / 2) - (window.innerWidth / 2);
+        const targetY = (navRect.top + navRect.height / 2) - (window.innerHeight / 2);
 
-        // Position emblem dead center of screen initially
-        const centerX = (window.innerWidth - emblemSize * centerScale) / 2 - curRect.left;
-        const centerY = (window.innerHeight - emblemSize * centerScale) / 2 - curRect.top;
-
-        // Destination at navbar logo position
-        const targetX = navRect.left - curRect.left;
-        const targetY = navRect.top - curRect.top;
-
-        setCoords({
-          centerX,
-          centerY,
-          centerScale,
-          targetX,
-          targetY,
-        });
+        setTargetCoords({ x: targetX, y: targetY });
+        setStage("gliding");
+      } else {
+        // Fallback: if navbar logo is not found, fade out cleanly
+        setStage("docked");
+        window.dispatchEvent(new CustomEvent("aonic-preloader-docked"));
       }
-    }, 50);
+    }, 1100);
 
-    // Stage 1: Reveal Brand Name alongside center emblem
-    const t1 = setTimeout(() => {
-      setStage("reveal-name");
-    }, 850);
+    // Schedule docking complete at 2150ms (1100ms + 1050ms glide)
+    const dockTimer = setTimeout(() => {
+      setStage("docked");
+      window.dispatchEvent(new CustomEvent("aonic-preloader-docked"));
+    }, 2150);
 
-    // Stage 2: Glide smoothly directly to header
-    const t2 = setTimeout(() => {
-      setStage("glide-to-header");
-    }, 2050);
-
-    // Stage 3: Perfectly docked, smoothly fade out preloader overlay
-    const t3 = setTimeout(() => {
-      setStage("fading");
-    }, 3250);
-
-    // Stage 4: Clean unmount after seamless handoff
-    const t4 = setTimeout(() => {
+    // Schedule complete unmount at 2350ms
+    const finishTimer = setTimeout(() => {
       setStage("done");
-    }, 3600);
+    }, 2350);
 
     return () => {
-      clearTimeout(initTimer);
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
-      clearTimeout(t4);
+      clearTimeout(glideTimer);
+      clearTimeout(dockTimer);
+      clearTimeout(finishTimer);
     };
   }, []);
 
-  if (!mounted || stage === "done") {
+  if (stage === "done") {
     return null;
   }
 
-  const isRevealed = stage === "reveal-name" || stage === "glide-to-header" || stage === "fading";
-  const isGliding = stage === "glide-to-header" || stage === "fading";
-  const emblemSize = isMobile ? 36 : 42;
-
-  // Determine transform based on stage
-  let transformStyle = "translate3d(0, 0, 0) scale(1)";
-  if (coords) {
-    if (isGliding) {
-      transformStyle = `translate3d(${coords.targetX}px, ${coords.targetY}px, 0) scale(1)`;
-    } else {
-      transformStyle = `translate3d(${coords.centerX}px, ${coords.centerY}px, 0) scale(${coords.centerScale})`;
-    }
-  }
+  const isGliding = stage === "gliding" || stage === "docked";
 
   return (
     <div
       id="aonic-preloader-root"
       className={cn(
-        "fixed inset-0 z-[9999] pointer-events-none select-none transition-opacity duration-300",
-        stage === "fading" ? "opacity-0" : "opacity-100"
+        "fixed inset-0 z-[9999] select-none transition-opacity duration-300",
+        stage === "docked" ? "opacity-0 pointer-events-none" : "opacity-100",
+        isGliding ? "pointer-events-none" : "pointer-events-auto"
       )}
     >
       {/* 
         Pure White Canvas (#FFFFFF)
-        Smoothly fades out during glide, unveiling the live site beneath 
+        Covers the page during intro, smoothly fades out during glide revealing the website
       */}
       <div
         className={cn(
-          "absolute inset-0 bg-white transition-opacity duration-1000 ease-out",
+          "absolute inset-0 bg-white transition-opacity duration-700 ease-out",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
 
-      {/* Atmospheric Ambient Glows (#1926A0 Royal Blue, #FFDB18 Yellow & #757CB6 Lavender) */}
+      {/* Atmospheric Brand Glows (#1926A0 Royal Blue, #FFDB18 Yellow & #757CB6 Lavender) */}
       <div
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[650px] lg:w-[850px] h-[320px] sm:h-[650px] lg:h-[850px] bg-[#1926A0]/15 rounded-full blur-[90px] sm:blur-[160px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[#1926A0]/15 rounded-full blur-[90px] sm:blur-[150px] pointer-events-none transition-opacity duration-700",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
       <div
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[500px] lg:w-[650px] h-[280px] sm:h-[500px] lg:h-[650px] bg-[#FFDB18]/15 rounded-full blur-[80px] sm:blur-[140px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] sm:w-[480px] h-[260px] sm:h-[480px] bg-[#FFDB18]/15 rounded-full blur-[80px] sm:blur-[130px] pointer-events-none transition-opacity duration-700",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
       <div
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] sm:w-[400px] lg:w-[500px] h-[240px] sm:h-[400px] lg:h-[500px] bg-[#757CB6]/15 rounded-full blur-[70px] sm:blur-[110px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[380px] h-[220px] sm:h-[380px] bg-[#757CB6]/15 rounded-full blur-[70px] sm:blur-[100px] pointer-events-none transition-opacity duration-700",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
 
-      {/* Staging Anchor */}
-      <div className="fixed inset-0 pointer-events-none">
+      {/* Flexbox Centering Stage */}
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
         {/* 
           Master Brand Unit
-          Glides seamlessly and lands with pixel-level precision on top of the navbar logo
+          Starts dead center, then glides with high precision into the navbar logo spot
         */}
         <div
-          ref={stageRef}
+          ref={gliderRef}
           style={{
-            transform: transformStyle,
-            transformOrigin: "0 0",
-            transition: isGliding
-              ? "transform 1150ms cubic-bezier(0.16, 1, 0.3, 1)"
-              : "transform 800ms cubic-bezier(0.16, 1, 0.3, 1)",
+            transform: isGliding
+              ? `translate3d(${targetCoords.x}px, ${targetCoords.y}px, 0) scale(1)`
+              : "translate3d(0, 0, 0) scale(var(--logo-intro-scale, 1.4))",
+            transformOrigin: "center center",
+            transition: stage === "gliding"
+              ? "transform 1050ms cubic-bezier(0.16, 1, 0.3, 1)"
+              : "none",
             willChange: "transform",
             backfaceVisibility: "hidden",
           }}
-          className={cn(
-            "absolute top-0 left-0 flex items-center",
-            isMobile ? "gap-2" : "gap-3"
-          )}
+          className="relative flex items-center shrink-0"
         >
-          {/* Emblem Container: Exact match with Logo.tsx */}
+          {/* Radiant Ambient Aura behind emblem in center */}
           <div
-            className="relative shrink-0 rounded-xl overflow-hidden p-0.5 flex items-center justify-center"
-            style={{ width: emblemSize, height: emblemSize }}
-          >
-            {/* Radiant Ambient Aura behind emblem */}
-            <div
-              className={cn(
-                "absolute -inset-2.5 rounded-2xl bg-gradient-to-r from-[#1926A0]/30 via-[#757CB6]/35 to-[#FFDB18]/35 blur-md transition-opacity duration-500",
-                isGliding ? "opacity-0" : "opacity-100"
-              )}
-            />
+            className={cn(
+              "absolute -inset-4 rounded-2xl bg-gradient-to-r from-[#1926A0]/25 via-[#757CB6]/30 to-[#FFDB18]/25 blur-xl pointer-events-none transition-opacity duration-500",
+              isGliding ? "opacity-0" : "opacity-100"
+            )}
+          />
 
-            <img
-              src="/images/company-logo-mark.png"
-              alt="Aonictech Official Logo"
-              width={emblemSize}
-              height={emblemSize}
-              className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(25,38,160,0.4)] relative z-10"
-              loading="eager"
-            />
-          </div>
-
-          {/* Brand Text: Exact match with Logo.tsx */}
-          <div
-            className="overflow-hidden flex flex-col justify-center"
-            style={{
-              maxWidth: isRevealed ? "320px" : "0px",
-              opacity: isRevealed ? 1 : 0,
-              transition: "max-width 800ms cubic-bezier(0.16, 1, 0.3, 1), opacity 650ms cubic-bezier(0.16, 1, 0.3, 1) 80ms",
-              willChange: "max-width, opacity",
-            }}
-          >
-            <div className="whitespace-nowrap flex flex-col">
-              <span className="text-xl sm:text-2xl font-black tracking-tight leading-none text-[#0E0E25] flex items-center gap-1.5">
-                AONICTECH
-                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FFDB18] shadow-sm shadow-[#FFDB18] animate-pulse shrink-0" />
-              </span>
-              <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.14em] sm:tracking-[0.16em] uppercase text-[#757CB6] mt-0.5 sm:mt-1">
-                Digital & Industrial
-              </span>
-            </div>
-          </div>
+          {/* Exact responsive Logo instances matching Navbar.tsx */}
+          <Logo size={36} variant="light" className="sm:hidden" />
+          <Logo size={42} variant="light" className="hidden sm:flex" />
         </div>
       </div>
     </div>
