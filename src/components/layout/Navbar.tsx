@@ -16,6 +16,7 @@ import {
   Shield,
   Sparkles
 } from "lucide-react";
+import Logo from "@/components/ui/Logo";
 import { COMPANY_INFO } from "@/data/company";
 import { cn } from "@/lib/utils";
 
@@ -63,23 +64,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-digital-500 to-brand-industrial-500 p-[2px] shadow-lg shadow-brand-digital-500/20 group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-brand-dark-950 rounded-[10px] flex items-center justify-center">
-                <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-digital-400 to-brand-industrial-400 text-xl tracking-tight">
-                  A
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1.5">
-                AONICTECH
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-digital-400 animate-pulse" />
-              </span>
-              <span className="text-[10px] font-medium tracking-wider uppercase text-slate-400">
-                Digital & Industrial
-              </span>
-            </div>
+          <Link href="/" className="group hover:opacity-95 transition-opacity">
+            <Logo size={40} />
           </Link>
 
           {/* Desktop Navigation */}

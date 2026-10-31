@@ -10,6 +10,7 @@ import {
   ArrowUpRight,
   MessageSquare
 } from "lucide-react";
+import Logo from "@/components/ui/Logo";
 import { COMPANY_INFO } from "@/data/company";
 
 export default function Footer() {
@@ -55,16 +56,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Column 1: About */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-digital-500 to-brand-industrial-500 p-[1.5px]">
-                <div className="w-full h-full bg-brand-dark-900 rounded-[6px] flex items-center justify-center">
-                  <span className="font-extrabold text-white text-base">A</span>
-                </div>
-              </div>
-              <span className="text-lg font-bold text-white tracking-tight">
-                AONICTECH
-              </span>
-            </div>
+            <Link href="/" className="inline-block">
+              <Logo size={36} />
+            </Link>
             <p className="text-xs leading-relaxed text-slate-400">
               {COMPANY_INFO.tagline}
             </p>

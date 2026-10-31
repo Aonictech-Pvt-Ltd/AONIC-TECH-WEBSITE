@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Preloader from "@/components/ui/Preloader";
 
 export const metadata: Metadata = {
   title: {
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col bg-brand-dark-950 text-slate-100 font-sans selection:bg-brand-digital-500 selection:text-white">
+        <Preloader />
         <Navbar />
         <main className="flex-1 pt-20">{children}</main>
         <Footer />
