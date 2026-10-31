@@ -7,7 +7,6 @@ import {
   Clock, 
   ShieldCheck, 
   Award, 
-  ArrowUpRight,
   MessageSquare,
   Navigation
 } from "lucide-react";
@@ -52,10 +51,11 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Main 4-Column Footer */}
+      {/* Main Footer Grid: Google Maps on the LEFT */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Column 1: About */}
+          
+          {/* Column 1 (LEFT): Company Logo, Registered Address & Embedded Google Maps */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <Logo size={36} />
@@ -63,15 +63,41 @@ export default function Footer() {
             <p className="text-xs leading-relaxed text-slate-400">
               {COMPANY_INFO.tagline}
             </p>
-            <div className="pt-2 flex items-center gap-2">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/60 text-[11px] text-slate-300">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>GST Registered</span>
+
+            {/* Google Maps Location Embed on the LEFT */}
+            <div className="pt-1">
+              <div className="flex items-center justify-between mb-1.5 text-xs font-semibold text-white">
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-brand-digital-400" />
+                  Our Location
+                </span>
+                <span className="text-[10px] text-slate-400 font-mono">Dilsukhnagar, HYD</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/60 text-[11px] text-slate-300">
-                <Award className="w-3.5 h-3.5 text-brand-industrial-400" />
-                <span>IEC Authorized</span>
+              
+              <div className="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 group shadow-md">
+                <iframe
+                  title="Aonictech Registered Office - Dilsukhnagar Hyderabad"
+                  src={COMPANY_INFO.googleMapsEmbedUrl}
+                  width="100%"
+                  height="125"
+                  style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(85%)" }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full transition-opacity group-hover:opacity-95"
+                />
+                <a
+                  href={COMPANY_INFO.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-2 right-2 px-2.5 py-1 rounded-md bg-brand-dark-950/95 border border-slate-700 text-[10px] font-medium text-brand-digital-400 hover:text-white flex items-center gap-1 shadow-md backdrop-blur-sm transition-colors"
+                >
+                  <Navigation className="w-3 h-3" />
+                  Open in Google Maps
+                </a>
               </div>
+              <p className="text-[11px] text-slate-400 mt-2 leading-relaxed">
+                {COMPANY_INFO.address}
+              </p>
             </div>
           </div>
 
@@ -119,7 +145,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Services Showcase */}
+          {/* Column 3: Core Capabilities */}
           <div>
             <h4 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
               Core Capabilities
@@ -164,17 +190,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact & Google Maps Location */}
+          {/* Column 4 (RIGHT): Direct Contact Info & Working Hours */}
           <div className="space-y-4">
             <h4 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
-              Location & Contact
+              Get in Touch
             </h4>
             
-            <ul className="space-y-2.5 text-xs">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-brand-digital-400 shrink-0 mt-0.5" />
-                <span>{COMPANY_INFO.address}</span>
-              </li>
+            <ul className="space-y-3 text-xs">
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-brand-digital-400 shrink-0" />
                 <a
@@ -199,31 +221,18 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Embedded Google Maps Location Box */}
-            <div className="pt-2">
-              <div className="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 group">
-                <iframe
-                  title="Aonictech Google Maps Location"
-                  src={COMPANY_INFO.googleMapsEmbedUrl}
-                  width="100%"
-                  height="110"
-                  style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(85%)" }}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full transition-opacity group-hover:opacity-90"
-                />
-                <a
-                  href={COMPANY_INFO.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-2 right-2 px-2.5 py-1 rounded-md bg-brand-dark-950/90 border border-slate-700 text-[10px] font-medium text-brand-digital-400 hover:text-white flex items-center gap-1 shadow-md"
-                >
-                  <Navigation className="w-3 h-3" />
-                  View on Google Maps
-                </a>
+            <div className="pt-2 flex flex-col gap-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 text-xs text-slate-300">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span>GST Registered: <strong className="font-mono text-white">{COMPANY_INFO.gstin}</strong></span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 text-xs text-slate-300">
+                <Award className="w-4 h-4 text-brand-industrial-400" />
+                <span>IEC Number: <strong className="font-mono text-white">{COMPANY_INFO.iecNumber}</strong></span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
