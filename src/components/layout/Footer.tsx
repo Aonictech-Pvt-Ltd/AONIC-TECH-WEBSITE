@@ -27,7 +27,7 @@ export default function Footer() {
           {/* ========================================================================= */}
           {/* COLUMN 1 (LEFT): Company Logo, Headquarters & Google Maps Link           */}
           {/* ========================================================================= */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-5 space-y-6">
             {/* Company Logo Card */}
             <Link href="/" className="inline-block group">
               <Logo size={46} variant="dark" />
@@ -66,9 +66,9 @@ export default function Footer() {
           </div>
 
           {/* ========================================================================= */}
-          {/* COLUMN 2: EXPLORE LINKS                                                   */}
+          {/* COLUMN 2 (MIDDLE): EXPLORE LINKS                                          */}
           {/* ========================================================================= */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-3 space-y-4">
             <h4 className="text-xs font-bold text-[#FFDB18] tracking-widest uppercase">
               EXPLORE
             </h4>
@@ -102,53 +102,9 @@ export default function Footer() {
           </div>
 
           {/* ========================================================================= */}
-          {/* COLUMN 3: OUR CAPABILITIES / DIVISIONS                                    */}
+          {/* COLUMN 3 (RIGHT): CONTACT US & CIRCULAR SOCIAL LINKS                     */}
           {/* ========================================================================= */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-bold text-[#FFDB18] tracking-widest uppercase">
-              OUR CAPABILITIES
-            </h4>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link href="/services#digital-web" className="hover:text-[#FFDB18] text-slate-300 transition-colors block">
-                  Website Development
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#digital-pos" className="hover:text-[#FFDB18] text-slate-300 transition-colors block">
-                  POS & GST Billing Software
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#industrial-titanium" className="hover:text-[#FFDB18] text-slate-300 transition-colors block">
-                  Titanium & Specialty Alloys
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#industrial-rare-earth" className="hover:text-[#FFDB18] text-slate-300 transition-colors block">
-                  Rare-Earth & Magnets
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#industrial-chips" className="hover:text-[#FFDB18] text-slate-300 transition-colors block">
-                  Electronic Chip Sourcing
-                </Link>
-              </li>
-              <li className="pt-2">
-                <Link
-                  href="/services"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFDB18] hover:text-white transition-colors uppercase tracking-wider"
-                >
-                  All Capabilities <ArrowUpRight className="w-3.5 h-3.5" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* ========================================================================= */}
-          {/* COLUMN 4 (RIGHT): CONTACT US & CIRCULAR SOCIAL LINKS                     */}
-          {/* ========================================================================= */}
-          <div className="lg:col-span-3 space-y-6">
+          <div className="lg:col-span-4 space-y-6">
             <div className="space-y-4">
               <h4 className="text-xs font-bold text-[#FFDB18] tracking-widest uppercase">
                 CONTACT US
@@ -171,15 +127,6 @@ export default function Footer() {
                     <Phone className="w-4 h-4 text-[#FFDB18] shrink-0" />
                     <span>{COMPANY_INFO.displayPhone}</span>
                   </a>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="flex items-center gap-3 text-slate-300 hover:text-[#FFDB18] transition-colors group"
-                  >
-                    <Calendar className="w-4 h-4 text-[#FFDB18] shrink-0" />
-                    <span>Request a Free Quote</span>
-                  </Link>
                 </li>
               </ul>
             </div>
@@ -258,21 +205,38 @@ export default function Footer() {
       </div>
 
       {/* ========================================================================= */}
-      {/* FLOATING WHATSAPP LAUNCHER (Bottom Left Corner with Official Vector Icon) */}
+      {/* FLOATING ACTION BUTTONS (Bottom Right: WhatsApp & Phone Side-by-Side)    */}
       {/* ========================================================================= */}
-      <a
-        href={COMPANY_INFO.whatsappLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-2xl shadow-emerald-500/50 hover:scale-110 active:scale-95 transition-all group"
-        aria-label="Chat on WhatsApp"
-      >
-        <WhatsAppIcon variant="outline" className="w-7 h-7 text-white fill-white" />
-        <span className="sr-only">Chat with us on WhatsApp</span>
-        <span className="absolute left-16 bg-[#0E0E25] border border-[#757CB6]/30 text-white text-xs font-semibold px-3 py-1.5 rounded-xl shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-          Chat with us on WhatsApp
-        </span>
-      </a>
+      <div className="fixed bottom-6 right-6 z-40 flex items-center gap-3">
+        {/* Phone Button */}
+        <a
+          href={`tel:${COMPANY_INFO.phone}`}
+          className="w-14 h-14 rounded-full bg-white text-[#1926A0] border-2 border-[#1926A0] hover:bg-[#1926A0] hover:text-white flex items-center justify-center shadow-2xl shadow-indigo-900/20 hover:scale-110 active:scale-95 transition-all group relative"
+          title={`Call us at ${COMPANY_INFO.displayPhone}`}
+          aria-label="Call Office"
+        >
+          <Phone className="w-6 h-6 transition-transform group-hover:scale-110" />
+          <span className="sr-only">Call {COMPANY_INFO.displayPhone}</span>
+          <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#0E0E25] border border-[#757CB6]/30 text-white text-xs font-semibold px-2.5 py-1 rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Call Office
+          </span>
+        </a>
+
+        {/* WhatsApp Button */}
+        <a
+          href={COMPANY_INFO.whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-2xl shadow-emerald-500/50 hover:scale-110 active:scale-95 transition-all group relative"
+          aria-label="Chat on WhatsApp"
+        >
+          <WhatsAppIcon variant="outline" className="w-7 h-7 text-white fill-white" />
+          <span className="sr-only">Chat with us on WhatsApp</span>
+          <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#0E0E25] border border-[#757CB6]/30 text-white text-xs font-semibold px-2.5 py-1 rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Chat on WhatsApp
+          </span>
+        </a>
+      </div>
     </footer>
   );
 }

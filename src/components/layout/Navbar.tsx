@@ -229,34 +229,11 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Action Buttons: WhatsApp & Phone side-by-side (No phone number text displayed) */}
-          <div className="hidden sm:flex items-center gap-2">
-            {/* WhatsApp Direct Action Button */}
-            <a
-              href={COMPANY_INFO.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-xl bg-[#63A26B]/15 border border-[#63A26B]/40 text-[#63A26B] hover:text-white hover:bg-[#63A26B] transition-all flex items-center justify-center shadow-sm hover:scale-105 active:scale-95 group"
-              title="Chat with us on WhatsApp"
-              aria-label="Chat on WhatsApp"
-            >
-              <WhatsAppIcon variant="outline" className="w-5 h-5 text-[#63A26B] group-hover:text-white transition-colors" />
-            </a>
-
-            {/* Direct Phone Call Button */}
-            <a
-              href={`tel:${COMPANY_INFO.phone}`}
-              className="w-10 h-10 rounded-xl bg-white border border-[#757CB6]/30 text-[#0E0E25] hover:text-[#1926A0] hover:border-[#1926A0] hover:bg-[#1926A0]/5 transition-all flex items-center justify-center shadow-sm hover:scale-105 active:scale-95 group"
-              title={`Call us directly at ${COMPANY_INFO.displayPhone}`}
-              aria-label="Call Office"
-            >
-              <Phone className="w-4 h-4 text-[#757CB6] group-hover:text-[#1926A0] transition-colors" />
-            </a>
-
-            {/* Primary Get a Quote CTA in Royal Blue (#1926A0) */}
+          {/* Primary Action: Get a Quote CTA in Royal Blue (#1926A0) */}
+          <div className="hidden sm:flex items-center">
             <Link
               href="/contact"
-              className="px-5 py-2.5 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white text-xs uppercase tracking-wider font-bold shadow-md shadow-[#1926A0]/25 transition-all flex items-center gap-1.5 active:scale-95 border border-[#1926A0] ml-1"
+              className="px-5 py-2.5 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white text-xs uppercase tracking-wider font-bold shadow-md shadow-[#1926A0]/25 transition-all flex items-center gap-1.5 active:scale-95 border border-[#1926A0]"
             >
               Get a Quote
               <ArrowRight className="w-4 h-4" />
@@ -265,22 +242,12 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="flex sm:hidden items-center gap-2">
-            <a
-              href={COMPANY_INFO.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 rounded-lg bg-[#63A26B]/15 border border-[#63A26B]/40 text-[#63A26B] flex items-center justify-center"
-              aria-label="WhatsApp"
+            <Link
+              href="/contact"
+              className="px-3 py-1.5 rounded-lg bg-[#1926A0] text-white text-xs font-bold"
             >
-              <WhatsAppIcon variant="outline" className="w-4 h-4 text-[#63A26B]" />
-            </a>
-            <a
-              href={`tel:${COMPANY_INFO.phone}`}
-              className="w-9 h-9 rounded-lg bg-white border border-[#757CB6]/30 text-[#0E0E25] flex items-center justify-center"
-              aria-label="Call"
-            >
-              <Phone className="w-4 h-4 text-[#757CB6]" />
-            </a>
+              Quote
+            </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg bg-white text-[#0E0E25] hover:bg-[#757CB6]/10 border border-[#757CB6]/20"

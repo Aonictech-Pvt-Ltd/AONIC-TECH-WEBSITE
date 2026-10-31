@@ -29,10 +29,6 @@ export default function HomePage() {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-gradient-to-tr from-[#1926A0]/10 via-[#757CB6]/10 to-[#FFDB18]/12 blur-[130px] pointer-events-none rounded-full" />
 
         <div className="max-w-5xl mx-auto text-center space-y-8 relative">
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-[#757CB6]/30 text-xs sm:text-sm font-semibold text-[#0E0E25] shadow-sm">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#63A26B] animate-ping" />
-            <span>Dual-Niche Enterprise • Digital Engineering & Global Materials</span>
-          </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#0E0E25] tracking-tight leading-[1.12]">
             Your brand, your software,{" "}
