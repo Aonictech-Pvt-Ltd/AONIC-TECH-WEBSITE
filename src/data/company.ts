@@ -9,12 +9,12 @@ export const BRAND_COLORS = {
 };
 
 export const COMPANY_INFO = {
-  name: "Aonictech",
-  legalName: "Aonic Tech Private Limited",
+  name: "AONIC TECH",
+  legalName: "AONIC TECH Private Limited",
   phone: "+91 7396888679",
   displayPhone: "+91 73968 88679",
   whatsappNumber: "917396888679",
-  whatsappLink: "https://wa.me/917396888679?text=Hello%20Aonictech%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20your%20services.",
+  whatsappLink: "https://wa.me/917396888679?text=Hello%20AONIC%20TECH%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20your%20services.",
   email: "contactus@aonictech.com",
   workingHours: "Monday – Saturday: 9:00 AM – 7:00 PM IST",
   address: "14-7, P & T Colony, Dilsukhnagar, Hyderabad, Telangana, 500060",

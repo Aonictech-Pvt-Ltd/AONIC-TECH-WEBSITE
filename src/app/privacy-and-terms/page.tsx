@@ -109,7 +109,7 @@ export default function LegalPage() {
                 Commercial Engagement & Scope
               </h3>
               <p>
-                These Terms and Conditions govern all commercial agreements, software development projects, and industrial materials supply contracts executed by {COMPANY_INFO.legalName} ("Aonictech"). By submitting an online quote request, issuing a Purchase Order (PO), or signing a Service Level Agreement (SLA), the client agrees to be bound by these provisions.
+                These Terms and Conditions govern all commercial agreements, software development projects, and industrial materials supply contracts executed by {COMPANY_INFO.legalName} ("AONIC TECH"). By submitting an online quote request, issuing a Purchase Order (PO), or signing a Service Level Agreement (SLA), the client agrees to be bound by these provisions.
               </p>
             </section>
 
@@ -149,7 +149,7 @@ export default function LegalPage() {
                   <strong className="text-[#0E0E25]">Mill Test Certificates (MTC):</strong> 100% of material shipments are accompanied by official EN 10204 3.1 Inspection Certificates specifying chemical analysis, tensile strength, yield strength, and dimensional tolerances.
                 </p>
                 <p>
-                  <strong className="text-[#0E0E25]">Port Customs & Delivery:</strong> Aonictech operates under Director General of Foreign Trade (DGFT) Import Export Code ({COMPANY_INFO.iecNumber}). We handle customs assessments, Bill of Entry clearance, and insured doorstep logistics.
+                  <strong className="text-[#0E0E25]">Port Customs & Delivery:</strong> AONIC TECH operates under Director General of Foreign Trade (DGFT) Import Export Code ({COMPANY_INFO.iecNumber}). We handle customs assessments, Bill of Entry clearance, and insured doorstep logistics.
                 </p>
                 <p>
                   <strong className="text-[#0E0E25]">Material Inspection & Non-Conformance:</strong> Clients must inspect deliveries within 5 business days of receipt. In the event of chemical or dimensional deviation against the agreed ASTM standard, laboratory test results will guide immediate replacement or credit.
@@ -175,7 +175,7 @@ export default function LegalPage() {
                 Limitation of Liability & Force Majeure
               </h3>
               <p>
-                Neither party shall be liable for failure or delay in performance caused by circumstances beyond reasonable control, including port strikes, maritime blockades, government trade embargoes, or carrier ground stoppages. In no event shall Aonictech's aggregate liability exceed the total amounts paid under the specific purchase order.
+                Neither party shall be liable for failure or delay in performance caused by circumstances beyond reasonable control, including port strikes, maritime blockades, government trade embargoes, or carrier ground stoppages. In no event shall AONIC TECH's aggregate liability exceed the total amounts paid under the specific purchase order.
               </p>
             </section>
 
@@ -218,7 +218,7 @@ export default function LegalPage() {
                 Introduction & Operating Scope
               </h3>
               <p>
-                {COMPANY_INFO.legalName} ("Aonictech", "we", "our", or "us") operates the website and digital portal accessible at aonictech.com. This Privacy Policy outlines our protocols regarding the collection, handling, storage, and protection of information obtained through our two operating divisions: Digital Solutions & Branding, and Industrial Materials Import & Supply.
+                {COMPANY_INFO.legalName} ("AONIC TECH", "we", "our", or "us") operates the website and digital portal accessible at aonictech.com. This Privacy Policy outlines our protocols regarding the collection, handling, storage, and protection of information obtained through our two operating divisions: Digital Solutions & Branding, and Industrial Materials Import & Supply.
               </p>
             </section>
 

@@ -114,7 +114,7 @@ export default function ServicesPage() {
               </p>
             </div>
             <a
-              href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I would like to request a quotation for digital solutions & software services.")}`}
+              href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I would like to request a quotation for digital solutions & software services.")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="shrink-0 px-6 py-3 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-xs tracking-wider uppercase transition-colors shadow-md shadow-[#1926A0]/25"
@@ -167,7 +167,7 @@ export default function ServicesPage() {
                   <div className="pt-4 border-t border-[#757CB6]/20 flex items-center justify-between">
                     <span className="text-sm text-[#0E0E25] font-bold">{srv.priceNote}</span>
                     <a
-                      href={`https://wa.me/918121696009?text=${encodeURIComponent(`Hi Aonictech, I would like to enquire about: ${srv.title}. Could you provide details and pricing?`)}`}
+                      href={`https://wa.me/917396888679?text=${encodeURIComponent(`Hi AONIC TECH, I would like to enquire about: ${srv.title}. Could you provide details and pricing?`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm font-bold text-[#1926A0] hover:text-[#131e80] flex items-center gap-1"
@@ -215,7 +215,7 @@ export default function ServicesPage() {
                 </div>
                 <div className="pt-4 flex flex-wrap gap-4">
                   <a
-                    href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I would like to request a free 15-minute live demo of your QuickServe POS billing software.")}`}
+                    href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I would like to request a free 15-minute live demo of your QuickServe POS billing software.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 py-3 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-lg shadow-[#1926A0]/25"
@@ -298,7 +298,7 @@ export default function ServicesPage() {
                   </li>
                 </ul>
                 <a
-                  href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I am interested in the Starter Digital Package (₹12,000). Please share details.")}`}
+                  href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I am interested in the Starter Digital Package (₹12,000). Please share details.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full py-2.5 rounded-xl bg-white border border-[#757CB6]/30 hover:border-[#1926A0] text-[#0E0E25] text-xs font-bold text-center transition-colors shadow-sm"
@@ -336,7 +336,7 @@ export default function ServicesPage() {
                   </li>
                 </ul>
                 <a
-                  href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I am interested in the Business Growth Package (₹24,000). Please share details.")}`}
+                  href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I am interested in the Business Growth Package (₹24,000). Please share details.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full py-2.5 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white text-xs font-bold text-center transition-colors shadow-md shadow-[#1926A0]/25"
@@ -371,7 +371,7 @@ export default function ServicesPage() {
                   </li>
                 </ul>
                 <a
-                  href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I am interested in Custom / E-Commerce Software Solutions. Please share quotation details.")}`}
+                  href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I am interested in Custom / E-Commerce Software Solutions. Please share quotation details.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full py-2.5 rounded-xl bg-white border border-[#757CB6]/30 hover:border-[#1926A0] text-[#0E0E25] text-xs font-bold text-center transition-colors shadow-sm"
@@ -403,7 +403,7 @@ export default function ServicesPage() {
               </p>
             </div>
             <a
-              href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I would like to request an Industrial Material RFQ (alloys, rare-earths, or chips).")}`}
+              href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I would like to request an Industrial Material RFQ (alloys, rare-earths, or chips).")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="shrink-0 px-6 py-3 rounded-xl bg-[#FFDB18] hover:bg-[#ffe34d] text-black font-black text-xs tracking-wider uppercase transition-colors shadow-md shadow-[#FFDB18]/25 border border-[#FFDB18]"
@@ -456,7 +456,7 @@ export default function ServicesPage() {
                   <div className="pt-4 border-t border-[#757CB6]/20 flex items-center justify-between">
                     <span className="text-sm text-[#0E0E25] font-bold">{srv.priceNote}</span>
                     <a
-                      href={`https://wa.me/918121696009?text=${encodeURIComponent(`Hi Aonictech, I would like to enquire about: ${srv.title}. Please provide supply specifications and quotes.`)}`}
+                      href={`https://wa.me/917396888679?text=${encodeURIComponent(`Hi AONIC TECH, I would like to enquire about: ${srv.title}. Please provide supply specifications and quotes.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm font-bold text-[#0E0E25] hover:text-[#1926A0] flex items-center gap-1"
@@ -548,7 +548,7 @@ export default function ServicesPage() {
                       </td>
                       <td className="py-4 px-4 text-right">
                         <a
-                          href={`https://wa.me/918121696009?text=${encodeURIComponent(`Hi Aonictech, I would like to enquire about importing: ${mat.name} (${mat.grade}). Please provide quotation and MOQ details.`)}`}
+                          href={`https://wa.me/917396888679?text=${encodeURIComponent(`Hi AONIC TECH, I would like to enquire about importing: ${mat.name} (${mat.grade}). Please provide quotation and MOQ details.`)}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="px-4 py-2 rounded-xl bg-[#FFDB18] hover:bg-[#ffe34d] text-[#000000] font-black text-xs uppercase tracking-wider transition-colors inline-block shadow-sm border border-[#FFDB18]"

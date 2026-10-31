@@ -43,7 +43,7 @@ const UPCOMING_ARTICLES: ArticleTeaser[] = [
     techTags: ["SQLite Local-First", "Next.js", "Offline Sync", "Thermal Printing"],
     readTime: "7 min read",
     status: "In Peer Review",
-    author: "Aonictech Digital Engineering Lab",
+    author: "AONIC TECH Digital Engineering Lab",
   },
   {
     id: "titanium-grades-metallurgy",
@@ -145,7 +145,7 @@ export default function BlogPage() {
             {/* Top Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1926A0]/10 border border-[#1926A0]/20 text-[#1926A0] text-xs font-bold uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-[#FFDB18] shadow-sm animate-pulse" />
-              Aonictech Insights & Tech Dispatch
+              AONIC TECH Insights & Tech Dispatch
             </div>
 
             {/* Main Headline */}
@@ -321,7 +321,7 @@ export default function BlogPage() {
               Rigorous Engineering. Zero Fluff.
             </h2>
             <p className="text-sm sm:text-base text-[#0E0E25]/75">
-              Every publication released by Aonictech is vetted by practitioners who write the code and inspect the alloys.
+              Every publication released by AONIC TECH is vetted by practitioners who write the code and inspect the alloys.
             </p>
           </div>
 

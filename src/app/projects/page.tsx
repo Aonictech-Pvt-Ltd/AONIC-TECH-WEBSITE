@@ -90,7 +90,7 @@ export default function ProjectsPage() {
               </div>
               <div className="pt-2 flex flex-wrap gap-3.5">
                 <a
-                  href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I would like to schedule a guided walk-through of your QuickServe POS billing software.")}`}
+                  href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I would like to schedule a guided walk-through of your QuickServe POS billing software.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-lg shadow-[#1926A0]/25"
@@ -98,7 +98,7 @@ export default function ProjectsPage() {
                   Schedule Guided Walkthrough
                 </a>
                 <a
-                  href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I have a custom software inquiry for my business.")}`}
+                  href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I have a custom software inquiry for my business.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 rounded-xl bg-white border border-[#757CB6]/30 hover:border-[#1926A0] text-[#0E0E25] text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
@@ -205,7 +205,7 @@ export default function ProjectsPage() {
               </div>
 
               <a
-                href={`https://wa.me/918121696009?text=${encodeURIComponent(`Hi Aonictech, I am interested in discussing a project similar to: ${project.title}`)}`}
+                href={`https://wa.me/917396888679?text=${encodeURIComponent(`Hi AONIC TECH, I am interested in discussing a project similar to: ${project.title}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white text-sm font-bold flex items-center justify-center gap-2 transition-colors shadow-md shadow-[#1926A0]/20"

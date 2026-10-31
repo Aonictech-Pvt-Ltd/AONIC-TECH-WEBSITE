@@ -35,3 +35,4 @@ The timing parameters have been calibrated to provide a luxurious, cinematic cad
 
 - Production build (`next build`) compiled with 0 errors across 14 routes.
 - Motion feels premium, fluid, and natural.
+

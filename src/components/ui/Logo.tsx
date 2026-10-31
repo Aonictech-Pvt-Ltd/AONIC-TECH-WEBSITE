@@ -27,7 +27,7 @@ export default function Logo({
       >
         <img
           src="/images/company-logo-mark.png"
-          alt="Aonictech Official Logo"
+          alt="AONIC TECH Official Logo"
           width={size}
           height={size}
           className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(25,38,160,0.4)]"
@@ -44,7 +44,7 @@ export default function Logo({
               isDark ? "text-white" : "text-[#0E0E25]"
             )}
           >
-            AONICTECH
+            AONIC TECH
           </span>
           <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.14em] sm:tracking-[0.16em] uppercase text-[#757CB6] mt-0.5 sm:mt-1">
             Digital & Industrial

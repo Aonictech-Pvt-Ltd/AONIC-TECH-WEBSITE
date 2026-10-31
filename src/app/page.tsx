@@ -199,7 +199,7 @@ export default function HomePage() {
         <div className="p-6 sm:p-12 lg:p-14 rounded-2xl sm:rounded-3xl bg-white border border-[#757CB6]/25 shadow-md space-y-8 sm:space-y-12">
           <div className="text-center max-w-xl mx-auto">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#757CB6]">
-              Why Aonictech
+              Why AONIC TECH
             </span>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0E0E25] mt-1.5 sm:mt-2">
               Built on Reliability & Direct Execution

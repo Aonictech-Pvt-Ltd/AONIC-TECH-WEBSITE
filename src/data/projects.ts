@@ -32,7 +32,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     techOrMaterials: ["Next.js", "Electron", "PostgreSQL", "ESC/POS Thermal Printing", "GST Automated Engine"],
     metrics: "Reduced checkout billing time by 55%, zero discrepancy in tax audits.",
     testimonial: {
-      quote: "Aonictech's POS transformed our daily operations. Our cashiers learned it in 15 minutes, and our inventory reports are finally 100% accurate.",
+      quote: "AONIC TECH's POS transformed our daily operations. Our cashiers learned it in 15 minutes, and our inventory reports are finally 100% accurate.",
       author: "Rajesh V.",
       role: "Managing Director",
       company: "Creamline Bakes",
@@ -52,7 +52,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     techOrMaterials: ["Ti-6Al-4V Grade 5", "ASTM B348 Standard", "Customs Clearance", "Doorstep Express Transport"],
     metrics: "Delivered in 6 days at low MOQ, saving client 3 weeks of project standstill.",
     testimonial: {
-      quote: "Finding authentic aerospace titanium in small quantities was impossible until Aonictech stepped in. Test certificates matched our spectrometer exactly.",
+      quote: "Finding authentic aerospace titanium in small quantities was impossible until AONIC TECH stepped in. Test certificates matched our spectrometer exactly.",
       author: "K. Sreenivas",
       role: "Chief Machining Engineer",
       company: "Precision Flight Systems",

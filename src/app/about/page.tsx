@@ -65,7 +65,7 @@ export default function AboutPage() {
                 In modern manufacturing and commerce, high-tech software and advanced materials are inextricably linked. Fast-growing enterprises require both intuitive digital storefronts and precision billing software to serve their clients, while their fabrication floors require certified titanium alloys, rare-earth magnets, and genuine microcontroller chips.
               </p>
               <p className="text-[#0E0E25]/75 text-xs sm:text-base leading-relaxed">
-                Historically, procuring exotic materials required navigating opaque international brokers with impossible 500kg minimums, while finding dependable developers meant dealing with fragmented agencies. Aonictech unites both disciplines under one roof: modern web engineering on one side, and verified global sourcing with port clearance on the other.
+                Historically, procuring exotic materials required navigating opaque international brokers with impossible 500kg minimums, while finding dependable developers meant dealing with fragmented agencies. AONIC TECH unites both disciplines under one roof: modern web engineering on one side, and verified global sourcing with port clearance on the other.
               </p>
             </div>
 
@@ -185,7 +185,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <div className="max-w-4xl mx-auto text-center space-y-5">
-        <h3 className="text-2xl sm:text-3xl font-black text-[#0E0E25]">Ready to collaborate with Aonictech?</h3>
+        <h3 className="text-2xl sm:text-3xl font-black text-[#0E0E25]">Ready to collaborate with AONIC TECH?</h3>
         <p className="text-sm sm:text-base text-[#0E0E25]/75 max-w-xl mx-auto leading-relaxed">
           Tell us about your digital requirements or request a landed quotation for specialized alloys.
         </p>

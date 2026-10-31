@@ -108,15 +108,15 @@ export async function POST(req: NextRequest) {
           : `<span style="background-color: #1926A0; color: #FFFFFF; font-weight: 700; padding: 4px 10px; border-radius: 9999px; font-size: 12px; text-transform: uppercase;">Digital Solutions</span>`;
 
         const emailResult = await resend.emails.send({
-          from: "Aonictech Inquiries <onboarding@resend.dev>",
+          from: "AONIC TECH Inquiries <onboarding@resend.dev>",
           to: targetEmail,
-          subject: `New ${isMaterial ? "[Material Quote]" : "[Digital Quote]"} from ${name} — Aonictech`,
+          subject: `New ${isMaterial ? "[Material Quote]" : "[Digital Quote]"} from ${name} — AONIC TECH`,
           html: `
             <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 620px; margin: 0 auto; background-color: #FFFFFF; border: 1px solid #757CB6; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 14px rgba(14, 14, 37, 0.08);">
               <!-- Header -->
               <div style="background-color: #0E0E25; padding: 28px 24px; text-align: left; border-bottom: 3px solid #1926A0;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <h1 style="color: #FFFFFF; font-size: 22px; margin: 0; font-weight: 800; letter-spacing: -0.5px;">AONICTECH</h1>
+                  <h1 style="color: #FFFFFF; font-size: 22px; margin: 0; font-weight: 800; letter-spacing: -0.5px;">AONIC TECH</h1>
                   ${divisionBadge}
                 </div>
                 <p style="color: #757CB6; font-size: 13px; margin: 8px 0 0 0;">New Quote Inquiry Received via Website</p>
@@ -190,7 +190,7 @@ export async function POST(req: NextRequest) {
                   <a href="https://wa.me/${phone.replace(/[^0-9]/g, "")}" style="display: inline-block; background-color: #63A26B; color: #FFFFFF; font-weight: 700; padding: 12px 24px; border-radius: 8px; text-decoration: none; margin-right: 8px; font-size: 14px;">
                     Reply on WhatsApp
                   </a>
-                  <a href="mailto:${email}?subject=Regarding%20Your%20Aonictech%20Inquiry" style="display: inline-block; background-color: #1926A0; color: #FFFFFF; font-weight: 700; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 14px;">
+                  <a href="mailto:${email}?subject=Regarding%20Your%20AONIC%20TECH%20Inquiry" style="display: inline-block; background-color: #1926A0; color: #FFFFFF; font-weight: 700; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 14px;">
                     Reply via Email
                   </a>
                 </div>
@@ -199,7 +199,7 @@ export async function POST(req: NextRequest) {
               <!-- Footer -->
               <div style="background-color: #0E0E25; padding: 16px 24px; text-align: center; border-top: 1px solid rgba(117, 124, 182, 0.2);">
                 <p style="color: #757CB6; font-size: 12px; margin: 0;">
-                  AONICTECH PRIVATE LIMITED • 14-7, P & T Colony, Dilsukhnagar, Hyderabad, Telangana, 500060
+                  AONIC TECH PRIVATE LIMITED • 14-7, P & T Colony, Dilsukhnagar, Hyderabad, Telangana, 500060
                 </p>
                 <p style="color: #757CB6; font-size: 11px; margin: 4px 0 0 0;">
                   Automated Quote Notification Dispatch via Resend API

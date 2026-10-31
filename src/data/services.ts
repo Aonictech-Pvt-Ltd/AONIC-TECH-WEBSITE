@@ -175,7 +175,7 @@ export const INDUSTRIAL_SERVICES: ServiceItem[] = [
     niche: "industrial",
     title: "Small-Quantity Supply (Low MOQ)",
     shortDesc: "No need to buy massive tons. We provide small trial quantities, sample batches, and prototyping volumes.",
-    fullDesc: "Large global mills often demand 500kg+ minimums. Aonictech bridges the gap by supplying genuine certified materials in prototype batches from as low as 1kg to 10kg.",
+    fullDesc: "Large global mills often demand 500kg+ minimums. AONIC TECH bridges the gap by supplying genuine certified materials in prototype batches from as low as 1kg to 10kg.",
     audience: "Academic researchers, startup hardware inventors, independent CNC job shops",
     deliverables: [
       "Zero punitive high-volume MOQ barriers",

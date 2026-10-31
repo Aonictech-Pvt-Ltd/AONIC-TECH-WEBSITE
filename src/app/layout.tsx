@@ -16,8 +16,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://aonictech.com"),
   title: {
-    default: "Aonictech | Digital Solutions, Software & Industrial Materials Import",
-    template: "%s | Aonictech",
+    default: "AONIC TECH | Digital Solutions, Software & Industrial Materials Import",
+    template: "%s | AONIC TECH",
   },
   description:
     "We build your brand, your website, and your POS software, and we supply certified titanium, rare-earth magnets, and electronic chips to your factory floor with doorstep delivery.",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     "Titanium Import India",
     "Rare Earth Magnets N52",
     "Electronic Chip Sourcing",
-    "Aonictech",
+    "AONIC TECH",
   ],
-  authors: [{ name: "Aonictech Private Limited" }],
+  authors: [{ name: "AONIC TECH Private Limited" }],
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -47,8 +47,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://aonictech.com",
-    siteName: "Aonictech",
-    title: "Aonictech — Digital Solutions & Industrial Materials Import",
+    siteName: "AONIC TECH",
+    title: "AONIC TECH — Digital Solutions & Industrial Materials Import",
     description:
       "Your brand, your website and your software, and specialty materials delivered to your factory floor.",
     images: [
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
         url: "/images/company-logo-mark.png",
         width: 1140,
         height: 1140,
-        alt: "Aonictech Logo",
+        alt: "AONIC TECH Logo",
       },
     ],
   },

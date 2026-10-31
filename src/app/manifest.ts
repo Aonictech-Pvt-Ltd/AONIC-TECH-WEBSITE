@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Aonictech — Digital Solutions & Industrial Materials Import",
-    short_name: "Aonictech",
+    name: "AONIC TECH — Digital Solutions & Industrial Materials Import",
+    short_name: "AONIC TECH",
     description:
       "We build your brand, your website, and your POS software, and we supply certified titanium, rare-earth magnets, and electronic chips.",
     start_url: "/",
