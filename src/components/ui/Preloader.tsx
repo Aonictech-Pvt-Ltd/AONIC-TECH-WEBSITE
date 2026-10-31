@@ -4,96 +4,103 @@ import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 export default function Preloader() {
-  const [phase, setPhase] = useState<"center" | "expand" | "glide" | "done">("center");
-  const [targetPos, setTargetPos] = useState<{ x: number; y: number; scale: number } | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  // Stages:
+  // 1. "logo-center": Logo alone in dead center
+  // 2. "reveal-name": Logo shifts a bit left and brand name opens to its right
+  // 3. "glide-to-header": Complete logo + name unit glides to top-left in the header
+  // 4. "done": Unmounted
+  const [stage, setStage] = useState<"logo-center" | "reveal-name" | "glide-to-header" | "done">("logo-center");
+  const [glideCoords, setGlideCoords] = useState<{ x: number; y: number; scale: number } | null>(null);
+  const brandUnitRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Phase 1: Fast Name Expand from Logo (at 150ms)
-    const tExpand = setTimeout(() => {
-      setPhase("expand");
-    }, 150);
+    // Step 1: Wait 300ms showing logo alone, then shift left & open name
+    const tReveal = setTimeout(() => {
+      setStage("reveal-name");
+    }, 300);
 
-    // Phase 2: Start Glide towards Top-Left Navbar (at 650ms)
+    // Step 2: At 850ms, glide the assembled brand unit from center to top-left header
     const tGlide = setTimeout(() => {
-      // Calculate target navbar logo coordinates
-      const navLogo = document.getElementById("navbar-brand-logo");
-      const centerEl = containerRef.current;
+      const navTarget = document.getElementById("navbar-brand-logo");
+      const currentUnit = brandUnitRef.current;
 
-      if (navLogo && centerEl) {
-        const navRect = navLogo.getBoundingClientRect();
-        const centerRect = centerEl.getBoundingClientRect();
+      if (navTarget && currentUnit) {
+        const targetRect = navTarget.getBoundingClientRect();
+        const currentRect = currentUnit.getBoundingClientRect();
 
-        // Calculate translation delta to align center with navLogo
-        const deltaX = navRect.left - centerRect.left;
-        const deltaY = navRect.top - centerRect.top;
-        const scale = navRect.height / centerRect.height || 0.85;
+        const deltaX = targetRect.left - currentRect.left;
+        const deltaY = targetRect.top - currentRect.top;
+        const scale = targetRect.height / currentRect.height || 1;
 
-        setTargetPos({ x: deltaX, y: deltaY, scale });
+        setGlideCoords({ x: deltaX, y: deltaY, scale });
       } else {
-        // Fallback translation if element not ready
-        setTargetPos({ x: -(window.innerWidth / 2) + 100, y: -(window.innerHeight / 2) + 36, scale: 0.8 });
+        // Fallback coordinates if navbar hasn't finished layout
+        setGlideCoords({
+          x: -(window.innerWidth / 2) + 90,
+          y: -(window.innerHeight / 2) + 36,
+          scale: 0.9,
+        });
       }
 
-      setPhase("glide");
-    }, 650);
+      setStage("glide-to-header");
+    }, 850);
 
-    // Phase 3: Transition Complete & Unmount (at 1250ms)
+    // Step 3: Complete transition and cleanly unmount at 1350ms
     const tDone = setTimeout(() => {
-      setPhase("done");
-    }, 1250);
+      setStage("done");
+    }, 1350);
 
     return () => {
-      clearTimeout(tExpand);
+      clearTimeout(tReveal);
       clearTimeout(tGlide);
       clearTimeout(tDone);
     };
   }, []);
 
-  if (phase === "done") {
+  if (stage === "done") {
     return null;
   }
 
-  const isExpanded = phase === "expand" || phase === "glide";
-  const isGliding = phase === "glide";
+  const isNameRevealed = stage === "reveal-name" || stage === "glide-to-header";
+  const isGliding = stage === "glide-to-header";
 
   return (
     <div
       className={cn(
-        "fixed inset-0 z-[9999] pointer-events-none transition-opacity duration-500 ease-out select-none",
+        "fixed inset-0 z-[9999] pointer-events-none transition-opacity duration-450 ease-out select-none",
         isGliding ? "opacity-0" : "opacity-100"
       )}
     >
       {/* Background Curtain Overlay */}
       <div className="absolute inset-0 bg-brand-dark-950 pointer-events-auto" />
 
-      {/* Ambient Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-brand-digital-500/20 rounded-full blur-[100px] pointer-events-none animate-pulse" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-brand-industrial-500/15 rounded-full blur-[90px] pointer-events-none" />
+      {/* Atmospheric Ambient Glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-brand-digital-500/20 rounded-full blur-[100px] pointer-events-none animate-pulse" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-brand-industrial-500/15 rounded-full blur-[90px] pointer-events-none" />
 
-      {/* Center Fixed Stage */}
+      {/* Centered Staging Area */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
-        {/* Animated Flying Container */}
+        {/* The Master Brand Unit that glides to top-left */}
         <div
-          ref={containerRef}
+          ref={brandUnitRef}
           style={
-            isGliding && targetPos
+            isGliding && glideCoords
               ? {
-                  transform: `translate3d(${targetPos.x}px, ${targetPos.y}px, 0) scale(${targetPos.scale})`,
+                  transform: `translate3d(${glideCoords.x}px, ${glideCoords.y}px, 0) scale(${glideCoords.scale})`,
                   transformOrigin: "top left",
-                  transition: "transform 550ms cubic-bezier(0.16, 1, 0.3, 1), opacity 450ms ease-in",
+                  transition: "transform 500ms cubic-bezier(0.16, 1, 0.3, 1), opacity 450ms ease-out",
                 }
               : {
                   transform: "translate3d(0, 0, 0) scale(1)",
-                  transition: "transform 550ms cubic-bezier(0.16, 1, 0.3, 1)",
+                  transition: "transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
                 }
           }
-          className="relative flex items-center gap-3.5 z-10"
+          className="relative flex items-center z-10 transition-all duration-400 ease-out"
         >
-          {/* Logo Emblem with Glow */}
-          <div className="relative shrink-0">
-            {/* Spinning Halo */}
-            <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-brand-digital-500 to-brand-industrial-500 opacity-60 blur-sm animate-spin duration-1000" />
+          {/* Logo Emblem (Solo at first in dead center, shifts left as name expands) */}
+          <div className="relative shrink-0 flex items-center justify-center">
+            {/* Spinning Halo Glow */}
+            <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-brand-digital-500 via-sky-400 to-brand-industrial-500 opacity-70 blur-sm animate-spin duration-1000" />
             
             <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-brand-dark-950 p-[2px] shadow-2xl border border-white/10 flex items-center justify-center overflow-hidden">
               <img
@@ -107,11 +114,13 @@ export default function Preloader() {
             </div>
           </div>
 
-          {/* Name Opening / Expanding Horizontally from the Logo */}
+          {/* Company Name Opening to the Right */}
           <div
             className={cn(
               "overflow-hidden transition-all duration-400 ease-out flex flex-col justify-center",
-              isExpanded ? "max-w-[280px] sm:max-w-[340px] opacity-100" : "max-w-0 opacity-0"
+              isNameRevealed
+                ? "max-w-[300px] sm:max-w-[360px] opacity-100 ml-3.5"
+                : "max-w-0 opacity-0 ml-0"
             )}
           >
             <div className="whitespace-nowrap pr-2">
@@ -119,7 +128,7 @@ export default function Preloader() {
                 AONICTECH
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-digital-400 animate-pulse" />
               </span>
-              <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 block mt-1">
+              <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.22em] uppercase text-slate-400 block mt-1">
                 Digital & Industrial
               </span>
             </div>
