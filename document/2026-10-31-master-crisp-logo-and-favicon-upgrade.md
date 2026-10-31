@@ -69,3 +69,4 @@ Using `sharp` (libvips) with high-fidelity `Lanczos3` kernel resampling and loss
 - Production build (`next build`) compiled successfully with 0 errors across 14 routes.
 - Zero duplicate route warnings for favicon.
 - Full compliance with the 7 official brand colors.
+
