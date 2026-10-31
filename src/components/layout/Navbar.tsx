@@ -84,7 +84,7 @@ export default function Navbar() {
             href="/" 
             id="navbar-brand-logo" 
             className={cn(
-              "group shrink-0 flex items-center transition-opacity duration-300",
+              "group shrink-0 flex items-center transition-opacity duration-150",
               logoVisible ? "opacity-100" : "opacity-0 pointer-events-none"
             )}
           >

@@ -6,50 +6,83 @@ import Logo from "@/components/ui/Logo";
 
 export default function Preloader() {
   const [stage, setStage] = useState<"center" | "gliding" | "docked" | "done">("center");
-  const [targetCoords, setTargetCoords] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
-  const gliderRef = useRef<HTMLDivElement>(null);
+  const [navCoords, setNavCoords] = useState<{
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+    deltaX: number;
+    deltaY: number;
+  } | null>(null);
 
+  const gliderRef = useRef<HTMLDivElement>(null);
+  const dockedRef = useRef(false);
+
+  // Initialize layout and measure target coordinates on client
   useEffect(() => {
-    // Reset scroll to top on fresh load/refresh
+    // Reset scroll to top and temporarily lock scroll during intro
     if (typeof window !== "undefined") {
       window.scrollTo(0, 0);
+      document.body.style.overflow = "hidden";
     }
 
-    // Schedule glide to header at 1100ms
-    const glideTimer = setTimeout(() => {
+    const computeCoords = () => {
       const navTarget = document.getElementById("navbar-brand-logo");
       if (navTarget) {
         const navRect = navTarget.getBoundingClientRect();
-        // Calculate translation needed from screen center to navbar logo center
-        const targetX = (navRect.left + navRect.width / 2) - (window.innerWidth / 2);
-        const targetY = (navRect.top + navRect.height / 2) - (window.innerHeight / 2);
+        const centerLeft = (window.innerWidth - navRect.width) / 2;
+        const centerTop = (window.innerHeight - navRect.height) / 2;
+        const deltaX = centerLeft - navRect.left;
+        const deltaY = centerTop - navRect.top;
 
-        setTargetCoords({ x: targetX, y: targetY });
-        setStage("gliding");
-      } else {
-        // Fallback: if navbar logo is not found, fade out cleanly
-        setStage("docked");
-        window.dispatchEvent(new CustomEvent("aonic-preloader-docked"));
+        setNavCoords({
+          left: navRect.left,
+          top: navRect.top,
+          width: navRect.width,
+          height: navRect.height,
+          deltaX,
+          deltaY,
+        });
       }
-    }, 1100);
+    };
 
-    // Schedule docking complete at 2150ms (1100ms + 1050ms glide)
-    const dockTimer = setTimeout(() => {
-      setStage("docked");
-      window.dispatchEvent(new CustomEvent("aonic-preloader-docked"));
-    }, 2150);
+    // Compute immediately and on next animation frame
+    computeCoords();
+    const raf = requestAnimationFrame(computeCoords);
 
-    // Schedule complete unmount at 2350ms
-    const finishTimer = setTimeout(() => {
-      setStage("done");
-    }, 2350);
+    // Start glide at 1000ms
+    const glideTimer = setTimeout(() => {
+      // Re-check target right before gliding to ensure pixel precision
+      computeCoords();
+      setStage("gliding");
+    }, 1000);
+
+    // Fallback dock timer in case transitionend does not fire
+    const fallbackTimer = setTimeout(() => {
+      triggerDock();
+    }, 2400);
 
     return () => {
+      cancelAnimationFrame(raf);
       clearTimeout(glideTimer);
-      clearTimeout(dockTimer);
-      clearTimeout(finishTimer);
+      clearTimeout(fallbackTimer);
+      document.body.style.overflow = "";
     };
   }, []);
+
+  const triggerDock = () => {
+    if (dockedRef.current) return;
+    dockedRef.current = true;
+
+    setStage("docked");
+    document.body.style.overflow = "";
+    window.dispatchEvent(new CustomEvent("aonic-preloader-docked"));
+
+    // Complete unmount after handoff
+    setTimeout(() => {
+      setStage("done");
+    }, 200);
+  };
 
   if (stage === "done") {
     return null;
@@ -57,11 +90,35 @@ export default function Preloader() {
 
   const isGliding = stage === "gliding" || stage === "docked";
 
+  // Calculate transform and positioning
+  let transformStyle = "translate3d(-50%, -50%, 0) scale(var(--logo-intro-scale, 1.4))";
+  let posStyle: React.CSSProperties = {
+    position: "fixed",
+    left: "50%",
+    top: "50%",
+  };
+
+  if (navCoords) {
+    posStyle = {
+      position: "fixed",
+      left: `${navCoords.left}px`,
+      top: `${navCoords.top}px`,
+      width: `${navCoords.width}px`,
+      height: `${navCoords.height}px`,
+    };
+
+    if (isGliding) {
+      transformStyle = "translate3d(0px, 0px, 0px) scale(1)";
+    } else {
+      transformStyle = `translate3d(${navCoords.deltaX}px, ${navCoords.deltaY}px, 0px) scale(var(--logo-intro-scale, 1.4))`;
+    }
+  }
+
   return (
     <div
       id="aonic-preloader-root"
       className={cn(
-        "fixed inset-0 z-[9999] select-none transition-opacity duration-300",
+        "fixed inset-0 z-[9999] select-none transition-opacity duration-200",
         stage === "docked" ? "opacity-0 pointer-events-none" : "opacity-100",
         isGliding ? "pointer-events-none" : "pointer-events-auto"
       )}
@@ -97,39 +154,42 @@ export default function Preloader() {
         )}
       />
 
-      {/* Flexbox Centering Stage */}
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
-        {/* 
-          Master Brand Unit
-          Starts dead center, then glides with high precision into the navbar logo spot
-        */}
+      {/* 
+        Master Gliding Brand Unit
+        Base position is pinned directly to `#navbar-brand-logo`'s coordinates.
+        Starts with a translation offset that centers it, then glides to (0, 0)
+        landing with 100% mathematical precision on the navbar logo.
+      */}
+      <div
+        ref={gliderRef}
+        style={{
+          ...posStyle,
+          transform: transformStyle,
+          transformOrigin: "center center",
+          transition: isGliding
+            ? "transform 900ms cubic-bezier(0.16, 1, 0.3, 1)"
+            : "none",
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+        }}
+        onTransitionEnd={(e) => {
+          if (e.propertyName === "transform" && isGliding) {
+            triggerDock();
+          }
+        }}
+        className="flex items-center shrink-0"
+      >
+        {/* Radiant Ambient Aura behind emblem in center */}
         <div
-          ref={gliderRef}
-          style={{
-            transform: isGliding
-              ? `translate3d(${targetCoords.x}px, ${targetCoords.y}px, 0) scale(1)`
-              : "translate3d(0, 0, 0) scale(var(--logo-intro-scale, 1.4))",
-            transformOrigin: "center center",
-            transition: stage === "gliding"
-              ? "transform 1050ms cubic-bezier(0.16, 1, 0.3, 1)"
-              : "none",
-            willChange: "transform",
-            backfaceVisibility: "hidden",
-          }}
-          className="relative flex items-center shrink-0"
-        >
-          {/* Radiant Ambient Aura behind emblem in center */}
-          <div
-            className={cn(
-              "absolute -inset-4 rounded-2xl bg-gradient-to-r from-[#1926A0]/25 via-[#757CB6]/30 to-[#FFDB18]/25 blur-xl pointer-events-none transition-opacity duration-500",
-              isGliding ? "opacity-0" : "opacity-100"
-            )}
-          />
+          className={cn(
+            "absolute -inset-4 rounded-2xl bg-gradient-to-r from-[#1926A0]/25 via-[#757CB6]/30 to-[#FFDB18]/25 blur-xl pointer-events-none transition-opacity duration-500",
+            isGliding ? "opacity-0" : "opacity-100"
+          )}
+        />
 
-          {/* Exact responsive Logo instances matching Navbar.tsx */}
-          <Logo size={36} variant="light" className="sm:hidden" />
-          <Logo size={42} variant="light" className="hidden sm:flex" />
-        </div>
+        {/* Exact responsive Logo instances matching Navbar.tsx */}
+        <Logo size={36} variant="light" className="sm:hidden" />
+        <Logo size={42} variant="light" className="hidden sm:flex" />
       </div>
     </div>
   );
