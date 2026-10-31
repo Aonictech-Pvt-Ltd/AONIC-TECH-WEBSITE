@@ -94,8 +94,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#FFDB18] text-slate-300 transition-colors">
-                  Contact Us
+                <Link href="/blog" className="hover:text-[#FFDB18] text-slate-300 transition-colors">
+                  Blog
                 </Link>
               </li>
             </ul>

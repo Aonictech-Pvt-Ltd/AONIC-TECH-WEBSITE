@@ -21,14 +21,35 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [logoVisible, setLogoVisible] = useState(false);
+  const [logoVisible, setLogoVisible] = useState(() => {
+    if (typeof window !== "undefined") {
+      try {
+        return !!(
+          sessionStorage.getItem("aonic_intro_shown") ||
+          localStorage.getItem("aonic_intro_shown") ||
+          document.documentElement.classList.contains("aonic-intro-done") ||
+          (window as any).__AONIC_PRELOADED__
+        );
+      } catch (e) {
+        return false;
+      }
+    }
+    return false;
+  });
   const pathname = usePathname();
 
   useEffect(() => {
-    // If preloader already completed in this window session
-    if (typeof window !== "undefined" && (window as any).__AONIC_PRELOADED__) {
-      setLogoVisible(true);
-    }
+    // If preloader already completed in this browser session
+    try {
+      if (
+        sessionStorage.getItem("aonic_intro_shown") ||
+        localStorage.getItem("aonic_intro_shown") ||
+        document.documentElement.classList.contains("aonic-intro-done") ||
+        (window as any).__AONIC_PRELOADED__
+      ) {
+        setLogoVisible(true);
+      }
+    } catch (e) {}
 
     const handleDocked = () => {
       setLogoVisible(true);
@@ -69,7 +90,7 @@ export default function Navbar() {
       hasDropdown: true 
     },
     { label: "Projects", href: "/projects" },
-    { label: "Contact Us", href: "/contact" },
+    { label: "Blog", href: "/blog" },
   ];
 
   return (
@@ -232,23 +253,27 @@ export default function Navbar() {
 
           {/* Primary Action: Get a Quote CTA in Royal Blue (#1926A0) */}
           <div className="hidden sm:flex items-center">
-            <Link
-              href="/contact"
+            <a
+              href={COMPANY_INFO.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white text-xs uppercase tracking-wider font-bold shadow-md shadow-[#1926A0]/25 transition-all flex items-center gap-1.5 active:scale-95 border border-[#1926A0]"
             >
               Get a Quote
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex sm:hidden items-center gap-2">
-            <Link
-              href="/contact"
+            <a
+              href={COMPANY_INFO.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-3 py-1.5 rounded-lg bg-[#1926A0] text-white text-xs font-bold"
             >
               Quote
-            </Link>
+            </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg bg-white text-[#0E0E25] hover:bg-[#757CB6]/10 border border-[#757CB6]/20"
@@ -381,14 +406,16 @@ export default function Navbar() {
           </div>
 
           {/* Quick CTA */}
-          <Link
-            href="/contact"
+          <a
+            href={COMPANY_INFO.whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
             className="w-full py-3 px-4 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#1926A0]/25 border border-[#1926A0] min-h-[44px]"
           >
             Get a Customized Quote
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </a>
 
           {/* Quick Actions */}
           <div className="pt-2 border-t border-[#757CB6]/20 grid grid-cols-2 gap-2 text-center text-xs">

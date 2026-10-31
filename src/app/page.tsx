@@ -381,12 +381,14 @@ export default function HomePage() {
             Whether you need a modern restaurant website, customized POS billing, or certified titanium rods delivered to your workshop.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-4">
-            <Link
-              href="/contact"
+            <a
+              href={COMPANY_INFO.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto px-6 sm:px-9 py-3.5 sm:py-4 rounded-xl bg-[#FFDB18] hover:bg-[#ffe34d] text-[#000000] font-black text-xs sm:text-sm uppercase tracking-wider transition-colors shadow-lg shadow-black/30 border border-[#FFDB18] min-h-[44px] flex items-center justify-center"
             >
               Get a Free Quote
-            </Link>
+            </a>
             <a
               href={COMPANY_INFO.whatsappLink}
               target="_blank"

@@ -189,12 +189,14 @@ export default function AboutPage() {
         <p className="text-sm sm:text-base text-[#0E0E25]/75 max-w-xl mx-auto leading-relaxed">
           Tell us about your digital requirements or request a landed quotation for specialized alloys.
         </p>
-        <Link
-          href="/contact"
+        <a
+          href={COMPANY_INFO.whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-9 py-4 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-[#1926A0]/25 transition-all"
         >
           Work With Us <ArrowRight className="w-4 h-4" />
-        </Link>
+        </a>
       </div>
     </div>
   );

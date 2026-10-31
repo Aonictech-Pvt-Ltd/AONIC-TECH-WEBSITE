@@ -8,6 +8,7 @@ import {
   Terminal
 } from "lucide-react";
 import { PROJECTS_DATA } from "@/data/projects";
+import { COMPANY_INFO } from "@/data/company";
 import { cn } from "@/lib/utils";
 
 export default function ProjectsPage() {
@@ -88,18 +89,22 @@ export default function ProjectsPage() {
                 </div>
               </div>
               <div className="pt-2 flex flex-wrap gap-3.5">
-                <Link
-                  href="/contact?service=POS+Demo"
+                <a
+                  href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I would like to schedule a guided walk-through of your QuickServe POS billing software.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-6 py-3 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-lg shadow-[#1926A0]/25"
                 >
                   Schedule Guided Walkthrough
-                </Link>
-                <Link
-                  href="/contact"
+                </a>
+                <a
+                  href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I have a custom software inquiry for my business.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-6 py-3 rounded-xl bg-white border border-[#757CB6]/30 hover:border-[#1926A0] text-[#0E0E25] text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
                 >
                   Custom Software Enquiry
-                </Link>
+                </a>
               </div>
             </div>
 
@@ -199,12 +204,14 @@ export default function ProjectsPage() {
                 ))}
               </div>
 
-              <Link
-                href="/contact"
+              <a
+                href={`https://wa.me/918121696009?text=${encodeURIComponent(`Hi Aonictech, I am interested in discussing a project similar to: ${project.title}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full py-3 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white text-sm font-bold flex items-center justify-center gap-2 transition-colors shadow-md shadow-[#1926A0]/20"
               >
                 Discuss Similar Project <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
           </div>
         ))}
@@ -218,12 +225,14 @@ export default function ProjectsPage() {
         <p className="text-sm sm:text-base text-[#0E0E25]/75 max-w-xl mx-auto leading-relaxed">
           We provide transparent timelines, clear deliverables, and door-to-door execution.
         </p>
-        <Link
-          href="/contact"
+        <a
+          href={COMPANY_INFO.whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-[#1926A0]/25 transition-all"
         >
           Contact Our Team <ArrowRight className="w-4 h-4" />
-        </Link>
+        </a>
       </div>
     </div>
   );

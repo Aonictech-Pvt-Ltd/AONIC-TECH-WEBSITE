@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { DIGITAL_SERVICES, INDUSTRIAL_SERVICES } from "@/data/services";
 import { MATERIALS_CATALOG } from "@/data/materials";
+import { COMPANY_INFO } from "@/data/company";
 import { cn } from "@/lib/utils";
 
 export default function ServicesPage() {
@@ -112,12 +113,14 @@ export default function ServicesPage() {
                 We design and engineer digital systems that convert casual visitors into paying customers. Every website and POS system is custom-configured for fast checkout and high local SEO ranking.
               </p>
             </div>
-            <Link
-              href="/contact"
+            <a
+              href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I would like to request a quotation for digital solutions & software services.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="shrink-0 px-6 py-3 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-xs tracking-wider uppercase transition-colors shadow-md shadow-[#1926A0]/25"
             >
               Request Quote
-            </Link>
+            </a>
           </div>
 
           {/* 6 Digital Services Grid */}
@@ -163,12 +166,14 @@ export default function ServicesPage() {
 
                   <div className="pt-4 border-t border-[#757CB6]/20 flex items-center justify-between">
                     <span className="text-sm text-[#0E0E25] font-bold">{srv.priceNote}</span>
-                    <Link
-                      href="/contact"
+                    <a
+                      href={`https://wa.me/918121696009?text=${encodeURIComponent(`Hi Aonictech, I would like to enquire about: ${srv.title}. Could you provide details and pricing?`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-sm font-bold text-[#1926A0] hover:text-[#131e80] flex items-center gap-1"
                     >
                       Enquire <ChevronRight className="w-4 h-4" />
-                    </Link>
+                    </a>
                   </div>
                 </div>
               ))}
@@ -209,12 +214,14 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className="pt-4 flex flex-wrap gap-4">
-                  <Link
-                    href="/contact"
+                  <a
+                    href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I would like to request a free 15-minute live demo of your QuickServe POS billing software.")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-6 py-3 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-lg shadow-[#1926A0]/25"
                   >
                     Request Free 15-Min Live Demo
-                  </Link>
+                  </a>
                   <Link
                     href="/projects"
                     className="px-6 py-3 rounded-xl bg-white border border-[#757CB6]/30 hover:border-[#1926A0] text-[#0E0E25] font-bold text-xs transition-colors flex items-center gap-1.5"
@@ -290,12 +297,14 @@ export default function ServicesPage() {
                     <Check className="w-4 h-4 text-[#1926A0]" /> 1 Year Free SSL Certificate
                   </li>
                 </ul>
-                <Link
-                  href="/contact"
+                <a
+                  href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I am interested in the Starter Digital Package (₹12,000). Please share details.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block w-full py-2.5 rounded-xl bg-white border border-[#757CB6]/30 hover:border-[#1926A0] text-[#0E0E25] text-xs font-bold text-center transition-colors shadow-sm"
                 >
                   Choose Starter
-                </Link>
+                </a>
               </div>
 
               {/* Standard */}
@@ -326,12 +335,14 @@ export default function ServicesPage() {
                     <Check className="w-4 h-4 text-[#1926A0]" /> 6 Months Dedicated Support
                   </li>
                 </ul>
-                <Link
-                  href="/contact"
+                <a
+                  href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I am interested in the Business Growth Package (₹24,000). Please share details.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block w-full py-2.5 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white text-xs font-bold text-center transition-colors shadow-md shadow-[#1926A0]/25"
                 >
                   Choose Business
-                </Link>
+                </a>
               </div>
 
               {/* Premium / E-Commerce */}
@@ -359,12 +370,14 @@ export default function ServicesPage() {
                     <Check className="w-4 h-4 text-[#1926A0]" /> 1 Year Priority Maintenance
                   </li>
                 </ul>
-                <Link
-                  href="/contact"
+                <a
+                  href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I am interested in Custom / E-Commerce Software Solutions. Please share quotation details.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block w-full py-2.5 rounded-xl bg-white border border-[#757CB6]/30 hover:border-[#1926A0] text-[#0E0E25] text-xs font-bold text-center transition-colors shadow-sm"
                 >
                   Get Custom Scope
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -389,12 +402,14 @@ export default function ServicesPage() {
                 We eliminate the friction of importing exotic alloys and components. Low MOQ prototyping batches, EN 10204 3.1 Mill Test Certificates, full customs handling, and GST tax invoice included.
               </p>
             </div>
-            <Link
-              href="/contact"
+            <a
+              href={`https://wa.me/918121696009?text=${encodeURIComponent("Hi Aonictech, I would like to request an Industrial Material RFQ (alloys, rare-earths, or chips).")}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="shrink-0 px-6 py-3 rounded-xl bg-[#FFDB18] hover:bg-[#ffe34d] text-black font-black text-xs tracking-wider uppercase transition-colors shadow-md shadow-[#FFDB18]/25 border border-[#FFDB18]"
             >
               Request Material RFQ
-            </Link>
+            </a>
           </div>
 
           {/* 6 Industrial Services Grid */}
@@ -440,12 +455,14 @@ export default function ServicesPage() {
 
                   <div className="pt-4 border-t border-[#757CB6]/20 flex items-center justify-between">
                     <span className="text-sm text-[#0E0E25] font-bold">{srv.priceNote}</span>
-                    <Link
-                      href={`/contact?service=Material&item=${encodeURIComponent(srv.title)}`}
+                    <a
+                      href={`https://wa.me/918121696009?text=${encodeURIComponent(`Hi Aonictech, I would like to enquire about: ${srv.title}. Please provide supply specifications and quotes.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-sm font-bold text-[#0E0E25] hover:text-[#1926A0] flex items-center gap-1"
                     >
                       Enquire <ChevronRight className="w-4 h-4" />
-                    </Link>
+                    </a>
                   </div>
                 </div>
               ))}
@@ -530,12 +547,14 @@ export default function ServicesPage() {
                         {mat.testCert}
                       </td>
                       <td className="py-4 px-4 text-right">
-                        <Link
-                          href={`/contact?service=Material&item=${encodeURIComponent(mat.name)}`}
+                        <a
+                          href={`https://wa.me/918121696009?text=${encodeURIComponent(`Hi Aonictech, I would like to enquire about importing: ${mat.name} (${mat.grade}). Please provide quotation and MOQ details.`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="px-4 py-2 rounded-xl bg-[#FFDB18] hover:bg-[#ffe34d] text-[#000000] font-black text-xs uppercase tracking-wider transition-colors inline-block shadow-sm border border-[#FFDB18]"
                         >
                           Enquire
-                        </Link>
+                        </a>
                       </td>
                     </tr>
                   ))}
