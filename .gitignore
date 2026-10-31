@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Environment Variables & Secrets (Sensitive Information)
+.env
+.env*.local
+.env.development
+.env.test
+.env.production
+*.pem
+*.key
+*.cert
+*.crt
+
+# SQL & Database Dumps (Sensitive Information)
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+dumps/
+backups/
+
+# Local Change Logs (User preference: do not push to remote)
+change log/
+change-log/
+changelog/
+
+# OS and Editor metadata
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Vercel & Turbo
+.vercel
+.turbo
