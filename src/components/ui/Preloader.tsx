@@ -90,8 +90,8 @@ export default function Preloader() {
 
   const isGliding = stage === "gliding" || stage === "docked";
 
-  // Calculate transform and positioning
-  let transformStyle = "translate3d(-50%, -50%, 0) scale(var(--logo-intro-scale, 1.4))";
+  // Calculate transform and positioning (Scale 1.75 in center for commanding presence)
+  let transformStyle = "translate3d(-50%, -50%, 0) scale(1.75)";
   let posStyle: React.CSSProperties = {
     position: "fixed",
     left: "50%",
@@ -110,7 +110,7 @@ export default function Preloader() {
     if (isGliding) {
       transformStyle = "translate3d(0px, 0px, 0px) scale(1)";
     } else {
-      transformStyle = `translate3d(${navCoords.deltaX}px, ${navCoords.deltaY}px, 0px) scale(var(--logo-intro-scale, 1.4))`;
+      transformStyle = `translate3d(${navCoords.deltaX}px, ${navCoords.deltaY}px, 0px) scale(1.75)`;
     }
   }
 
@@ -124,32 +124,12 @@ export default function Preloader() {
       )}
     >
       {/* 
-        Pure White Canvas (#FFFFFF)
-        Covers the page during intro, smoothly fades out during glide revealing the website
+        100% Pure White Canvas (#FFFFFF)
+        Spotless, ultra-clean white canvas with zero muddy blur halos or dirty tints
       */}
       <div
         className={cn(
-          "absolute inset-0 bg-white transition-opacity duration-900 ease-out",
-          isGliding ? "opacity-0" : "opacity-100"
-        )}
-      />
-
-      {/* Atmospheric Brand Glows (#1926A0 Royal Blue, #FFDB18 Yellow & #757CB6 Lavender) */}
-      <div
-        className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[#1926A0]/15 rounded-full blur-[90px] sm:blur-[150px] pointer-events-none transition-opacity duration-900",
-          isGliding ? "opacity-0" : "opacity-100"
-        )}
-      />
-      <div
-        className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] sm:w-[480px] h-[260px] sm:h-[480px] bg-[#FFDB18]/15 rounded-full blur-[80px] sm:blur-[130px] pointer-events-none transition-opacity duration-900",
-          isGliding ? "opacity-0" : "opacity-100"
-        )}
-      />
-      <div
-        className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[380px] h-[220px] sm:h-[380px] bg-[#757CB6]/15 rounded-full blur-[70px] sm:blur-[100px] pointer-events-none transition-opacity duration-900",
+          "absolute inset-0 bg-white transition-opacity duration-700 ease-out",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
@@ -179,14 +159,6 @@ export default function Preloader() {
         }}
         className="flex items-center shrink-0"
       >
-        {/* Radiant Ambient Aura behind emblem in center */}
-        <div
-          className={cn(
-            "absolute -inset-4 rounded-2xl bg-gradient-to-r from-[#1926A0]/25 via-[#757CB6]/30 to-[#FFDB18]/25 blur-xl pointer-events-none transition-opacity duration-700",
-            isGliding ? "opacity-0" : "opacity-100"
-          )}
-        />
-
         {/* Animated responsive Logo instances matching Navbar.tsx */}
         <Logo size={36} variant="light" animated={true} className="sm:hidden" />
         <Logo size={42} variant="light" animated={true} className="hidden sm:flex" />
