@@ -90,3 +90,4 @@ Previously, on every browser refresh or hard navigation:
 - **Static Generation**: All 14 routes compiled and generated successfully via `npm run build` (Next.js 15.5.28).
 - **TypeScript**: 0 type errors.
 - **Brand Palette Audit**: 100% compliant with the 7 brand colors specified in `AGENTS.md`.
+

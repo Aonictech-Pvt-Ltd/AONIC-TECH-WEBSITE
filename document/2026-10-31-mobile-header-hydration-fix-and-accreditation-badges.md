@@ -60,3 +60,4 @@ Positioned directly after the homepage hero section, featuring high-fidelity cus
 - Executed `npm run build`: Compiled with 0 errors across all 14 routes.
 - React hydration: Verified 0 console hydration mismatch errors.
 - Responsive layout: Verified mobile header ergonomics and 3-column accreditation badge alignment.
+

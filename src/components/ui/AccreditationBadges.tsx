@@ -218,3 +218,4 @@ export default function AccreditationBadges({ className }: { className?: string 
     </section>
   );
 }
+

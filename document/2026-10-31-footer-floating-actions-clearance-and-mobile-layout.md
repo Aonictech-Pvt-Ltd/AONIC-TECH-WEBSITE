@@ -25,3 +25,4 @@
 ## 3. Verification
 - `npm run build` passed with 0 errors.
 - Verified clear visual separation across mobile (375px), tablet (768px), and desktop (1280px+).
+

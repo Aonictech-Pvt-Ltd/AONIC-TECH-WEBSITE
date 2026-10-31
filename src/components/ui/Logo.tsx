@@ -40,11 +40,12 @@ export default function Logo({
         <div className="flex flex-col">
           <span 
             className={cn(
-              "text-xl sm:text-2xl font-black tracking-tight leading-none transition-colors",
+              "text-xl sm:text-2xl font-black tracking-tight leading-none transition-colors flex items-center gap-1.5",
               isDark ? "text-white" : "text-[#0E0E25]"
             )}
           >
             AONICTECH
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FFDB18] shadow-sm shadow-[#FFDB18] animate-pulse shrink-0" />
           </span>
           <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.14em] sm:tracking-[0.16em] uppercase text-[#757CB6] mt-0.5 sm:mt-1">
             Digital & Industrial
