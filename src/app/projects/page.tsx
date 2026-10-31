@@ -42,13 +42,13 @@ export default function ProjectsPage() {
         </p>
 
         {/* Filter Tabs */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
+        <div className="mt-6 sm:mt-8 flex sm:flex-wrap items-center sm:justify-center gap-2 overflow-x-auto pb-2 sm:pb-0 no-scrollbar touch-scroll w-full px-1">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={cn(
-                "px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm",
+                "px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-sm shrink-0 whitespace-nowrap min-h-[40px] flex items-center justify-center",
                 activeCategory === cat
                   ? "bg-[#1926A0] text-white shadow-md shadow-[#1926A0]/25"
                   : "bg-white border border-[#757CB6]/30 text-[#0E0E25] hover:border-[#1926A0]"
@@ -62,9 +62,9 @@ export default function ProjectsPage() {
 
       {/* POS Software Interactive Sandbox Demo Highlight */}
       {(activeCategory === "All" || activeCategory === "POS Software") && (
-        <div className="max-w-7xl mx-auto p-8 sm:p-12 rounded-3xl bg-white border-2 border-[#1926A0]/30 shadow-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-5">
+        <div className="max-w-7xl mx-auto p-6 sm:p-10 lg:p-12 rounded-2xl sm:rounded-3xl bg-white border-2 border-[#1926A0]/30 shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4 sm:space-y-5">
               <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-[#1926A0]/10 text-[#1926A0] border border-[#1926A0]/20 inline-block">
                 Interactive Software Sandbox
               </span>

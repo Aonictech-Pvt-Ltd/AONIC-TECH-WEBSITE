@@ -66,11 +66,11 @@ export default function ServicesPage() {
         </p>
 
         {/* Niche Switcher Tabs */}
-        <div className="mt-8 inline-flex p-1.5 rounded-2xl bg-white border border-[#757CB6]/30 shadow-md">
+        <div className="mt-6 sm:mt-8 flex flex-col sm:inline-flex sm:flex-row p-1.5 rounded-2xl bg-white border border-[#757CB6]/30 shadow-md w-full sm:w-auto gap-1 sm:gap-0">
           <button
             onClick={() => setActiveTab("digital")}
             className={cn(
-              "flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all",
+              "flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition-all min-h-[44px]",
               activeTab === "digital"
                 ? "bg-[#1926A0] text-white shadow-md shadow-[#1926A0]/25 border border-[#1926A0]"
                 : "text-[#0E0E25] hover:text-[#1926A0]"
@@ -82,7 +82,7 @@ export default function ServicesPage() {
           <button
             onClick={() => setActiveTab("industrial")}
             className={cn(
-              "flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all",
+              "flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition-all min-h-[44px]",
               activeTab === "industrial"
                 ? "bg-[#FFDB18] text-[#000000] font-black shadow-md shadow-[#FFDB18]/25 border border-[#FFDB18]"
                 : "text-[#0E0E25] hover:text-[#1926A0]"
@@ -463,21 +463,21 @@ export default function ServicesPage() {
               </div>
 
               {/* Search & Category Filter */}
-              <div className="flex items-center gap-3 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <div className="relative flex-1 sm:w-64">
-                  <Search className="w-4 h-4 absolute left-3 top-3 text-[#757CB6]" />
+                  <Search className="w-4 h-4 absolute left-3 top-3.5 sm:top-3 text-[#757CB6]" />
                   <input
                     type="text"
                     placeholder="Search Titanium, N52, STM32..."
                     value={searchMaterial}
                     onChange={(e) => setSearchMaterial(e.target.value)}
-                    className="w-full pl-9 pr-3 py-2 rounded-xl bg-white border border-[#757CB6]/30 text-[#0E0E25] text-xs focus:outline-none focus:border-[#1926A0] shadow-sm"
+                    className="w-full pl-9 pr-3 py-2.5 sm:py-2 rounded-xl bg-white border border-[#757CB6]/30 text-[#0E0E25] text-base sm:text-xs focus:outline-none focus:border-[#1926A0] shadow-sm"
                   />
                 </div>
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="px-3 py-2 rounded-xl bg-white border border-[#757CB6]/30 text-[#0E0E25] text-xs focus:outline-none focus:border-[#1926A0] shadow-sm font-medium"
+                  className="px-3 py-2.5 sm:py-2 rounded-xl bg-white border border-[#757CB6]/30 text-[#0E0E25] text-base sm:text-xs focus:outline-none focus:border-[#1926A0] shadow-sm font-medium min-h-[44px] sm:min-h-0"
                 >
                   <option value="All">All Categories</option>
                   <option value="Titanium & Alloys">Titanium & Alloys</option>
@@ -489,8 +489,11 @@ export default function ServicesPage() {
             </div>
 
             {/* Table */}
-            <div className="overflow-x-auto rounded-2xl border border-[#757CB6]/25 bg-white shadow-sm">
-              <table className="w-full text-left text-xs">
+            <div className="block sm:hidden text-center text-[11px] text-[#757CB6] pb-1 font-mono">
+              ← Scroll horizontally to see full specifications →
+            </div>
+            <div className="overflow-x-auto rounded-2xl border border-[#757CB6]/25 bg-white shadow-sm touch-scroll">
+              <table className="w-full text-left text-xs min-w-[640px]">
                 <thead className="bg-[#757CB6]/10 text-[#0E0E25] uppercase font-mono text-[10px] border-b border-[#757CB6]/20">
                   <tr>
                     <th className="py-4 px-5">Material & Grade</th>

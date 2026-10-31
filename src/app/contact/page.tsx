@@ -110,17 +110,17 @@ export default function ContactPage() {
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         {/* Contact Info & Channels (Left 5 Cols) */}
-        <div className="lg:col-span-5 space-y-8">
+        <div className="lg:col-span-5 space-y-6 sm:space-y-8">
           {/* Quick WhatsApp Action Banner in Green (#63A26B) */}
-          <div className="p-6 rounded-2xl bg-[#63A26B]/15 border border-[#63A26B]/40 shadow-md">
+          <div className="p-5 sm:p-6 rounded-2xl bg-[#63A26B]/15 border border-[#63A26B]/40 shadow-md">
             <div className="flex items-center gap-3 mb-3">
-              <div className="p-2.5 rounded-xl bg-[#63A26B] text-white flex items-center justify-center">
-                <WhatsAppIcon variant="outline" className="w-6 h-6 text-white fill-white" />
+              <div className="p-2 sm:p-2.5 rounded-xl bg-[#63A26B] text-white flex items-center justify-center">
+                <WhatsAppIcon variant="outline" className="w-5 h-5 sm:w-6 sm:h-6 text-white fill-white" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[#0E0E25]">Instant WhatsApp Connect</h3>
+                <h3 className="text-base sm:text-lg font-bold text-[#0E0E25]">Instant WhatsApp Connect</h3>
                 <p className="text-xs text-[#0E0E25]/75">Fastest response for technical queries & urgent material orders</p>
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function ContactPage() {
               href={COMPANY_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 w-full py-3.5 px-4 rounded-xl bg-[#63A26B] hover:bg-[#4c8553] text-white font-bold text-sm flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#63A26B]/25"
+              className="mt-3 sm:mt-4 w-full py-3.5 px-4 rounded-xl bg-[#63A26B] hover:bg-[#528959] text-white font-bold text-sm flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#63A26B]/25 min-h-[44px]"
             >
               Start WhatsApp Chat
               <Send className="w-4 h-4" />
@@ -136,7 +136,7 @@ export default function ContactPage() {
           </div>
 
           {/* Direct Details Card */}
-          <div className="p-7 rounded-2xl bg-white border border-[#757CB6]/25 shadow-md space-y-6">
+          <div className="p-5 sm:p-7 rounded-2xl bg-white border border-[#757CB6]/25 shadow-md space-y-5 sm:space-y-6">
             <h3 className="text-lg font-bold text-[#0E0E25] uppercase tracking-wider">
               Direct Contact Information
             </h3>
@@ -254,7 +254,7 @@ export default function ContactPage() {
 
         {/* Dynamic Interactive Quotation Form (Right 7 Cols) */}
         <div className="lg:col-span-7">
-          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#757CB6]/25 shadow-xl relative overflow-hidden">
+          <div className="p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-white border border-[#757CB6]/25 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#1926A0]/5 blur-3xl pointer-events-none rounded-full" />
             
             {submitted ? (

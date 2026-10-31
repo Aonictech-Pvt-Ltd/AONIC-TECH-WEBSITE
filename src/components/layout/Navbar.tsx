@@ -88,11 +88,12 @@ export default function Navbar() {
             href="/" 
             id="navbar-brand-logo" 
             className={cn(
-              "group hover:opacity-95 transition-opacity duration-200",
+              "group hover:opacity-95 transition-opacity duration-200 shrink-0",
               logoVisible ? "opacity-100" : "opacity-0"
             )}
           >
-            <Logo size={42} variant="light" />
+            <Logo size={36} variant="light" className="sm:hidden" />
+            <Logo size={42} variant="light" className="hidden sm:flex" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -261,37 +262,148 @@ export default function Navbar() {
 
       {/* Mobile Menu Drawer */}
       {isOpen && (
-        <div className="lg:hidden bg-white border-b border-[#757CB6]/30 px-4 pt-3 pb-6 space-y-3 animate-in fade-in duration-200 shadow-xl">
+        <div className="lg:hidden bg-white/98 backdrop-blur-xl border-b border-[#757CB6]/30 px-4 pt-3 pb-6 space-y-4 animate-in slide-in-from-top-2 duration-200 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto touch-scroll">
           <div className="space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={cn(
-                  "block px-3 py-2.5 rounded-lg text-base font-semibold",
-                  pathname === link.href
-                    ? "text-[#1926A0] bg-[#1926A0]/10 border border-[#1926A0]/20 font-bold"
-                    : "text-[#0E0E25] hover:bg-[#757CB6]/10"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              
+              if (link.hasDropdown) {
+                return (
+                  <div key={link.label} className="space-y-1">
+                    <div className="flex items-center justify-between px-3 py-2.5 rounded-xl font-semibold text-base">
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "flex-1",
+                          isActive ? "text-[#1926A0] font-bold" : "text-[#0E0E25]"
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                      <button
+                        onClick={() => setServicesDropdown(!servicesDropdown)}
+                        className="p-1 rounded-lg text-[#757CB6] hover:bg-[#757CB6]/10"
+                        aria-label="Toggle Services List"
+                      >
+                        <ChevronDown
+                          className={cn(
+                            "w-5 h-5 transition-transform duration-200",
+                            servicesDropdown ? "rotate-180 text-[#1926A0]" : ""
+                          )}
+                        />
+                      </button>
+                    </div>
+
+                    {servicesDropdown && (
+                      <div className="pl-3 pr-1 py-2 space-y-3 bg-[#757CB6]/5 rounded-xl border border-[#757CB6]/20">
+                        <div>
+                          <div className="text-[11px] font-bold text-[#1926A0] uppercase tracking-wider px-2 mb-1.5 flex items-center gap-1.5">
+                            <Code2 className="w-3.5 h-3.5" />
+                            Digital Solutions
+                          </div>
+                          <div className="space-y-1 text-sm">
+                            <Link
+                              href="/services#digital-web"
+                              onClick={() => setIsOpen(false)}
+                              className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#1926A0]/10 text-xs font-semibold"
+                            >
+                              Website Development
+                            </Link>
+                            <Link
+                              href="/services#digital-pos"
+                              onClick={() => setIsOpen(false)}
+                              className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#1926A0]/10 text-xs font-semibold"
+                            >
+                              POS & Billing Software
+                            </Link>
+                            <Link
+                              href="/services#digital-ecommerce"
+                              onClick={() => setIsOpen(false)}
+                              className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#1926A0]/10 text-xs font-semibold"
+                            >
+                              E-Commerce & Custom Apps
+                            </Link>
+                          </div>
+                        </div>
+
+                        <div className="pt-2 border-t border-[#757CB6]/15">
+                          <div className="text-[11px] font-bold text-[#0E0E25] uppercase tracking-wider px-2 mb-1.5 flex items-center gap-1.5">
+                            <Layers className="w-3.5 h-3.5" />
+                            Industrial Supply
+                          </div>
+                          <div className="space-y-1 text-sm">
+                            <Link
+                              href="/services#industrial-titanium"
+                              onClick={() => setIsOpen(false)}
+                              className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#FFDB18]/25 text-xs font-semibold"
+                            >
+                              Titanium & Specialty Alloys
+                            </Link>
+                            <Link
+                              href="/services#industrial-rare-earth"
+                              onClick={() => setIsOpen(false)}
+                              className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#FFDB18]/25 text-xs font-semibold"
+                            >
+                              Rare-Earth & Magnets
+                            </Link>
+                            <Link
+                              href="/services#industrial-chips"
+                              onClick={() => setIsOpen(false)}
+                              className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#FFDB18]/25 text-xs font-semibold"
+                            >
+                              IC Chips & Low MOQ Sourcing
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={cn(
+                    "block px-3 py-2.5 rounded-xl text-base font-semibold min-h-[44px] flex items-center",
+                    isActive
+                      ? "text-[#1926A0] bg-[#1926A0]/10 border border-[#1926A0]/20 font-bold"
+                      : "text-[#0E0E25] hover:bg-[#757CB6]/10"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
-          <div className="pt-4 border-t border-[#757CB6]/20 grid grid-cols-2 gap-2 text-center text-xs">
+          {/* Quick CTA */}
+          <Link
+            href="/contact"
+            onClick={() => setIsOpen(false)}
+            className="w-full py-3 px-4 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#1926A0]/25 border border-[#1926A0] min-h-[44px]"
+          >
+            Get a Customized Quote
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+
+          {/* Quick Actions */}
+          <div className="pt-2 border-t border-[#757CB6]/20 grid grid-cols-2 gap-2 text-center text-xs">
             <a
               href={COMPANY_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-lg bg-[#63A26B]/15 border border-[#63A26B]/40 text-[#63A26B] flex items-center justify-center gap-2 font-semibold"
+              className="p-3 rounded-xl bg-[#63A26B]/15 border border-[#63A26B]/40 text-[#63A26B] flex items-center justify-center gap-2 font-bold min-h-[44px]"
             >
               <WhatsAppIcon variant="outline" className="w-4 h-4 text-[#63A26B]" />
               WhatsApp
             </a>
             <a
               href={`tel:${COMPANY_INFO.phone}`}
-              className="p-2.5 rounded-lg bg-white border border-[#757CB6]/30 text-[#0E0E25] flex items-center justify-center gap-2 font-semibold"
+              className="p-3 rounded-xl bg-white border border-[#757CB6]/30 text-[#0E0E25] flex items-center justify-center gap-2 font-bold min-h-[44px]"
             >
               <Phone className="w-4 h-4 text-[#757CB6]" />
               Call Office

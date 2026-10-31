@@ -203,32 +203,32 @@ export default function Footer() {
       {/* ========================================================================= */}
       {/* FLOATING ACTION BUTTONS (Bottom Right: WhatsApp & Phone Side-by-Side)    */}
       {/* ========================================================================= */}
-      <div className="fixed bottom-6 right-6 z-40 flex items-center gap-3">
+      <div className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2.5 sm:gap-3 pb-[env(safe-area-inset-bottom,0px)]">
         {/* Phone Button */}
         <a
           href={`tel:${COMPANY_INFO.phone}`}
-          className="w-14 h-14 rounded-full bg-white text-[#1926A0] border-2 border-[#1926A0] hover:bg-[#1926A0] hover:text-white flex items-center justify-center shadow-2xl shadow-indigo-900/20 hover:scale-110 active:scale-95 transition-all group relative"
+          className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white text-[#1926A0] border-2 border-[#1926A0] hover:bg-[#1926A0] hover:text-white flex items-center justify-center shadow-xl sm:shadow-2xl shadow-indigo-900/25 hover:scale-105 active:scale-95 transition-all group relative"
           title={`Call us at ${COMPANY_INFO.displayPhone}`}
           aria-label="Call Office"
         >
-          <Phone className="w-6 h-6 transition-transform group-hover:scale-110" />
+          <Phone className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:scale-110" />
           <span className="sr-only">Call {COMPANY_INFO.displayPhone}</span>
-          <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#0E0E25] border border-[#757CB6]/30 text-white text-xs font-semibold px-2.5 py-1 rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+          <span className="hidden sm:block absolute -top-10 left-1/2 -translate-x-1/2 bg-[#0E0E25] border border-[#757CB6]/30 text-white text-xs font-semibold px-2.5 py-1 rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
             Call Office
           </span>
         </a>
 
-        {/* WhatsApp Button */}
+        {/* WhatsApp Button in Official Brand Green (#63A26B) */}
         <a
           href={COMPANY_INFO.whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-2xl shadow-emerald-500/50 hover:scale-110 active:scale-95 transition-all group relative"
+          className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#63A26B] hover:bg-[#528959] text-white flex items-center justify-center shadow-xl sm:shadow-2xl shadow-[#63A26B]/40 hover:scale-105 active:scale-95 transition-all group relative"
           aria-label="Chat on WhatsApp"
         >
-          <WhatsAppIcon variant="outline" className="w-7 h-7 text-white fill-white" />
+          <WhatsAppIcon variant="outline" className="w-6 h-6 sm:w-7 sm:h-7 text-white fill-white" />
           <span className="sr-only">Chat with us on WhatsApp</span>
-          <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#0E0E25] border border-[#757CB6]/30 text-white text-xs font-semibold px-2.5 py-1 rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+          <span className="hidden sm:block absolute -top-10 left-1/2 -translate-x-1/2 bg-[#0E0E25] border border-[#757CB6]/30 text-white text-xs font-semibold px-2.5 py-1 rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
             Chat on WhatsApp
           </span>
         </a>

@@ -23,7 +23,7 @@ export default function LegalPage() {
   const [activeTab, setActiveTab] = useState<ActiveTab>("all");
 
   return (
-    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12 bg-white text-[#0E0E25]">
+    <div className="min-h-screen py-10 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-8 sm:space-y-12 bg-white text-[#0E0E25]">
       {/* ========================================================================= */}
       {/* 1. PAGE HEADER                                                            */}
       {/* ========================================================================= */}
@@ -38,10 +38,10 @@ export default function LegalPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-2">
             <div className="flex items-center gap-2.5">
-              <div className="p-2.5 rounded-xl bg-[#1926A0]/10 border border-[#1926A0]/20 text-[#1926A0]">
+              <div className="p-2 sm:p-2.5 rounded-xl bg-[#1926A0]/10 border border-[#1926A0]/20 text-[#1926A0]">
                 <Scale className="w-5 h-5" />
               </div>
-              <h1 className="text-3xl sm:text-4xl font-black text-[#0E0E25] tracking-tight">
+              <h1 className="text-2xl sm:text-4xl font-black text-[#0E0E25] tracking-tight">
                 Privacy Policy & Terms of Service
               </h1>
             </div>
@@ -51,11 +51,11 @@ export default function LegalPage() {
           </div>
 
           {/* Quick Tab Filter */}
-          <div className="inline-flex items-center p-1 rounded-xl bg-slate-100 border border-[#757CB6]/20 self-start sm:self-center">
+          <div className="flex w-full sm:w-auto overflow-x-auto no-scrollbar items-center p-1 rounded-xl bg-slate-100 border border-[#757CB6]/20 self-start sm:self-center gap-1">
             <button
               onClick={() => setActiveTab("all")}
               className={cn(
-                "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all",
+                "px-3 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap min-h-[36px]",
                 activeTab === "all"
                   ? "bg-[#1926A0] text-white shadow-sm"
                   : "text-[#0E0E25]/70 hover:text-[#0E0E25]"
@@ -66,7 +66,7 @@ export default function LegalPage() {
             <button
               onClick={() => setActiveTab("terms")}
               className={cn(
-                "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all",
+                "px-3 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap min-h-[36px]",
                 activeTab === "terms"
                   ? "bg-[#1926A0] text-white shadow-sm"
                   : "text-[#0E0E25]/70 hover:text-[#0E0E25]"
@@ -77,7 +77,7 @@ export default function LegalPage() {
             <button
               onClick={() => setActiveTab("privacy")}
               className={cn(
-                "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all",
+                "px-3 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap min-h-[36px]",
                 activeTab === "privacy"
                   ? "bg-[#1926A0] text-white shadow-sm"
                   : "text-[#0E0E25]/70 hover:text-[#0E0E25]"

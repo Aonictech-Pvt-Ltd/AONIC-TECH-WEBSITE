@@ -88,19 +88,19 @@ export default function Preloader() {
       {/* Atmospheric Ambient Glows (#1926A0 Royal Blue, #FFDB18 Yellow & #757CB6 Lavender) */}
       <div 
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[850px] h-[650px] sm:h-[850px] bg-[#1926A0]/12 rounded-full blur-[160px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[650px] lg:w-[850px] h-[320px] sm:h-[650px] lg:h-[850px] bg-[#1926A0]/12 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none transition-opacity duration-700",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
       <div 
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[650px] h-[500px] sm:h-[650px] bg-[#FFDB18]/15 rounded-full blur-[140px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[500px] lg:w-[650px] h-[280px] sm:h-[500px] lg:h-[650px] bg-[#FFDB18]/15 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none transition-opacity duration-700",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
       <div 
         className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] bg-[#757CB6]/15 rounded-full blur-[110px] pointer-events-none transition-opacity duration-700",
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] sm:w-[400px] lg:w-[500px] h-[240px] sm:h-[400px] lg:h-[500px] bg-[#757CB6]/15 rounded-full blur-[80px] sm:blur-[110px] pointer-events-none transition-opacity duration-700",
           isGliding ? "opacity-0" : "opacity-100"
         )}
       />
@@ -127,9 +127,9 @@ export default function Preloader() {
                   backfaceVisibility: "hidden",
                 }
           }
-          className="relative flex items-center z-10"
+          className="relative flex items-center z-10 px-4"
         >
-          {/* Logo Emblem: Sized prominently (120px to 144px) with high visual authority */}
+          {/* Logo Emblem: Sized responsively for seamless mobile to desktop */}
           <div
             className="relative shrink-0 flex items-center justify-center"
             style={{
@@ -140,15 +140,15 @@ export default function Preloader() {
             {/* Radiant Ambient Aura behind emblem */}
             <div 
               className={cn(
-                "absolute -inset-4 sm:-inset-6 rounded-3xl bg-gradient-to-r from-[#1926A0]/25 via-[#757CB6]/30 to-[#FFDB18]/30 blur-xl transition-opacity duration-500",
+                "absolute -inset-3 sm:-inset-6 rounded-3xl bg-gradient-to-r from-[#1926A0]/25 via-[#757CB6]/30 to-[#FFDB18]/30 blur-lg sm:blur-xl transition-opacity duration-500",
                 isGliding ? "opacity-0" : "opacity-100"
               )}
             />
 
-            {/* Emblem Card Container: Prominent size for impactful first impression */}
+            {/* Emblem Card Container */}
             <div 
               className={cn(
-                "relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-3xl p-3 sm:p-4 flex items-center justify-center transition-all duration-700 overflow-hidden",
+                "relative w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-2xl sm:rounded-3xl p-2.5 sm:p-4 flex items-center justify-center transition-all duration-700 overflow-hidden",
                 isGliding 
                   ? "bg-transparent border-transparent shadow-none" 
                   : "bg-white shadow-2xl shadow-[#1926A0]/15 border-2 border-[#757CB6]/30"
@@ -163,30 +163,30 @@ export default function Preloader() {
             </div>
           </div>
 
-          {/* Name & Subtitle: Smoothly expands & unveils to the right in high scale */}
+          {/* Name & Subtitle */}
           <div
             className="overflow-hidden flex flex-col justify-center"
             style={{
               maxWidth: isRevealed ? "650px" : "0px",
               opacity: isRevealed ? 1 : 0,
-              marginLeft: isRevealed ? "24px" : "0px",
+              marginLeft: isRevealed ? "12px" : "0px",
               transition: "max-width 950ms cubic-bezier(0.16, 1, 0.3, 1), opacity 750ms cubic-bezier(0.16, 1, 0.3, 1) 120ms, margin-left 950ms cubic-bezier(0.16, 1, 0.3, 1)",
               willChange: "max-width, opacity, margin-left",
             }}
           >
             <div 
-              className="whitespace-nowrap pr-4"
+              className="whitespace-nowrap pr-2 sm:pr-4"
               style={{
-                transform: isRevealed ? "translate3d(0, 0, 0)" : "translate3d(-30px, 0, 0)",
+                transform: isRevealed ? "translate3d(0, 0, 0)" : "translate3d(-20px, 0, 0)",
                 transition: "transform 900ms cubic-bezier(0.16, 1, 0.3, 1) 100ms",
                 willChange: "transform",
               }}
             >
-              <span className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#0E0E25] flex items-center gap-2 sm:gap-3 leading-none">
+              <span className="text-2xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#0E0E25] flex items-center gap-1.5 sm:gap-3 leading-none">
                 AONICTECH
-                <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full bg-[#FFDB18] shadow-md shadow-[#FFDB18] animate-pulse" />
+                <span className="w-2 h-2 sm:w-3.5 sm:h-3.5 rounded-full bg-[#FFDB18] shadow-md shadow-[#FFDB18] animate-pulse" />
               </span>
-              <span className="text-xs sm:text-base md:text-lg font-bold tracking-[0.24em] uppercase text-[#757CB6] block mt-2 sm:mt-3">
+              <span className="text-[10px] sm:text-base md:text-lg font-bold tracking-[0.18em] sm:tracking-[0.24em] uppercase text-[#757CB6] block mt-1.5 sm:mt-3">
                 Digital & Industrial
               </span>
             </div>

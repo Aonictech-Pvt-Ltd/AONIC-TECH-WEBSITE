@@ -1,8 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/ui/Preloader";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#FFFFFF",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aonictech.com"),
@@ -71,7 +78,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-white text-[#0E0E25] font-sans selection:bg-[#1926A0] selection:text-white">
         <Preloader />
         <Navbar />
-        <main className="flex-1 pt-20">{children}</main>
+        <main className="flex-1 pt-16 sm:pt-20 overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>
