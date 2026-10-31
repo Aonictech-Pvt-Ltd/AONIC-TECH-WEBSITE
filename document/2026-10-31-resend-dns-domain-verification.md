@@ -39,3 +39,4 @@
    - If using Cloudflare, make sure the **Proxy Status** for both CNAME records (`send` and `rsend`) is set to **DNS Only (Grey Cloud)**, NOT Proxied (Orange Cloud). If proxied, Resend verification will fail.
 3. **Trailing Period Syntax:**
    - Some DNS managers (like AWS Route 53 or BIND) require a trailing period: `send.forge.rmta.net.` while most UI dashboards (GoDaddy, Cloudflare, Namecheap, Hostinger) do not.
+

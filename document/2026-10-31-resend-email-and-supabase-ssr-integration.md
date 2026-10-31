@@ -41,3 +41,4 @@
 - Test REST query to Supabase verified active connectivity to `https://ghlltdiwoyyqzwurwjfv.supabase.co`.
 - Test email dispatched to `aonictech.pvtltd@gmail.com` via Resend API verified live delivery.
 - Git Flow: Developed on `feature/integrate-resend-email` for merge into `develop`.
+
