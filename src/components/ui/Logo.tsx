@@ -8,26 +8,69 @@ interface LogoProps {
   size?: number;
   showText?: boolean;
   variant?: "light" | "dark";
+  animated?: boolean;
 }
 
 /**
  * Official AONIC TECH Brand Logo Component
  * 
- * Powered by high-resolution master assets:
- * - Horizontal Logo (emblem + brand typography):
+ * - Static Horizontal Master Lockup:
  *   Light: /images/company-logo.png
  *   Dark:  /images/company-logo-white.png
  *   Aspect ratio: 4435 / 1228 = 3.61156
- * - Square Emblem Mark (circuits & node matrix):
+ * - Static Square Emblem Mark:
  *   /images/company-logo-mark.png (1560 x 1560)
+ * - Animated Refresh Intro (used exclusively in Preloader):
+ *   /images/logo-animated.webp
  */
 export default function Logo({ 
   className, 
   size = 42, 
   showText = true,
-  variant = "light" 
+  variant = "light",
+  animated = false
 }: LogoProps) {
   const isDark = variant === "dark";
+
+  // Animated Refresh Intro Variant (Used exclusively for starting/refresh animation)
+  if (animated) {
+    return (
+      <div className={cn("flex items-center gap-2.5 sm:gap-3 shrink-0", className)}>
+        {/* Animated Circuit WebP */}
+        <div 
+          className="relative shrink-0 overflow-hidden flex items-center justify-center rounded-xl bg-white"
+          style={{ width: size, height: size }}
+        >
+          <img
+            src="/images/logo-animated.webp"
+            alt="AONIC TECH Animated Logo"
+            width={size}
+            height={size}
+            className="w-full h-full object-contain scale-[1.3] mix-blend-multiply filter drop-shadow-[0_2px_8px_rgba(25,38,160,0.35)]"
+            loading="eager"
+            decoding="sync"
+          />
+        </div>
+
+        {/* Brand Typography */}
+        {showText && (
+          <div className="flex flex-col">
+            <span 
+              className={cn(
+                "text-xl sm:text-2xl font-black tracking-tight leading-none transition-colors",
+                isDark ? "text-white" : "text-[#0E0E25]"
+              )}
+            >
+              AONIC TECH
+            </span>
+            <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.14em] sm:tracking-[0.16em] uppercase text-[#757CB6] mt-0.5 sm:mt-1">
+              Digital & Industrial
+            </span>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   // Official master horizontal lockup (Aspect ratio: 4435 / 1228 = 3.61156)
   if (showText) {

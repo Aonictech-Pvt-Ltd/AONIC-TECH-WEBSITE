@@ -42,7 +42,7 @@ export default function Navbar() {
     // Fallback safety: ensure logo is visible if animation is completed or skipped
     const timer = setTimeout(() => {
       setLogoVisible(true);
-    }, 3400);
+    }, 4000);
 
     return () => {
       window.removeEventListener("aonic-preloader-docked", handleDocked);

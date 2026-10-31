@@ -50,17 +50,17 @@ export default function Preloader() {
     computeCoords();
     const raf = requestAnimationFrame(computeCoords);
 
-    // Start glide at 1250ms for a more relaxed, cinematic center hold
+    // Hold in center for 1800ms so the user sees the circuit animation draw itself
     const glideTimer = setTimeout(() => {
       // Re-check target right before gliding to ensure pixel precision
       computeCoords();
       setStage("gliding");
-    }, 1250);
+    }, 1800);
 
     // Fallback dock timer in case transitionend does not fire
     const fallbackTimer = setTimeout(() => {
       triggerDock();
-    }, 3000);
+    }, 3600);
 
     return () => {
       cancelAnimationFrame(raf);
@@ -187,9 +187,9 @@ export default function Preloader() {
           )}
         />
 
-        {/* Exact responsive Logo instances matching Navbar.tsx */}
-        <Logo size={36} variant="light" className="sm:hidden" />
-        <Logo size={42} variant="light" className="hidden sm:flex" />
+        {/* Animated responsive Logo instances matching Navbar.tsx */}
+        <Logo size={36} variant="light" animated={true} className="sm:hidden" />
+        <Logo size={42} variant="light" animated={true} className="hidden sm:flex" />
       </div>
     </div>
   );
