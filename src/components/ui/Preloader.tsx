@@ -134,14 +134,31 @@ export default function Preloader() {
             />
 
             <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#080c14] p-[2px] shadow-2xl border border-white/15 flex items-center justify-center overflow-hidden">
-              <img
-                src="/images/logo.png"
-                alt="Aonictech Logo"
-                className="w-full h-full object-contain p-1.5"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/images/logo.svg";
-                }}
-              />
+              <svg
+                viewBox="0 0 100 100"
+                width="100%"
+                height="100%"
+                className="w-full h-full p-1"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient id="preDigital" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#38bdf8" />
+                    <stop offset="100%" stopColor="#0284c7" />
+                  </linearGradient>
+                  <linearGradient id="preIndustrial" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#fbbf24" />
+                    <stop offset="100%" stopColor="#d97706" />
+                  </linearGradient>
+                </defs>
+                <rect width="100" height="100" rx="20" fill="#080c14" />
+                <path d="M 50 16 L 22 84 L 35 84 L 50 44 Z" fill="url(#preDigital)" />
+                <path d="M 50 16 L 78 84 L 65 84 L 50 44 Z" fill="url(#preIndustrial)" />
+                <polygon points="33,58 67,58 61,66 39,66" fill="#ffffff" opacity="0.95" />
+                <circle cx="50" cy="38" r="4.5" fill="#38bdf8" />
+                <circle cx="50" cy="38" r="2.5" fill="#ffffff" />
+              </svg>
             </div>
           </div>
 
