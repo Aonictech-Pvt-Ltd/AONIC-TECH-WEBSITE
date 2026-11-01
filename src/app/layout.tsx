@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/ui/Preloader";
+import QuoteModal from "@/components/ui/QuoteModal";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -79,6 +80,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-white text-[#0E0E25] font-sans selection:bg-[#1926A0] selection:text-white">
         <Preloader />
+        <QuoteModal />
         <Navbar />
         <main className="flex-1 pt-16 sm:pt-20 overflow-x-hidden">{children}</main>
         <Footer />
