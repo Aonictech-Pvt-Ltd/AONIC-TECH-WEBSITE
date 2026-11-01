@@ -1,22 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
-import { Redis } from "@upstash/redis";
-import { Ratelimit } from "@upstash/ratelimit";
 import { createClient } from "@supabase/supabase-js";
-
-// Initialize Upstash Redis Rate Limiter if keys exist
-let ratelimit: Ratelimit | null = null;
-if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) {
-  const redis = new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL,
-    token: process.env.UPSTASH_REDIS_REST_TOKEN,
-  });
-  ratelimit = new Ratelimit({
-    redis,
-    limiter: Ratelimit.slidingWindow(5, "10 m"), // 5 requests per 10 mins
-    analytics: true,
-  });
-}
+import { contactRateLimiter, checkRateLimit } from "@/lib/redis";
 
 // Initialize Supabase Client if keys exist
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -35,15 +20,13 @@ export async function POST(req: NextRequest) {
   try {
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1";
 
-    // 1. Rate limiting check
-    if (ratelimit) {
-      const { success } = await ratelimit.limit(`contact_${ip}`);
-      if (!success) {
-        return NextResponse.json(
-          { error: "Too many quote requests. Please wait a few minutes or message us on WhatsApp." },
-          { status: 429 }
-        );
-      }
+    // 1. Rate limiting check (Upstash Redis sliding window: 5 requests / 10 mins)
+    const { success } = await checkRateLimit(contactRateLimiter, `contact_${ip}`);
+    if (!success) {
+      return NextResponse.json(
+        { error: "Too many quote requests. Please wait a few minutes or message us on WhatsApp." },
+        { status: 429 }
+      );
     }
 
     const body = await req.json();
