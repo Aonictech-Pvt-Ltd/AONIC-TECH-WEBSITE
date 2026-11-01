@@ -14,10 +14,10 @@ interface LogoProps {
 /**
  * Official AONIC TECH Brand Logo Component
  * 
- * - Static Master Lockup (Header Navbar & Footer):
+ * - Static Horizontal Master Lockup (Header Navbar & Footer):
  *   Light (Header): /images/company-logo.png (100% transparent background, Dark Navy text + circuit emblem)
  *   Dark (Footer):  /images/company-logo-white.png (100% transparent background, White text + circuit emblem)
- *   Aspect ratio: 4435 / 1228 = 3.61156
+ *   Aspect ratio: 716 / 209 = 3.42584
  *   Zero white box / zero border: completely seamless on both white header and #0E0E25 dark navy footer.
  * 
  * - Animated Refresh Intro (used exclusively in Preloader):
@@ -27,6 +27,7 @@ interface LogoProps {
  *   /images/company-logo-mark.png (1560 x 1560, 100% transparent background)
  */
 const BRAND_CHARS = ["A", "O", "N", "I", "C", " ", "T", "E", "C", "H"];
+const LOGO_ASPECT_RATIO = 3.42584;
 
 export default function Logo({ 
   className, 
@@ -43,7 +44,7 @@ export default function Logo({
 
     return (
       <div className={cn("flex items-center gap-3.5 sm:gap-4 shrink-0", className)}>
-        {/* Animated Circuit WebP - 100% Borderless with multiply blend on white canvas */}
+        {/* Animated Circuit WebP - 100% Borderless with multiply blend on pure white canvas */}
         <div 
           className="relative shrink-0 overflow-hidden flex items-center justify-center"
           style={{ width: emblemSize, height: emblemSize }}
@@ -85,10 +86,10 @@ export default function Logo({
     );
   }
 
-  // Official master horizontal lockup with 100% transparent background (Aspect ratio: 4435 / 1228 = 3.61156)
-  // Perfectly seamless in Header (light) and Footer (dark) — zero white box, zero sticker effect
+  // Official master horizontal lockup with 100% transparent background (Aspect ratio: 716 / 209 = 3.42584)
+  // Clean, static horizontal logo used in Header (light) and Footer (dark) — zero white box, zero sticker effect
   if (showText) {
-    const width = Math.round(size * 3.61156);
+    const width = Math.round(size * LOGO_ASPECT_RATIO);
     return (
       <div 
         className={cn(
