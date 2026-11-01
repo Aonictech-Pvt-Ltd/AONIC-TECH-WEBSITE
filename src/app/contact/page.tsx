@@ -162,6 +162,7 @@ export default function ContactPage() {
           {/* Right Column: The ContactUs Component */}
           <div className="lg:col-span-7">
             <ContactUs
+              variant="card"
               title="Send Us Your Requirement"
               subtitle="Enter your phone number, email address, and requirement description below. Our team receives instant email notifications to guarantee fast follow-up."
             />

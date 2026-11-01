@@ -210,15 +210,13 @@ export default function Navbar() {
 
           {/* Primary Action: Get a Quote CTA in Royal Blue (#1926A0) */}
           <div className="hidden sm:flex items-center">
-            <a
-              href={COMPANY_INFO.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/#quote"
               className="px-5 py-2.5 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white text-xs uppercase tracking-wider font-bold shadow-md shadow-[#1926A0]/25 transition-all flex items-center gap-1.5 active:scale-95 border border-[#1926A0]"
             >
               Get a Quote
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button (Quote removed for clean, spacious mobile ergonomics) */}
@@ -357,17 +355,15 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Quick CTA */}
-          <a
-            href={COMPANY_INFO.whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Quick CTA: Get a Customized Quote */}
+          <Link
+            href="/#quote"
             onClick={() => setIsOpen(false)}
             className="w-full py-3 px-4 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#1926A0]/25 border border-[#1926A0] min-h-[44px]"
           >
             Get a Customized Quote
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
 
           {/* Quick Actions */}
           <div className="pt-2 border-t border-[#757CB6]/20 grid grid-cols-2 gap-2 text-center text-xs">

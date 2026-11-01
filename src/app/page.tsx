@@ -15,6 +15,7 @@ import { COMPANY_INFO } from "@/data/company";
 import { PROJECTS_DATA } from "@/data/projects";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import AccreditationBadges from "@/components/ui/AccreditationBadges";
+import ContactUs from "@/components/ui/ContactUs";
 import { cn } from "@/lib/utils";
 
 export default function HomePage() {
@@ -376,37 +377,9 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. CALL TO ACTION STRIP                                                   */}
+      {/* 6. DIRECT QUOTE & INQUIRY SECTION (PIXEL-PERFECT REFERENCE IMPLEMENTATION)  */}
       {/* ========================================================================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-6 sm:p-12 lg:p-16 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#1926A0] via-[#131e80] to-[#0E0E25] text-center space-y-4 sm:space-y-6 shadow-2xl text-white">
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Tell Us What You Need
-          </h2>
-          <p className="text-white/85 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
-            Whether you need a modern restaurant website, customized POS billing, or certified titanium rods delivered to your workshop.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-4">
-            <a
-              href={COMPANY_INFO.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 sm:px-9 py-3.5 sm:py-4 rounded-xl bg-[#FFDB18] hover:bg-[#ffe34d] text-[#000000] font-black text-xs sm:text-sm uppercase tracking-wider transition-colors shadow-lg shadow-black/30 border border-[#FFDB18] min-h-[44px] flex items-center justify-center"
-            >
-              Get a Free Quote
-            </a>
-            <a
-              href={COMPANY_INFO.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 sm:px-9 py-3.5 sm:py-4 rounded-xl bg-[#63A26B] hover:bg-[#528959] text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-lg shadow-black/30 min-h-[44px]"
-            >
-              <WhatsAppIcon variant="outline" className="w-5 h-5 text-white fill-white" />
-              WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
+      <ContactUs id="quote" />
     </div>
   );
 }
