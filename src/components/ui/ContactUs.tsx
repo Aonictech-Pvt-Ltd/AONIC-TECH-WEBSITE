@@ -9,8 +9,10 @@ import {
   AlertCircle, 
   Loader2, 
   ArrowRight, 
-  ShieldCheck, 
-  ChevronDown 
+  ShieldCheck,
+  Mail,
+  Phone,
+  User
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -23,17 +25,6 @@ interface ContactUsProps {
   defaultService?: string;
   variant?: "section" | "card";
 }
-
-const SERVICE_OPTIONS = [
-  { value: "", label: "Select Service / Material" },
-  { value: "Web Development & E-Commerce", label: "Web Development & E-Commerce" },
-  { value: "Custom POS & Billing Software", label: "Custom POS & Billing Software" },
-  { value: "Brand Identity & Graphic Design", label: "Brand Identity & Graphic Design" },
-  { value: "Titanium & Specialty Alloys", label: "Titanium & Specialty Alloys (Grade 5, CP)" },
-  { value: "Rare-Earth Magnets (Neodymium N52)", label: "Rare-Earth Magnets (Neodymium N52)" },
-  { value: "Electronic Chip & IC Sourcing", label: "Electronic Chip & IC Sourcing" },
-  { value: "General Enterprise Inquiry", label: "General Enterprise Inquiry" },
-];
 
 const VALUE_PROPS = [
   "Custom web architecture, POS billing & custom app workflows",
@@ -48,7 +39,7 @@ export default function ContactUs({
   badge = "GET A CUSTOMIZED QUOTE",
   title = "Get a Direct Quote for Your Software or Industrial Supply",
   subtitle = "Tell us what you are looking for. Our engineering and material sourcing team will get in touch to discuss your project and arrange transparent factory-direct pricing.",
-  defaultService = "",
+  defaultService = "General Inquiry / Direct Quote",
   variant = "section",
 }: ContactUsProps) {
   const formId = useId();
@@ -57,7 +48,6 @@ export default function ContactUs({
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [service, setService] = useState(defaultService);
   const [description, setDescription] = useState("");
   const [agreed, setAgreed] = useState(true);
 
@@ -145,7 +135,7 @@ export default function ContactUs({
           name: name.trim(),
           phone: phone.trim(),
           email: email.trim(),
-          serviceType: service || "General Inquiry / Direct Contact",
+          serviceType: defaultService,
           description: description.trim(),
         }),
       });
@@ -168,7 +158,6 @@ export default function ContactUs({
     setName("");
     setPhone("");
     setEmail("");
-    setService("");
     setDescription("");
     setTouched({ name: false, phone: false, email: false, description: false });
     setStatus("idle");
@@ -209,7 +198,7 @@ export default function ContactUs({
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <a
               href={`https://wa.me/919704166455?text=${encodeURIComponent(
-                `Hi AONIC TECH team, I just requested a quote for ${service || "Digital / Material Sourcing"}.`
+                `Hi AONIC TECH team, I just requested a quote for my project requirements.`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -228,7 +217,7 @@ export default function ContactUs({
           </div>
         </div>
       ) : (
-        /* Form Grid (2-Columns on Desktop, 1-Col on Mobile) */
+        /* Form Grid */
         <form onSubmit={handleSubmit} noValidate className="space-y-4 sm:space-y-5">
           {/* Error Notification */}
           {(status === "error" || errorMessage) && (
@@ -248,22 +237,27 @@ export default function ContactUs({
               >
                 Full Name <span className="text-red-500">*</span>
               </label>
-              <input
-                id={`${formId}-name`}
-                type="text"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
-                placeholder="Enter your name"
-                className={cn(
-                  "w-full px-4 py-3 rounded-xl border bg-white text-[#0E0E25] placeholder:text-[#757CB6]/60 text-sm focus:outline-none transition-all",
-                  touched.name && !isNameValid
-                    ? "border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100"
-                    : "border-[#757CB6]/30 focus:border-[#1926A0] focus:ring-4 focus:ring-[#1926A0]/10"
-                )}
-                disabled={status === "submitting"}
-              />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#757CB6]">
+                  <User className="w-4 h-4" />
+                </div>
+                <input
+                  id={`${formId}-name`}
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
+                  placeholder="Enter your name"
+                  className={cn(
+                    "w-full pl-10 pr-4 py-3 rounded-xl border bg-white text-[#0E0E25] placeholder:text-[#757CB6]/60 text-sm focus:outline-none transition-all",
+                    touched.name && !isNameValid
+                      ? "border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100"
+                      : "border-[#757CB6]/30 focus:border-[#1926A0] focus:ring-4 focus:ring-[#1926A0]/10"
+                  )}
+                  disabled={status === "submitting"}
+                />
+              </div>
             </div>
 
             {/* Mobile Number with libphonenumber-js Validation */}
@@ -282,37 +276,52 @@ export default function ContactUs({
                   </span>
                 )}
               </div>
-              <input
-                id={`${formId}-phone`}
-                type="tel"
-                required
-                value={phone}
-                onChange={handlePhoneChange}
-                onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
-                placeholder="10-digit mobile number"
-                className={cn(
-                  "w-full px-4 py-3 rounded-xl border bg-white text-[#0E0E25] placeholder:text-[#757CB6]/60 text-sm focus:outline-none transition-all",
-                  touched.phone && !isPhoneValid
-                    ? "border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100"
-                    : isPhoneValid
-                    ? "border-[#63A26B] focus:border-[#63A26B] focus:ring-4 focus:ring-[#63A26B]/10"
-                    : "border-[#757CB6]/30 focus:border-[#1926A0] focus:ring-4 focus:ring-[#1926A0]/10"
-                )}
-                disabled={status === "submitting"}
-              />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#757CB6]">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <input
+                  id={`${formId}-phone`}
+                  type="tel"
+                  required
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
+                  placeholder="10-digit mobile number"
+                  className={cn(
+                    "w-full pl-10 pr-4 py-3 rounded-xl border bg-white text-[#0E0E25] placeholder:text-[#757CB6]/60 text-sm focus:outline-none transition-all",
+                    touched.phone && !isPhoneValid
+                      ? "border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100"
+                      : isPhoneValid
+                      ? "border-[#63A26B] focus:border-[#63A26B] focus:ring-4 focus:ring-[#63A26B]/10"
+                      : "border-[#757CB6]/30 focus:border-[#1926A0] focus:ring-4 focus:ring-[#1926A0]/10"
+                  )}
+                  disabled={status === "submitting"}
+                />
+              </div>
             </div>
           </div>
 
-          {/* 2-Column Row 2: Email & Service Interested In */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-            {/* Email */}
-            <div>
+          {/* Row 2: Email Address */}
+          <div>
+            <div className="flex items-center justify-between mb-1.5">
               <label
                 htmlFor={`${formId}-email`}
-                className="block text-xs font-bold text-[#0E0E25] mb-1.5"
+                className="block text-xs font-bold text-[#0E0E25]"
               >
                 Email Address <span className="text-red-500">*</span>
               </label>
+              {isEmailValid && (
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#63A26B] bg-[#63A26B]/10 px-1.5 py-0.5 rounded">
+                  <CheckCircle2 className="w-2.5 h-2.5" />
+                  Valid Email
+                </span>
+              )}
+            </div>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#757CB6]">
+                <Mail className="w-4 h-4" />
+              </div>
               <input
                 id={`${formId}-email`}
                 type="email"
@@ -322,43 +331,19 @@ export default function ContactUs({
                 onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
                 placeholder="name@company.com"
                 className={cn(
-                  "w-full px-4 py-3 rounded-xl border bg-white text-[#0E0E25] placeholder:text-[#757CB6]/60 text-sm focus:outline-none transition-all",
+                  "w-full pl-10 pr-4 py-3 rounded-xl border bg-white text-[#0E0E25] placeholder:text-[#757CB6]/60 text-sm focus:outline-none transition-all",
                   touched.email && !isEmailValid
                     ? "border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100"
+                    : isEmailValid
+                    ? "border-[#63A26B] focus:border-[#63A26B] focus:ring-4 focus:ring-[#63A26B]/10"
                     : "border-[#757CB6]/30 focus:border-[#1926A0] focus:ring-4 focus:ring-[#1926A0]/10"
                 )}
                 disabled={status === "submitting"}
               />
             </div>
-
-            {/* Service / Material Dropdown */}
-            <div>
-              <label
-                htmlFor={`${formId}-service`}
-                className="block text-xs font-bold text-[#0E0E25] mb-1.5"
-              >
-                Project Interested In
-              </label>
-              <div className="relative">
-                <select
-                  id={`${formId}-service`}
-                  value={service}
-                  onChange={(e) => setService(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-[#757CB6]/30 bg-white text-[#0E0E25] text-sm focus:outline-none focus:border-[#1926A0] focus:ring-4 focus:ring-[#1926A0]/10 transition-all appearance-none cursor-pointer pr-10"
-                  disabled={status === "submitting"}
-                >
-                  {SERVICE_OPTIONS.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown className="w-4 h-4 text-[#757CB6] absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-              </div>
-            </div>
           </div>
 
-          {/* Requirement Description */}
+          {/* Row 3: Requirement Description */}
           <div>
             <label
               htmlFor={`${formId}-desc`}
@@ -384,7 +369,7 @@ export default function ContactUs({
             />
           </div>
 
-          {/* Terms & Privacy Policy Checkbox (from reference image) */}
+          {/* Terms & Privacy Policy Checkbox */}
           <div className="flex items-start gap-2.5 pt-1">
             <input
               id={`${formId}-agreed`}
@@ -408,7 +393,7 @@ export default function ContactUs({
             </label>
           </div>
 
-          {/* Submit Action Button (Amber Gold from Reference Image / Official Brand Accent) */}
+          {/* Submit Action Button (Amber Gold from Reference Image) */}
           <div className="pt-2">
             <button
               type="submit"
