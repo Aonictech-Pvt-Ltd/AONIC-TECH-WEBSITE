@@ -201,19 +201,15 @@ export default function QuoteModal() {
           </button>
 
           {/* Master White Logo Lockup */}
-          <div className="inline-block mx-auto mb-2">
+          <div className="inline-block mx-auto">
             <img
               src="/images/company-logo-white.png"
               alt="AONIC TECH"
-              width={200}
-              height={58}
-              className="h-10 sm:h-11 w-auto object-contain mx-auto"
+              width={220}
+              height={64}
+              className="h-10 sm:h-12 w-auto object-contain mx-auto"
             />
           </div>
-
-          <p className="text-[#FFDB18] text-[10px] sm:text-[11px] font-bold tracking-[0.22em] uppercase">
-            Digital Solutions & Industrial Materials
-          </p>
         </div>
 
         {/* ========================================================================= */}
