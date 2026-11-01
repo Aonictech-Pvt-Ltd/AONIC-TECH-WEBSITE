@@ -36,3 +36,4 @@ describe("Component: Logo", () => {
     expect(screen.getByText("T")).toBeInTheDocument();
   });
 });
+

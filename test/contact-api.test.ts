@@ -122,3 +122,4 @@ describe("Contact & Quote API Route: POST /api/contact", () => {
     expect(data.success).toBe(true);
   });
 });
+

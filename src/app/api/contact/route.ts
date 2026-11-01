@@ -5,18 +5,25 @@ import { contactRateLimiter, checkRateLimit } from "@/lib/redis";
 import { isValidPhoneNumber, parsePhoneNumber } from "libphonenumber-js";
 import { escapeHtml, sanitizeSubject, sanitizeInput } from "@/lib/utils";
 
-// Initialize Supabase Client if keys exist
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey =
-  process.env.SUPABASE_SERVICE_ROLE_KEY ||
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
+/**
+ * Dynamically retrieves Supabase client using current process environment variables.
+ */
+function getSupabaseClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key =
+    process.env.SUPABASE_SERVICE_ROLE_KEY ||
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  return url && key ? createClient(url, key) : null;
+}
 
-// Initialize Resend Email Client if key exists
-const resendApiKey = process.env.RESEND_API_KEY;
-const resend = resendApiKey ? new Resend(resendApiKey) : null;
-const targetEmail = process.env.NOTIFICATION_EMAIL || "aonictech.pvtltd@gmail.com";
+/**
+ * Dynamically retrieves Resend email client using current process environment variables.
+ */
+function getResendClient() {
+  const key = process.env.RESEND_API_KEY;
+  return key ? new Resend(key) : null;
+}
 
 /**
  * Extracts and sanitizes the client IP address from proxy headers.
@@ -159,9 +166,11 @@ export async function POST(req: NextRequest) {
     const category = isMaterial ? "materials" : "digital";
 
     // 3. Persist to Supabase if configured
+    const supabase = getSupabaseClient();
+    let dbSaved = false;
     if (supabase) {
       try {
-        await supabase.from("inquiries").insert([
+        const { error: dbErr } = await supabase.from("inquiries").insert([
           {
             name: clientName,
             phone: formattedPhone,
@@ -177,13 +186,26 @@ export async function POST(req: NextRequest) {
             status: "new",
           },
         ]);
+        if (!dbErr) {
+          dbSaved = true;
+        } else {
+          console.warn("Supabase insert notice:", dbErr.message);
+        }
       } catch (dbErr) {
         console.error("Supabase insert warning:", dbErr);
       }
     }
 
     // 4. Send Email Notification to Company Gmail via Resend (with full HTML Escaping)
+    const resend = getResendClient();
+    const targetEmail = process.env.NOTIFICATION_EMAIL || "aonictech.pvtltd@gmail.com";
+    let emailStatus: { attempted: boolean; sent: boolean; id?: string; error?: string } = {
+      attempted: false,
+      sent: false,
+    };
+
     if (resend) {
+      emailStatus.attempted = true;
       try {
         const divisionBadge = isMaterial
           ? `<span style="background-color: #FFDB18; color: #0E0E25; font-weight: 700; padding: 4px 10px; border-radius: 9999px; font-size: 12px; text-transform: uppercase;">Industrial Materials</span>`
@@ -299,20 +321,25 @@ export async function POST(req: NextRequest) {
         });
 
         if (emailResult.error) {
-          console.error("Resend API error:", emailResult.error);
+          console.error("Resend delivery failed:", emailResult.error);
+          emailStatus.error = emailResult.error.message || "Failed to dispatch email via Resend.";
         } else {
-          console.log("Resend delivery successful. ID:", emailResult.data?.id);
+          emailStatus.sent = true;
+          emailStatus.id = emailResult.data?.id;
+          console.log(`Resend notification dispatched to ${targetEmail}. ID: ${emailResult.data?.id}`);
         }
-      } catch (emailErr) {
-        console.error("Resend delivery warning:", emailErr);
+      } catch (emailErr: any) {
+        console.error("Resend delivery exception:", emailErr);
+        emailStatus.error = emailErr?.message || "Resend connection error.";
       }
     } else {
-      console.log(`[DEV MODE] Resend API key not set. Inquiry received from ${formattedPhone}:`, {
+      console.log(`[DEV MODE] RESEND_API_KEY not configured. Mock inquiry from ${formattedPhone}:`, {
         name: clientName,
         phone: formattedPhone,
         email: cleanEmail,
         desc: clientDesc,
       });
+      emailStatus.error = "RESEND_API_KEY is not configured in environment variables.";
     }
 
     return NextResponse.json(
@@ -320,6 +347,8 @@ export async function POST(req: NextRequest) {
         success: true,
         message: "Your inquiry has been submitted successfully. Our team will contact you shortly.",
         formattedPhone,
+        emailStatus,
+        dbSaved,
       },
       { status: 200 }
     );

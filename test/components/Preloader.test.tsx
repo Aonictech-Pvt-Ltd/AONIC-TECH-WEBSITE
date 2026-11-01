@@ -45,3 +45,4 @@ describe("Component: Preloader", () => {
     window.removeEventListener("aonic-preloader-docked", dockedListener);
   });
 });
+

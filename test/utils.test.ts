@@ -78,3 +78,4 @@ describe("Utility: sanitizeInput (Control Character Removal & Length Bound)", ()
     expect(sanitizeInput(12345 as any)).toBe("");
   });
 });
+
