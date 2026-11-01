@@ -21,8 +21,7 @@ interface LogoProps {
  *   Zero white box / zero border: completely seamless on both white header and #0E0E25 dark navy footer.
  * 
  * - Animated Refresh Intro (used exclusively in Preloader):
- *   /images/logo-animated.webp with circuit draw animation + staggered "AONIC TECH" reveal
- *   and "DIGITAL & INDUSTRIAL" subtitle lockup.
+ *   /images/logo-animated.webp with circuit draw animation + staggered "AONIC TECH" reveal.
  * 
  * - Emblem-only mark (showText = false):
  *   /images/company-logo-mark.png (1560 x 1560, 100% transparent background)
@@ -60,38 +59,27 @@ export default function Logo({
           />
         </div>
 
-        {/* Staggered Letter-by-Letter Typography & Matching Subtitle */}
+        {/* Staggered Letter-by-Letter Typography */}
         {showText && (
-          <div className="flex flex-col justify-center select-none">
-            <span 
-              className={cn(
-                "text-base sm:text-lg font-black tracking-[0.16em] sm:tracking-[0.20em] leading-none transition-colors inline-flex items-center",
-                isDark ? "text-white" : "text-[#0E0E25]"
-              )}
-            >
-              {BRAND_CHARS.map((char, index) => (
-                <span
-                  key={index}
-                  className="inline-block"
-                  style={{
-                    animation: "letterReveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both",
-                    animationDelay: `${400 + index * 75}ms`,
-                  }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </span>
-              ))}
-            </span>
-            <span 
-              className="text-[9px] sm:text-[10px] font-bold tracking-[0.26em] text-[#757CB6] uppercase mt-1 leading-tight"
-              style={{
-                animation: "letterReveal 500ms cubic-bezier(0.16, 1, 0.3, 1) both",
-                animationDelay: "1150ms",
-              }}
-            >
-              DIGITAL &amp; INDUSTRIAL
-            </span>
-          </div>
+          <span 
+            className={cn(
+              "text-base sm:text-lg font-black tracking-[0.16em] sm:tracking-[0.20em] leading-none transition-colors inline-flex items-center select-none",
+              isDark ? "text-white" : "text-[#0E0E25]"
+            )}
+          >
+            {BRAND_CHARS.map((char, index) => (
+              <span
+                key={index}
+                className="inline-block"
+                style={{
+                  animation: "letterReveal 420ms cubic-bezier(0.16, 1, 0.3, 1) both",
+                  animationDelay: `${400 + index * 75}ms`,
+                }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </span>
         )}
       </div>
     );
