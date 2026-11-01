@@ -97,11 +97,13 @@ export default function QuoteModal() {
   const isNameValid = name.trim().length >= 2;
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
+    // Strictly allow only numeric digits (0-9) and cap at exactly 10 digits
+    const rawDigits = e.target.value.replace(/\D/g, "");
+    const val = rawDigits.slice(0, 10);
     setPhone(val);
 
     try {
-      if (isValidPhoneNumber(val, "IN") || isValidPhoneNumber(val)) {
+      if (val.length === 10 && (isValidPhoneNumber(val, "IN") || isValidPhoneNumber(val))) {
         const parsed = parsePhoneNumber(val, "IN");
         if (parsed) {
           setFormattedNumber(parsed.formatInternational());
@@ -293,6 +295,9 @@ export default function QuoteModal() {
                     <input
                       id={`${formId}-phone`}
                       type="tel"
+                      inputMode="numeric"
+                      pattern="[0-9]{10}"
+                      maxLength={10}
                       required
                       value={phone}
                       onChange={handlePhoneChange}

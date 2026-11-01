@@ -78,11 +78,13 @@ export default function ContactUs({
   const isDescriptionValid = description.trim().length >= 5;
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
+    // Strictly allow only numeric digits (0-9) and cap at exactly 10 digits
+    const rawDigits = e.target.value.replace(/\D/g, "");
+    const val = rawDigits.slice(0, 10);
     setPhone(val);
 
     try {
-      if (isValidPhoneNumber(val, "IN") || isValidPhoneNumber(val)) {
+      if (val.length === 10 && (isValidPhoneNumber(val, "IN") || isValidPhoneNumber(val))) {
         const parsed = parsePhoneNumber(val, "IN");
         if (parsed) {
           setFormattedNumber(parsed.formatInternational());
@@ -272,7 +274,7 @@ export default function ContactUs({
                 {isPhoneValid && (
                   <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#63A26B] bg-[#63A26B]/10 px-1.5 py-0.5 rounded">
                     <CheckCircle2 className="w-2.5 h-2.5" />
-                    Valid
+                    Valid Mobile
                   </span>
                 )}
               </div>
@@ -283,6 +285,9 @@ export default function ContactUs({
                 <input
                   id={`${formId}-phone`}
                   type="tel"
+                  inputMode="numeric"
+                  pattern="[0-9]{10}"
+                  maxLength={10}
                   required
                   value={phone}
                   onChange={handlePhoneChange}
