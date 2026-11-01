@@ -106,6 +106,11 @@ export default function Footer() {
                   Blog
                 </Link>
               </li>
+              <li>
+                <Link href="/contact" className="hover:text-[#FFDB18] text-slate-300 transition-colors">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
