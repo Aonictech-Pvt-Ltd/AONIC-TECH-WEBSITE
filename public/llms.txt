@@ -1,0 +1,33 @@
+# AONIC TECH Private Limited
+
+> AONIC TECH is a dual-niche enterprise delivering end-to-end Digital Solutions & Software and Industrial Specialty Materials Import & Supply under one roof.
+
+## Core Divisions
+
+### 1. Digital Solutions & Software
+- **Custom Web & App Development**: Next.js, React, Node.js modern responsive architectures.
+- **POS & Billing Software**: Retail, restaurant, and enterprise point-of-sale systems with offline capabilities and real-time reporting.
+- **E-Commerce & Digital Platforms**: Scalable e-commerce stores with payment gateways and automated inventory management.
+- **Brand Strategy & Design**: Identity design, UI/UX prototyping, packaging, and commercial digital assets.
+
+### 2. Industrial Materials Import & Supply
+- **Titanium & Specialty Alloys**: Certified aerospace and medical grade titanium (Grade 2, Grade 5 / Ti-6Al-4V), stainless alloys, and raw rods/sheets.
+- **Rare-Earth Magnets**: Industrial Neodymium (NdFeB), Samarium-Cobalt (SmCo), and custom permanent magnetic assemblies.
+- **Electronic IC & Component Sourcing**: Hard-to-find microcontrollers, power management ICs, and passive components with verified authenticity.
+- **Low-MOQ & Doorstep Delivery**: Customs clearance, laboratory mill test certificates (MTC), and doorstep delivery across India.
+
+## Contact & Corporate Identity
+- **Legal Entity**: AONIC TECH Private Limited
+- **Official Address**: 14-7, P & T Colony, Dilsukhnagar, Hyderabad, Telangana, 500060, India
+- **Email**: contactus@aonictech.com
+- **Phone**: +91 73968 88679 / +91 97041 66455
+- **Website**: https://aonictech.com
+
+## Key Canonical URLs
+- Home: https://aonictech.com/
+- Services & Solutions: https://aonictech.com/services
+- Projects & Case Studies: https://aonictech.com/projects
+- About Company: https://aonictech.com/about
+- Contact & Inquiries: https://aonictech.com/contact
+- Insights & Blog: https://aonictech.com/blog
+- Privacy & Terms: https://aonictech.com/privacy-and-terms
