@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
 import { cn } from "@/lib/utils";
+import ProtectedEmail from "@/components/ui/ProtectedEmail";
 
 type ActiveTab = "all" | "terms" | "privacy";
 
@@ -301,13 +302,11 @@ export default function LegalPage() {
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          <a
-            href={`mailto:${COMPANY_INFO.email}`}
+          <ProtectedEmail
             className="px-4 py-2 rounded-xl bg-white border border-[#757CB6]/40 hover:border-[#1926A0] text-[#0E0E25] text-xs font-bold hover:text-[#1926A0] transition-colors flex items-center gap-1.5"
-          >
-            <Mail className="w-3.5 h-3.5 text-[#1926A0]" />
-            {COMPANY_INFO.email}
-          </a>
+            showIcon={true}
+            iconClassName="w-3.5 h-3.5 text-[#1926A0]"
+          />
           <a
             href={`tel:${COMPANY_INFO.phone}`}
             className="px-4 py-2 rounded-xl bg-[#1926A0] text-white hover:bg-[#131e80] text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm"

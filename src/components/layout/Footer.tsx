@@ -14,6 +14,7 @@ import {
 import { COMPANY_INFO } from "@/data/company";
 import Logo from "@/components/ui/Logo";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
+import ProtectedEmail from "@/components/ui/ProtectedEmail";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -38,10 +39,17 @@ export default function Footer() {
               <h4 className="text-xs font-bold text-[#FFDB18] tracking-widest uppercase">
                 HEADQUARTERS
               </h4>
-              <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-                14-7, P & T Colony, Dilsukhnagar, Hyderabad,<br />
-                Telangana - 500060
-              </p>
+              <address 
+                itemScope 
+                itemType="https://schema.org/PostalAddress" 
+                className="not-italic text-sm text-slate-300 leading-relaxed max-w-sm"
+              >
+                <span itemProp="streetAddress">14-7, P & T Colony</span>,{" "}
+                <span itemProp="addressLocality">Dilsukhnagar, Hyderabad</span>,<br />
+                <span itemProp="addressRegion">Telangana</span> -{" "}
+                <span itemProp="postalCode">500060</span>,{" "}
+                <span itemProp="addressCountry">India</span>
+              </address>
 
               {/* Google Maps Link with Brand Yellow Vector Location Pin */}
               <div className="pt-2">
@@ -124,13 +132,11 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3.5 text-sm">
                 <li>
-                  <a
-                    href={`mailto:${COMPANY_INFO.email}`}
+                  <ProtectedEmail
                     className="flex items-center gap-3 text-slate-300 hover:text-[#FFDB18] transition-colors group"
-                  >
-                    <Mail className="w-4 h-4 text-[#FFDB18] shrink-0" />
-                    <span className="truncate">{COMPANY_INFO.email}</span>
-                  </a>
+                    showIcon={true}
+                    iconClassName="w-4 h-4 text-[#FFDB18] shrink-0"
+                  />
                 </li>
                 <li>
                   <a

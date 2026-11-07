@@ -84,6 +84,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
+          "var(--font-sans)",
           "'Plus Jakarta Sans'",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -93,6 +94,7 @@ const config: Config = {
           "sans-serif",
         ],
         display: [
+          "var(--font-display)",
           "'Space Grotesk'",
           "'Plus Jakarta Sans'",
           "-apple-system",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ContactUs from "@/components/ui/ContactUs";
 import AccreditationBadges from "@/components/ui/AccreditationBadges";
 import { Phone, Mail, MapPin, MessageSquare, Clock, ShieldCheck, CheckCircle2 } from "lucide-react";
+import ProtectedEmail from "@/components/ui/ProtectedEmail";
 
 export const metadata: Metadata = {
   title: "Contact Us | AONIC TECH - Dual-Niche Digital & Industrial Solutions",
@@ -85,12 +86,13 @@ export default function ContactPage() {
                   <h3 className="text-xs uppercase tracking-wider font-bold text-[#757CB6]">
                     Corporate Email
                   </h3>
-                  <a
-                    href={`mailto:${CONTACT_INFO.email}`}
-                    className="mt-1 block text-base font-bold text-[#0E0E25] hover:text-[#1926A0] transition-colors"
-                  >
-                    {CONTACT_INFO.email}
-                  </a>
+                  <div className="mt-1">
+                    <ProtectedEmail
+                      user="aonic.tech"
+                      domain="gmail.com"
+                      className="block text-base font-bold text-[#0E0E25] hover:text-[#1926A0] transition-colors"
+                    />
+                  </div>
                   <p className="text-xs text-[#757CB6] mt-1">Official RFP & Quote Dispatches</p>
                 </div>
               </div>

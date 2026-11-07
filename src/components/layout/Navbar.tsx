@@ -105,7 +105,6 @@ export default function Navbar() {
                     {/* Mega Dropdown Menu */}
                     {servicesDropdown && (
                       <div 
-                        style={{ backgroundColor: "#FFFFFF" }}
                         className="absolute top-full left-0 w-[620px] p-5 bg-white border border-[#757CB6]/30 rounded-2xl shadow-2xl shadow-[#0E0E25]/15 grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-200 z-[60]"
                       >
                         {/* Digital Solutions Column (Royal Blue & Lavender) */}
@@ -235,7 +234,6 @@ export default function Navbar() {
       {/* Mobile Menu Drawer */}
       {isOpen && (
         <div 
-          style={{ backgroundColor: "#FFFFFF" }}
           className="lg:hidden bg-white border-b border-[#757CB6]/30 px-4 pt-3 pb-6 space-y-4 animate-in slide-in-from-top-2 duration-200 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto touch-scroll"
         >
           <div className="space-y-1">

@@ -1,11 +1,27 @@
 import type { Metadata, Viewport } from "next";
+import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/ui/Preloader";
-import QuoteModal from "@/components/ui/QuoteModal";
+import DynamicQuoteModal from "@/components/ui/DynamicQuoteModal";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+
+// Self-hosted, zero-blocking Google Fonts optimized via Next.js Font Engine
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-sans",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+  variable: "--font-display",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -16,6 +32,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aonictech.com"),
+  alternates: {
+    canonical: "https://aonictech.com",
+  },
   title: {
     default: "AONIC TECH | Digital Solutions, Software & Industrial Materials Import",
     template: "%s | AONIC TECH",
@@ -69,18 +88,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen flex flex-col bg-white text-[#0E0E25] font-sans selection:bg-[#1926A0] selection:text-white">
         <Preloader />
-        <QuoteModal />
+        <DynamicQuoteModal />
         <Navbar />
         <main className="flex-1 pt-16 sm:pt-20 overflow-x-hidden">{children}</main>
         <Footer />

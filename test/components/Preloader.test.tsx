@@ -25,9 +25,9 @@ describe("Component: Preloader", () => {
 
     render(<Preloader />);
 
-    // Advance 3500ms
+    // Advance 1200ms (calibrated hold time)
     act(() => {
-      vi.advanceTimersByTime(3500);
+      vi.advanceTimersByTime(1200);
     });
 
     expect(dockedListener).toHaveBeenCalledTimes(1);
@@ -35,9 +35,9 @@ describe("Component: Preloader", () => {
     const root = document.getElementById("aonic-preloader-root");
     expect(root).toHaveClass("opacity-0");
 
-    // Advance to 4200ms (unmount)
+    // Advance 500ms (unmount transition)
     act(() => {
-      vi.advanceTimersByTime(700);
+      vi.advanceTimersByTime(500);
     });
 
     expect(document.getElementById("aonic-preloader-root")).toBeNull();
