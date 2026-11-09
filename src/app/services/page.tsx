@@ -167,7 +167,7 @@ export default function ServicesPage() {
                   <div className="pt-4 border-t border-[#757CB6]/20 flex items-center justify-between">
                     <span className="text-sm text-[#0E0E25] font-bold">{srv.priceNote}</span>
                     <a
-                      href={`https://wa.me/917396888679?text=${encodeURIComponent(`Hi AONIC TECH, I would like to enquire about: ${srv.title}. Could you provide details and pricing?`)}`}
+                      href={`https://wa.me/917396888679?text=${encodeURIComponent(`Hi AONIC TECH, I would like to enquire about: ${srv.title}. Could you provide technical specifications and quotation details?`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm font-bold text-[#1926A0] hover:text-[#131e80] flex items-center gap-1"
@@ -239,19 +239,21 @@ export default function ServicesPage() {
                 <div className="space-y-2 text-[#0E0E25]">
                   <div className="flex justify-between p-2 rounded bg-[#757CB6]/10">
                     <span className="font-medium">Espresso Coffee x 2</span>
-                    <span className="font-mono font-bold">₹240.00</span>
+                    <span className="font-mono font-bold text-[#1926A0]">Qty: 2 • Scanned</span>
                   </div>
                   <div className="flex justify-between p-2 rounded bg-[#757CB6]/10">
                     <span className="font-medium">Croissant Butter x 1</span>
-                    <span className="font-mono font-bold">₹120.00</span>
+                    <span className="font-mono font-bold text-[#1926A0]">Qty: 1 • Scanned</span>
                   </div>
                   <div className="flex justify-between text-[#757CB6] pt-2 border-t border-[#757CB6]/20 font-medium">
-                    <span>CGST + SGST (5%)</span>
-                    <span className="font-mono font-bold text-[#0E0E25]">₹18.00</span>
+                    <span>GST Tax Breakdown</span>
+                    <span className="font-mono font-bold text-[#0E0E25]">Auto CGST/SGST</span>
                   </div>
                   <div className="flex justify-between text-[#0E0E25] font-black text-sm pt-1">
-                    <span>Total Net Amount</span>
-                    <span className="font-mono text-[#63A26B] font-black">₹378.00</span>
+                    <span>Payment Status</span>
+                    <span className="font-mono text-[#63A26B] font-black flex items-center gap-1">
+                      <Check className="w-3.5 h-3.5" /> Instant Receipt Generated
+                    </span>
                   </div>
                 </div>
                 <div className="p-3 rounded-xl bg-[#1926A0]/10 border border-[#1926A0]/20 text-[#1926A0] text-[11px] font-semibold text-center">
@@ -265,7 +267,7 @@ export default function ServicesPage() {
           <div>
             <div className="text-center max-w-xl mx-auto mb-10">
               <span className="text-xs font-bold uppercase tracking-wider text-[#1926A0]">
-                Transparent Pricing
+                Project Scope Tiers
               </span>
               <h3 className="text-2xl font-black text-[#0E0E25] mt-1">
                 Website Development Packages
@@ -277,8 +279,8 @@ export default function ServicesPage() {
                 <div>
                   <h4 className="text-lg font-bold text-[#0E0E25]">Starter Website</h4>
                   <p className="text-xs text-[#757CB6] mt-1">For single shops, clinics & local services</p>
-                  <div className="mt-4 text-2xl font-extrabold text-[#0E0E25]">₹12,000</div>
-                  <span className="text-[11px] text-[#757CB6]">One-time development</span>
+                  <div className="mt-4 text-2xl font-extrabold text-[#0E0E25]">Custom Scope</div>
+                  <span className="text-[11px] text-[#757CB6]">Fast-track business deployment</span>
                 </div>
                 <ul className="space-y-2.5 text-xs text-[#0E0E25]">
                   <li className="flex items-center gap-2">
@@ -298,7 +300,7 @@ export default function ServicesPage() {
                   </li>
                 </ul>
                 <a
-                  href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I am interested in the Starter Digital Package (₹12,000). Please share details.")}`}
+                  href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I am interested in the Starter Digital Package. Please share project scope and quotation.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full py-2.5 rounded-xl bg-white border border-[#757CB6]/30 hover:border-[#1926A0] text-[#0E0E25] text-xs font-bold text-center transition-colors shadow-sm"
@@ -315,8 +317,8 @@ export default function ServicesPage() {
                 <div>
                   <h4 className="text-lg font-bold text-[#0E0E25]">Business Growth</h4>
                   <p className="text-xs text-[#757CB6] mt-1">For multi-service businesses & startups</p>
-                  <div className="mt-4 text-2xl font-black text-[#1926A0]">₹24,000</div>
-                  <span className="text-[11px] text-[#757CB6]">One-time development</span>
+                  <div className="mt-4 text-2xl font-black text-[#1926A0]">Tailored Build</div>
+                  <span className="text-[11px] text-[#757CB6]">Comprehensive digital expansion</span>
                 </div>
                 <ul className="space-y-2.5 text-xs text-[#0E0E25]">
                   <li className="flex items-center gap-2">
@@ -336,7 +338,7 @@ export default function ServicesPage() {
                   </li>
                 </ul>
                 <a
-                  href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I am interested in the Business Growth Package (₹24,000). Please share details.")}`}
+                  href={`https://wa.me/917396888679?text=${encodeURIComponent("Hi AONIC TECH, I am interested in the Business Growth Package. Please share project scope and quotation.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full py-2.5 rounded-xl bg-[#1926A0] hover:bg-[#131e80] text-white text-xs font-bold text-center transition-colors shadow-md shadow-[#1926A0]/25"
@@ -350,8 +352,8 @@ export default function ServicesPage() {
                 <div>
                   <h4 className="text-lg font-bold text-[#0E0E25]">Custom / E-Commerce</h4>
                   <p className="text-xs text-[#757CB6] mt-1">For digital storefronts & custom portals</p>
-                  <div className="mt-4 text-2xl font-extrabold text-[#0E0E25]">₹45,000+</div>
-                  <span className="text-[11px] text-[#757CB6]">Tailored to exact scope</span>
+                  <div className="mt-4 text-2xl font-extrabold text-[#0E0E25]">Enterprise Scope</div>
+                  <span className="text-[11px] text-[#757CB6]">Tailored to exact architecture</span>
                 </div>
                 <ul className="space-y-2.5 text-xs text-[#0E0E25]">
                   <li className="flex items-center gap-2">
@@ -475,7 +477,7 @@ export default function ServicesPage() {
               <div>
                 <h3 className="text-xl font-black text-[#0E0E25]">Materials & Alloys Catalog</h3>
                 <p className="text-xs text-[#757CB6]">
-                  Global market rates fluctuate with LME indices. Filter items and click "Enquire" for today's landed price.
+                  Global market rates fluctuate with LME indices. Filter items and click "Enquire" for current landed commercial terms.
                 </p>
               </div>
 

@@ -27,7 +27,7 @@ export const DIGITAL_SERVICES: ServiceItem[] = [
       "Hosting & free SSL deployment",
     ],
     icon: "Globe",
-    priceNote: "Starting from ₹12,000",
+    priceNote: "Custom scope-based quote",
   },
   {
     id: "ecommerce-dev",
@@ -44,7 +44,7 @@ export const DIGITAL_SERVICES: ServiceItem[] = [
       "Shipping partner API integrations",
     ],
     icon: "ShoppingCart",
-    priceNote: "Starting from ₹25,000",
+    priceNote: "Custom scope-based quote",
   },
   {
     id: "pos-software",
@@ -62,7 +62,7 @@ export const DIGITAL_SERVICES: ServiceItem[] = [
     ],
     icon: "Calculator",
     badge: "Flagship Software",
-    priceNote: "Flexible monthly / annual license",
+    priceNote: "Flexible deployment & setup",
   },
   {
     id: "custom-software",
@@ -96,7 +96,7 @@ export const DIGITAL_SERVICES: ServiceItem[] = [
       "Brand usage style guide",
     ],
     icon: "Sparkles",
-    priceNote: "Starting from ₹5,000",
+    priceNote: "Tailored brand package",
   },
   {
     id: "graphic-packaging",
@@ -113,7 +113,7 @@ export const DIGITAL_SERVICES: ServiceItem[] = [
       "Brochures, standees & event banners",
     ],
     icon: "Palette",
-    priceNote: "Starting from ₹3,500",
+    priceNote: "Custom design quote",
   },
 ];
 
@@ -168,7 +168,7 @@ export const INDUSTRIAL_SERVICES: ServiceItem[] = [
       "Hassle-free customs clearance and direct delivery",
     ],
     icon: "Cpu",
-    priceNote: "Per-unit pricing with low MOQ",
+    priceNote: "Verified lot quote with low MOQ",
   },
   {
     id: "low-moq-supply",

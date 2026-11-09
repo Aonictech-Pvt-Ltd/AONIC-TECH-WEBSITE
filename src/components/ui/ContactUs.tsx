@@ -28,7 +28,7 @@ interface ContactUsProps {
 
 const VALUE_PROPS = [
   "Custom web architecture, POS billing & custom app workflows",
-  "Certified titanium alloys & rare-earth magnet factory pricing",
+  "Certified titanium alloys & rare-earth magnet factory procurement",
   "Doorstep delivery with EN 10204 3.1 Mill Test Certificates",
   "Dedicated support from our Hyderabad engineering headquarters",
 ];
@@ -38,7 +38,7 @@ export default function ContactUs({
   className,
   badge = "GET A CUSTOMIZED QUOTE",
   title = "Get a Direct Quote for Your Software or Industrial Supply",
-  subtitle = "Tell us what you are looking for. Our engineering and material sourcing team will get in touch to discuss your project and arrange transparent factory-direct pricing.",
+  subtitle = "Tell us what you are looking for. Our engineering and material sourcing team will get in touch to discuss your project and arrange transparent commercial terms.",
   defaultService = "General Inquiry / Direct Quote",
   variant = "section",
 }: ContactUsProps) {
