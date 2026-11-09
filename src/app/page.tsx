@@ -280,10 +280,10 @@ export default function HomePage() {
           {featuredProjects.map((project) => (
             <div
               key={project.id}
-              className="p-6 sm:p-7 rounded-2xl bg-white border border-[#757CB6]/25 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-2xl bg-white border border-[#757CB6]/25 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between h-full"
             >
               <div>
-                <div className="mb-3.5">
+                <div className="mb-3.5 h-6 flex items-center">
                   <span
                     className={cn(
                       "px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider inline-block",
@@ -296,34 +296,34 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                <h3 className="text-base sm:text-xl font-bold text-[#0E0E25] mb-2 leading-snug">
+                <h3 className="text-base sm:text-xl font-bold text-[#0E0E25] mb-2 leading-snug min-h-[3rem] sm:min-h-[3.5rem] flex items-start">
                   {project.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#0E0E25]/75 leading-relaxed mb-4 sm:mb-5">
+                <p className="text-xs sm:text-sm text-[#0E0E25]/75 leading-relaxed mb-4 sm:mb-5 min-h-[3.25rem] sm:min-h-[3.75rem]">
                   {project.solution}
                 </p>
 
-                <div className="p-3 sm:p-3.5 rounded-xl bg-[#63A26B]/10 border border-[#63A26B]/30 text-xs sm:text-sm mb-4 sm:mb-5">
+                <div className="p-3 sm:p-3.5 rounded-xl bg-[#63A26B]/10 border border-[#63A26B]/30 text-xs sm:text-sm mb-4 sm:mb-5 min-h-[5.25rem] sm:min-h-[5.5rem] flex flex-col justify-center">
                   <span className="text-[10px] sm:text-xs uppercase font-bold text-[#63A26B] block mb-1">
                     Measurable Result
                   </span>
-                  <span className="text-[#0E0E25] font-bold">{project.metrics}</span>
+                  <span className="text-[#0E0E25] font-bold leading-snug">{project.metrics}</span>
                 </div>
               </div>
 
-              <div className="pt-3.5 sm:pt-4 border-t border-[#757CB6]/20 flex items-center justify-between">
-                <div className="flex flex-wrap gap-1.5">
+              <div className="pt-3.5 sm:pt-4 border-t border-[#757CB6]/20 flex items-center justify-between gap-2 mt-auto">
+                <div className="flex flex-wrap items-center gap-1.5 min-h-[1.75rem]">
                   {project.techOrMaterials.slice(0, 2).map((item, i) => (
-                    <span key={i} className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-[#757CB6]/15 text-[10px] sm:text-xs text-[#0E0E25] font-mono">
+                    <span key={i} className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-[#757CB6]/15 text-[10px] sm:text-xs text-[#0E0E25] font-mono whitespace-nowrap">
                       {item}
                     </span>
                   ))}
                 </div>
                 <Link
                   href="/projects"
-                  className="text-xs sm:text-sm font-bold text-[#1926A0] hover:text-[#131e80]"
+                  className="text-xs sm:text-sm font-bold text-[#1926A0] hover:text-[#131e80] shrink-0 whitespace-nowrap flex items-center gap-1"
                 >
-                  Details →
+                  Details <span className="inline-block">→</span>
                 </Link>
               </div>
             </div>
