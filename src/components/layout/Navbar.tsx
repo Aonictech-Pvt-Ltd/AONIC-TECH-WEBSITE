@@ -7,6 +7,7 @@ import {
   Menu, 
   X, 
   ChevronDown, 
+  ChevronRight,
   Phone, 
   ArrowRight,
   Code2, 
@@ -109,16 +110,24 @@ export default function Navbar() {
                       >
                         {/* Digital Solutions Column (Royal Blue & Lavender) */}
                         <div className="p-4 rounded-xl bg-[#1926A0]/5 border border-[#1926A0]/20">
-                          <div className="flex items-center gap-2 mb-3 pb-2 border-b border-[#1926A0]/20">
-                            <Code2 className="w-4 h-4 text-[#1926A0]" />
-                            <span className="text-xs font-bold text-[#1926A0] uppercase tracking-wider">
-                              Digital Solutions
-                            </span>
-                          </div>
+                          <Link
+                            href="/services?tab=digital"
+                            onClick={() => setServicesDropdown(false)}
+                            className="flex items-center justify-between mb-3 pb-2 border-b border-[#1926A0]/20 group hover:opacity-85 transition-opacity"
+                          >
+                            <div className="flex items-center gap-2">
+                              <Code2 className="w-4 h-4 text-[#1926A0]" />
+                              <span className="text-xs font-bold text-[#1926A0] uppercase tracking-wider group-hover:underline">
+                                Digital Solutions
+                              </span>
+                            </div>
+                            <ChevronRight className="w-3.5 h-3.5 text-[#1926A0] group-hover:translate-x-0.5 transition-transform" />
+                          </Link>
                           <ul className="space-y-2 text-sm">
                             <li>
                               <Link
-                                href="/services#digital-web"
+                                href="/services?tab=digital#digital-web"
+                                onClick={() => setServicesDropdown(false)}
                                 className="block p-2 rounded-lg hover:bg-[#1926A0]/10 text-[#0E0E25] transition-colors"
                               >
                                 <span className="font-bold text-[#0E0E25] block text-sm">Website Development</span>
@@ -127,7 +136,8 @@ export default function Navbar() {
                             </li>
                             <li>
                               <Link
-                                href="/services#digital-pos"
+                                href="/services?tab=digital#digital-pos"
+                                onClick={() => setServicesDropdown(false)}
                                 className="block p-2 rounded-lg hover:bg-[#1926A0]/10 text-[#0E0E25] transition-colors"
                               >
                                 <span className="font-bold text-[#0E0E25] block text-sm">POS & Billing Software</span>
@@ -136,7 +146,8 @@ export default function Navbar() {
                             </li>
                             <li>
                               <Link
-                                href="/services#digital-ecommerce"
+                                href="/services?tab=digital#digital-ecommerce"
+                                onClick={() => setServicesDropdown(false)}
                                 className="block p-2 rounded-lg hover:bg-[#1926A0]/10 text-[#0E0E25] transition-colors"
                               >
                                 <span className="font-bold text-[#0E0E25] block text-sm">E-Commerce & Custom Apps</span>
@@ -148,16 +159,24 @@ export default function Navbar() {
 
                         {/* Industrial Supply Column (Yellow & Black) */}
                         <div className="p-4 rounded-xl bg-[#FFDB18]/10 border border-[#FFDB18]/40">
-                          <div className="flex items-center gap-2 mb-3 pb-2 border-b border-[#FFDB18]/40">
-                            <Layers className="w-4 h-4 text-[#0E0E25]" />
-                            <span className="text-xs font-bold text-[#0E0E25] uppercase tracking-wider">
-                              Industrial Supply
-                            </span>
-                          </div>
+                          <Link
+                            href="/services?tab=industrial"
+                            onClick={() => setServicesDropdown(false)}
+                            className="flex items-center justify-between mb-3 pb-2 border-b border-[#FFDB18]/40 group hover:opacity-85 transition-opacity"
+                          >
+                            <div className="flex items-center gap-2">
+                              <Layers className="w-4 h-4 text-[#0E0E25]" />
+                              <span className="text-xs font-bold text-[#0E0E25] uppercase tracking-wider group-hover:underline">
+                                Industrial Supply
+                              </span>
+                            </div>
+                            <ChevronRight className="w-3.5 h-3.5 text-[#0E0E25] group-hover:translate-x-0.5 transition-transform" />
+                          </Link>
                           <ul className="space-y-2 text-sm">
                             <li>
                               <Link
-                                href="/services#industrial-titanium"
+                                href="/services?tab=industrial#industrial-titanium"
+                                onClick={() => setServicesDropdown(false)}
                                 className="block p-2 rounded-lg hover:bg-[#FFDB18]/25 text-[#0E0E25] transition-colors"
                               >
                                 <span className="font-bold text-[#0E0E25] block text-sm">Titanium & Specialty Alloys</span>
@@ -166,7 +185,8 @@ export default function Navbar() {
                             </li>
                             <li>
                               <Link
-                                href="/services#industrial-rare-earth"
+                                href="/services?tab=industrial#industrial-rare-earth"
+                                onClick={() => setServicesDropdown(false)}
                                 className="block p-2 rounded-lg hover:bg-[#FFDB18]/25 text-[#0E0E25] transition-colors"
                               >
                                 <span className="font-bold text-[#0E0E25] block text-sm">Rare-Earth & Magnets</span>
@@ -175,7 +195,8 @@ export default function Navbar() {
                             </li>
                             <li>
                               <Link
-                                href="/services#industrial-chips"
+                                href="/services?tab=industrial#industrial-chips"
+                                onClick={() => setServicesDropdown(false)}
                                 className="block p-2 rounded-lg hover:bg-[#FFDB18]/25 text-[#0E0E25] transition-colors"
                               >
                                 <span className="font-bold text-[#0E0E25] block text-sm">IC Chips & Low MOQ Sourcing</span>
@@ -271,27 +292,34 @@ export default function Navbar() {
                     {servicesDropdown && (
                       <div className="pl-3 pr-1 py-2 space-y-3 bg-[#757CB6]/5 rounded-xl border border-[#757CB6]/20">
                         <div>
-                          <div className="text-[11px] font-bold text-[#1926A0] uppercase tracking-wider px-2 mb-1.5 flex items-center gap-1.5">
-                            <Code2 className="w-3.5 h-3.5" />
-                            Digital Solutions
-                          </div>
+                          <Link
+                            href="/services?tab=digital"
+                            onClick={() => setIsOpen(false)}
+                            className="text-[11px] font-bold text-[#1926A0] uppercase tracking-wider px-2 mb-1.5 flex items-center justify-between hover:underline"
+                          >
+                            <span className="flex items-center gap-1.5">
+                              <Code2 className="w-3.5 h-3.5" />
+                              Digital Solutions
+                            </span>
+                            <ChevronRight className="w-3 h-3 text-[#1926A0]" />
+                          </Link>
                           <div className="space-y-1 text-sm">
                             <Link
-                              href="/services#digital-web"
+                              href="/services?tab=digital#digital-web"
                               onClick={() => setIsOpen(false)}
                               className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#1926A0]/10 text-xs font-semibold"
                             >
                               Website Development
                             </Link>
                             <Link
-                              href="/services#digital-pos"
+                              href="/services?tab=digital#digital-pos"
                               onClick={() => setIsOpen(false)}
                               className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#1926A0]/10 text-xs font-semibold"
                             >
                               POS & Billing Software
                             </Link>
                             <Link
-                              href="/services#digital-ecommerce"
+                              href="/services?tab=digital#digital-ecommerce"
                               onClick={() => setIsOpen(false)}
                               className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#1926A0]/10 text-xs font-semibold"
                             >
@@ -301,27 +329,34 @@ export default function Navbar() {
                         </div>
 
                         <div className="pt-2 border-t border-[#757CB6]/15">
-                          <div className="text-[11px] font-bold text-[#0E0E25] uppercase tracking-wider px-2 mb-1.5 flex items-center gap-1.5">
-                            <Layers className="w-3.5 h-3.5" />
-                            Industrial Supply
-                          </div>
+                          <Link
+                            href="/services?tab=industrial"
+                            onClick={() => setIsOpen(false)}
+                            className="text-[11px] font-bold text-[#0E0E25] uppercase tracking-wider px-2 mb-1.5 flex items-center justify-between hover:underline"
+                          >
+                            <span className="flex items-center gap-1.5">
+                              <Layers className="w-3.5 h-3.5" />
+                              Industrial Supply
+                            </span>
+                            <ChevronRight className="w-3 h-3 text-[#0E0E25]" />
+                          </Link>
                           <div className="space-y-1 text-sm">
                             <Link
-                              href="/services#industrial-titanium"
+                              href="/services?tab=industrial#industrial-titanium"
                               onClick={() => setIsOpen(false)}
                               className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#FFDB18]/25 text-xs font-semibold"
                             >
                               Titanium & Specialty Alloys
                             </Link>
                             <Link
-                              href="/services#industrial-rare-earth"
+                              href="/services?tab=industrial#industrial-rare-earth"
                               onClick={() => setIsOpen(false)}
                               className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#FFDB18]/25 text-xs font-semibold"
                             >
                               Rare-Earth & Magnets
                             </Link>
                             <Link
-                              href="/services#industrial-chips"
+                              href="/services?tab=industrial#industrial-chips"
                               onClick={() => setIsOpen(false)}
                               className="block px-2.5 py-1.5 rounded-lg text-[#0E0E25] hover:bg-[#FFDB18]/25 text-xs font-semibold"
                             >

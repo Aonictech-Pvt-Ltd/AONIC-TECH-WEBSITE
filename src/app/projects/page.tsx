@@ -138,10 +138,10 @@ export default function ProjectsPage() {
             className="p-8 rounded-2xl bg-white border border-[#757CB6]/25 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center justify-between mb-4">
+              <div className="mb-4">
                 <span
                   className={cn(
-                    "px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider",
+                    "px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider inline-block",
                     project.niche === "digital"
                       ? "bg-[#1926A0]/10 text-[#1926A0] border border-[#1926A0]/20"
                       : "bg-[#FFDB18]/25 text-[#0E0E25] border border-[#FFDB18]/40"
@@ -149,7 +149,6 @@ export default function ProjectsPage() {
                 >
                   {project.category}
                 </span>
-                <span className="text-[#757CB6] text-xs font-mono font-medium">{project.clientType}</span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold text-[#0E0E25] mb-4 leading-snug">

@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { 
   Globe, 
   ShoppingCart, 
@@ -25,10 +26,67 @@ import { MATERIALS_CATALOG } from "@/data/materials";
 import { COMPANY_INFO } from "@/data/company";
 import { cn } from "@/lib/utils";
 
-export default function ServicesPage() {
+const getDigitalCardId = (id: string) => {
+  if (id === "web-dev") return "digital-web";
+  if (id === "pos-software") return "digital-pos";
+  if (id === "ecommerce-dev") return "digital-ecommerce";
+  return `digital-${id}`;
+};
+
+const getIndustrialCardId = (id: string) => {
+  if (id === "titanium-alloys") return "industrial-titanium";
+  if (id === "rare-earth") return "industrial-rare-earth";
+  if (id === "electronic-chips") return "industrial-chips";
+  return `industrial-${id}`;
+};
+
+function ServicesContent() {
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<"digital" | "industrial">("digital");
   const [searchMaterial, setSearchMaterial] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    if (tabParam === "industrial") {
+      setActiveTab("industrial");
+    } else if (tabParam === "digital") {
+      setActiveTab("digital");
+    } else if (typeof window !== "undefined") {
+      const hash = window.location.hash.toLowerCase();
+      if (hash.includes("industrial")) {
+        setActiveTab("industrial");
+      } else if (hash.includes("digital")) {
+        setActiveTab("digital");
+      }
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash.includes("industrial")) {
+        setActiveTab("industrial");
+      } else if (hash.includes("digital")) {
+        setActiveTab("digital");
+      }
+    };
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const targetId = window.location.hash.replace("#", "");
+      const timer = setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [activeTab]);
 
   const iconMap: Record<string, React.ReactNode> = {
     Globe: <Globe className="w-6 h-6" />,
@@ -133,7 +191,8 @@ export default function ServicesPage() {
               {DIGITAL_SERVICES.map((srv) => (
                 <div
                   key={srv.id}
-                  className="p-7 rounded-2xl bg-white border border-[#757CB6]/25 shadow-sm hover:shadow-xl hover:border-[#1926A0]/40 transition-all flex flex-col justify-between"
+                  id={getDigitalCardId(srv.id)}
+                  className="scroll-mt-28 p-7 rounded-2xl bg-white border border-[#757CB6]/25 shadow-sm hover:shadow-xl hover:border-[#1926A0]/40 transition-all flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
@@ -153,7 +212,7 @@ export default function ServicesPage() {
 
                     <div className="space-y-2 mb-6">
                       <span className="text-xs font-bold uppercase tracking-wider text-[#757CB6] block">
-                        What's Included:
+                        Key Deliverables:
                       </span>
                       {srv.deliverables.map((item, idx) => (
                         <div key={idx} className="flex items-start gap-2 text-sm text-[#0E0E25]">
@@ -424,7 +483,8 @@ export default function ServicesPage() {
               {INDUSTRIAL_SERVICES.map((srv) => (
                 <div
                   key={srv.id}
-                  className="p-7 rounded-2xl bg-white border border-[#757CB6]/25 shadow-sm hover:shadow-xl hover:border-[#FFDB18] transition-all flex flex-col justify-between"
+                  id={getIndustrialCardId(srv.id)}
+                  className="scroll-mt-28 p-7 rounded-2xl bg-white border border-[#757CB6]/25 shadow-sm hover:shadow-xl hover:border-[#FFDB18] transition-all flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
@@ -613,5 +673,13 @@ export default function ServicesPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function ServicesPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <ServicesContent />
+    </Suspense>
   );
 }

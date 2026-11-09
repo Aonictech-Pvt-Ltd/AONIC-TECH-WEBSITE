@@ -119,7 +119,9 @@ export default function HomePage() {
                 For Shops, Restaurants & Startups
               </span>
               <h3 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#0E0E25] mt-1.5 sm:mt-2 mb-3 sm:mb-4">
-                Digital Solutions & Branding
+                <Link href="/services?tab=digital" className="hover:text-[#1926A0] transition-colors">
+                  Digital Solutions & Branding
+                </Link>
               </h3>
               <p className="text-sm sm:text-lg text-[#0E0E25]/75 leading-relaxed mb-6 font-normal">
                 "{COMPANY_INFO.niches.digital.tagline}"
@@ -160,7 +162,9 @@ export default function HomePage() {
                 For Workshops, R&D Labs & Factories
               </span>
               <h3 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#0E0E25] mt-1.5 sm:mt-2 mb-3 sm:mb-4">
-                Industrial Materials Import & Supply
+                <Link href="/services?tab=industrial" className="hover:text-[#1926A0] transition-colors">
+                  Industrial Materials Import & Supply
+                </Link>
               </h3>
               <p className="text-sm sm:text-lg text-[#0E0E25]/75 leading-relaxed mb-6 font-normal">
                 "{COMPANY_INFO.niches.industrial.tagline}"
@@ -279,10 +283,10 @@ export default function HomePage() {
               className="p-6 sm:p-7 rounded-2xl bg-white border border-[#757CB6]/25 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-3.5">
+                <div className="mb-3.5">
                   <span
                     className={cn(
-                      "px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider",
+                      "px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider inline-block",
                       project.niche === "digital"
                         ? "bg-[#1926A0]/10 text-[#1926A0]"
                         : "bg-[#FFDB18]/25 text-[#0E0E25]"
@@ -290,7 +294,6 @@ export default function HomePage() {
                   >
                     {project.category}
                   </span>
-                  <span className="text-[#757CB6] font-mono text-xs">{project.clientType}</span>
                 </div>
 
                 <h3 className="text-base sm:text-xl font-bold text-[#0E0E25] mb-2 leading-snug">
@@ -332,11 +335,11 @@ export default function HomePage() {
       {/* 5. HOW WE WORK (4-STEP WORKFLOW)                                          */}
       {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-xl mx-auto mb-8 sm:mb-14">
+        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-14">
           <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#757CB6]">
             Frictionless Process
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0E0E25] mt-1.5 sm:mt-2">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0E0E25] mt-1.5 sm:mt-2 whitespace-nowrap">
             From Requirement to Delivery
           </h2>
         </div>
