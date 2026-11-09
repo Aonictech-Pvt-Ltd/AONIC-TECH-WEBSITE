@@ -230,7 +230,7 @@ export default function QuoteModal() {
                 Thank you, <span className="font-bold text-[#0E0E25]">{name}</span>. Our desk has received your request and will connect with you on <span className="font-semibold text-[#0E0E25]">{formattedNumber || phone}</span>.
               </p>
 
-              <div className="space-y-2.5">
+              <div className="pt-2">
                 <a
                   href={`https://wa.me/919704166455?text=${encodeURIComponent(
                     `Hi AONIC TECH team, I just requested a quote for my project.`
@@ -242,13 +242,6 @@ export default function QuoteModal() {
                   Connect on WhatsApp Now
                   <ArrowRight className="w-4 h-4" />
                 </a>
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="w-full py-3 px-4 rounded-xl border border-[#757CB6]/30 text-[#0E0E25] hover:bg-slate-50 text-xs uppercase tracking-wider font-bold transition-all cursor-pointer"
-                >
-                  Back to Website
-                </button>
               </div>
             </div>
           ) : (
@@ -354,7 +347,7 @@ export default function QuoteModal() {
                 </div>
               </div>
 
-              {/* Your Message / Requirement (Optional / Clean) */}
+              {/* Your Message / Requirement */}
               <div className="relative">
                 <div className="absolute top-3.5 left-3.5 pointer-events-none text-[#757CB6]">
                   <MessageSquare className="w-4 h-4" />
@@ -364,7 +357,7 @@ export default function QuoteModal() {
                   rows={2}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Your Message (Optional: Website, POS, Titanium, etc.)"
+                  placeholder="Your Message"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#757CB6]/30 bg-white text-[#0E0E25] placeholder:text-[#757CB6]/70 text-sm focus:outline-none focus:border-[#1926A0] focus:ring-4 focus:ring-[#1926A0]/10 resize-none transition-all"
                   disabled={status === "submitting"}
                 />
