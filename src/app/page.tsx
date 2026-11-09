@@ -99,11 +99,11 @@ export default function HomePage() {
       {/* 2. TWO NICHE HIGHLIGHT CARDS                                              */}
       {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
           <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#1926A0]">
             Two Specialized Divisions
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0E0E25] mt-1.5 sm:mt-2">
+          <h2 className="text-xl sm:text-4xl lg:text-5xl font-black text-[#0E0E25] mt-1.5 sm:mt-2 whitespace-nowrap">
             Choose Your Side in 5 Seconds
           </h2>
         </div>
