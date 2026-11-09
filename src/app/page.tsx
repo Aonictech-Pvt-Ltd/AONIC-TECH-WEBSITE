@@ -339,7 +339,7 @@ export default function HomePage() {
           <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#757CB6]">
             Frictionless Process
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0E0E25] mt-1.5 sm:mt-2 whitespace-nowrap">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#0E0E25] mt-1.5 sm:mt-2 whitespace-nowrap">
             From Requirement to Delivery
           </h2>
         </div>
