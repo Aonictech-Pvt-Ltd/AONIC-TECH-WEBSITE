@@ -22,7 +22,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Header */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 border-b border-[#757CB6]/15 bg-gradient-to-b from-slate-50/70 to-white overflow-hidden">
+      <section className="relative pt-6 pb-10 sm:pt-10 sm:pb-14 border-b border-[#757CB6]/15 bg-gradient-to-b from-slate-50/70 to-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1926A0]/10 text-[#1926A0] text-xs font-bold uppercase tracking-wider mb-4 border border-[#1926A0]/15">
             <MessageSquare className="w-4 h-4" />
