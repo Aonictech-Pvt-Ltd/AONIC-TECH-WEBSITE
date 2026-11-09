@@ -38,11 +38,11 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 space-y-20 bg-white text-[#0E0E25]">
       {/* Header Banner */}
-      <div className="max-w-4xl mx-auto text-center space-y-4">
+      <div className="max-w-5xl mx-auto text-center space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#757CB6]/30 text-xs font-semibold text-[#0E0E25] shadow-sm">
           Corporate Background & Leadership
         </div>
-        <h1 className="text-3xl sm:text-5xl font-black text-[#0E0E25] tracking-tight">
+        <h1 className="text-[13px] xs:text-[15px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-[#0E0E25] tracking-tight whitespace-nowrap">
           Engineering the Future in Software & Materials
         </h1>
         <p className="text-[#0E0E25]/75 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">

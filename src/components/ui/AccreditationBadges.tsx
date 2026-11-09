@@ -8,12 +8,12 @@ export default function AccreditationBadges({ className }: { className?: string 
   return (
     <section className={cn("max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", className)}>
       {/* Kicker & Title */}
-      <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+      <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1926A0]/10 border border-[#1926A0]/20 text-[#1926A0] text-xs font-bold uppercase tracking-wider mb-2">
           <span className="w-2 h-2 rounded-full bg-[#63A26B]" />
           Verified Corporate & Government Credentials
         </div>
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#0E0E25] tracking-tight">
+        <h2 className="text-[14px] xs:text-base sm:text-2xl lg:text-3xl font-black text-[#0E0E25] tracking-tight whitespace-nowrap">
           Enterprise Stability & Licensed Global Trade
         </h2>
       </div>

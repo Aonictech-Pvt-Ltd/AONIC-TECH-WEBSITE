@@ -28,7 +28,7 @@ export default function ContactPage() {
             <MessageSquare className="w-4 h-4" />
             Direct Communication Desk
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black text-[#0E0E25] tracking-tight max-w-3xl mx-auto">
+          <h1 className="text-[12px] xs:text-[14px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-[#0E0E25] tracking-tight max-w-5xl mx-auto whitespace-nowrap">
             Let’s Build Your Software or Source Your Industrial Materials
           </h1>
           <p className="mt-4 text-base sm:text-lg text-[#757CB6] max-w-2xl mx-auto leading-relaxed">
@@ -43,7 +43,7 @@ export default function ContactPage() {
           {/* Left Column: Verified Corporate Credentials & Direct Channels */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <h2 className="text-2xl font-extrabold text-[#0E0E25] tracking-tight">
+              <h2 className="text-lg sm:text-2xl font-extrabold text-[#0E0E25] tracking-tight whitespace-nowrap">
                 Corporate Office & Channels
               </h2>
               <p className="mt-2 text-sm text-[#757CB6] leading-relaxed">

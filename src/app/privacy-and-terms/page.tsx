@@ -42,7 +42,7 @@ export default function LegalPage() {
               <div className="p-2 sm:p-2.5 rounded-xl bg-[#1926A0]/10 border border-[#1926A0]/20 text-[#1926A0]">
                 <Scale className="w-5 h-5" />
               </div>
-              <h1 className="text-2xl sm:text-4xl font-black text-[#0E0E25] tracking-tight">
+              <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#0E0E25] tracking-tight whitespace-nowrap">
                 Privacy Policy & Terms of Service
               </h1>
             </div>

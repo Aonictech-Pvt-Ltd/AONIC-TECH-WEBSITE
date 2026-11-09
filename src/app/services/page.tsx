@@ -116,8 +116,8 @@ function ServicesContent() {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-white text-[#0E0E25]">
       {/* Header */}
-      <div className="max-w-4xl mx-auto text-center mb-10">
-        <h1 className="text-3xl sm:text-5xl font-black text-[#0E0E25] tracking-tight mb-4">
+      <div className="max-w-5xl mx-auto text-center mb-10">
+        <h1 className="text-base xs:text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#0E0E25] tracking-tight mb-4 whitespace-nowrap">
           Dual-Niche Capabilities Under One Roof
         </h1>
         <p className="text-[#0E0E25]/75 text-base sm:text-lg max-w-2xl mx-auto">
@@ -164,7 +164,7 @@ function ServicesContent() {
               <span className="text-xs font-bold uppercase tracking-widest text-[#1926A0]">
                 For Restaurants, Retail Shops, Startups & Local Businesses
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#0E0E25]">
+              <h2 className="text-base sm:text-2xl md:text-3xl font-black text-[#0E0E25] whitespace-nowrap">
                 Your Brand, Your Website, and Your Software
               </h2>
               <p className="text-[#0E0E25]/75 text-sm max-w-2xl">
@@ -456,7 +456,7 @@ function ServicesContent() {
               <span className="text-xs font-bold uppercase tracking-widest text-[#0E0E25]">
                 Workshops, R&D Labs, Small Factories & Electronics Units
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#0E0E25]">
+              <h2 className="text-base sm:text-2xl md:text-3xl font-black text-[#0E0E25] whitespace-nowrap">
                 Global Materials, Delivered to Your Doorstep
               </h2>
               <p className="text-[#0E0E25]/75 text-sm max-w-2xl">

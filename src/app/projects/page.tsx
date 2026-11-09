@@ -31,11 +31,11 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 space-y-16 bg-white text-[#0E0E25]">
       {/* Header Banner */}
-      <div className="max-w-4xl mx-auto text-center space-y-4">
+      <div className="max-w-5xl mx-auto text-center space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#757CB6]/30 text-[#1926A0] text-xs font-semibold uppercase tracking-wider shadow-sm">
           Proven Commercial Results
         </div>
-        <h1 className="text-3xl sm:text-5xl font-black text-[#0E0E25] tracking-tight">
+        <h1 className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#0E0E25] tracking-tight whitespace-nowrap">
           Our Work & Material Deliveries
         </h1>
         <p className="text-[#0E0E25]/75 text-base sm:text-lg max-w-2xl mx-auto">
@@ -69,7 +69,7 @@ export default function ProjectsPage() {
               <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-[#1926A0]/10 text-[#1926A0] border border-[#1926A0]/20 inline-block">
                 Interactive Software Sandbox
               </span>
-              <h2 className="text-2xl sm:text-4xl font-black text-[#0E0E25]">
+              <h2 className="text-base sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#0E0E25] whitespace-nowrap">
                 QuickServe POS & GST Billing Sandbox
               </h2>
               <p className="text-[#0E0E25]/80 text-base sm:text-lg leading-relaxed">
